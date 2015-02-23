@@ -3,13 +3,69 @@
 </head>
 
 <body>
-  <h1>This is Magnet</h1>
-  <p>You're at a networking event, but don't know who to talk to? Frustration no more.</p>
-  <p>Magnet shows who in the room who wants to connect, live</p>
-  {{> hello}}
+  <ul class="nav nav-tabs">
+    {{> loginButtons}}
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Magnet</h1>
+      <p>Everybody's looking for something</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        {{> people}}
+      </div>
+      <div class="col-sm-4">
+        <div class="well">
+          {{#if currentUser}}
+            {{> me}}
+          {{else}}
+            <p>Please log-in/register to announce your presence</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="me">
+  <h2>My Profile</h2>
+  <button>Take a Photo</button>
+  {{#if photo}}
+    <div>
+      <img src={{photo}} class="img-thumbnail img-responsive"/>
+    </div>
+  {{/if}}
+  <p>{{email}}</p>
+  <form>
+    <input type="text" name="name" placeholder="Name" value="{{profile.name}}" />
+    <input type="text" name="interests" placeholder="Talk to me about..." value="{{profile.interests}}" />
+    <textarea type="text" name="needs" placeholder="Looking for..." value="{{profile.needs}}"></textarea>
+    <input type="submit" value="Save and Announce" />
+  </form>
+</template>
+
+<template name="people">
+  <h2>Who's in the Room?</h2>
+  {{#each people}}
+    {{> person}}
+  {{/each}}
+</template>
+
+<template name="person">
+  <div class="row">
+    <div class="col-sm-4">
+      {{#if photo}}
+        <div>
+          <img src={{photo}} class="img-thumbnail img-responsive"/>
+        </div>
+      {{/if}}
+    </div>
+    <div class="col-sm-8">
+      <h3>{{profile.name}}</h3>
+      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      <p>{{profile.interests}}</p>
+      <p>{{profile.needs}}</p>
+    </div>
+  </div>
 </template>

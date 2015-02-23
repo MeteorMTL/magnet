@@ -6,3 +6,7 @@
 meteor-platform
 autopublish
 insecure
+accounts-password
+mdg:camera
+twbs:bootstrap
+ian:accounts-ui-bootstrap-3
