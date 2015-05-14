@@ -31,7 +31,7 @@ if (Meteor.isClient) {
   Template.person.helpers({
     photo: function () {
       userPhoto = Photos.findOne({userId: this._id});
-      return userPhoto.data;
+      if (userPhoto) return userPhoto.data;
     },
     profile: function () {
       user = Meteor.users.findOne({_id: this._id});
@@ -67,7 +67,8 @@ if (Meteor.isClient) {
       var name = event.target.name.value;
       var interests = event.target.interests.value;
       var needs = event.target.needs.value;
-      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.needs": needs, "lastAnnounced": new Date()}})
+      var beer = event.target.beer.value;
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.beer": beer , "profile.needs": needs, "lastAnnounced": new Date()}})
     }
   })
 }
