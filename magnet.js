@@ -4,35 +4,31 @@ if (Meteor.isClient) {
   Meteor.subscribe("userData");
   // counter starts at 0
   Session.setDefault("counter", 0);
+
+  // used for templates: me and person 
+  Template.registerHelper('photo', function(userId) {
+    return Photos.findOne({userId: userId}) ? Photos.findOne({userId: userId}).data : "";
+  });
+
   Template.me.helpers({
     email: function () {
-      email = "You need to log in or register";
-      if (Meteor.user()) {
-        email = Meteor.user().emails[0].address
-      }
-      return email;
-    },
-    photo: function () {
-      userPhoto = Photos.findOne({userId: Meteor.userId()});
-      return userPhoto ? userPhoto.data : "";
+      return Meteor.user() ? Meteor.user().emails[0].address : "You need to log in or register";
     },
     profile: function () {
-      user = Meteor.user();
-      return user.profile;
+      return Meteor.user().profile;
     }
   });
 
   Template.people.helpers({
     people: function () {
       return Meteor.users.find({}, {sort: {lastAnnounced: -1}, limit: 100})
+    },
+    beerDrinkers: function() {
+      return "How many want to come out for a beer: " + Meteor.users.find({'profile.beer': {$regex: /.+/}}).count()
     }
   });
 
   Template.person.helpers({
-    photo: function () {
-      userPhoto = Photos.findOne({userId: this._id});
-      if (userPhoto) return userPhoto.data;
-    },
     profile: function () {
       user = Meteor.users.findOne({_id: this._id});
       if (user && user.profile) {
