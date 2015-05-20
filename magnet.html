@@ -31,9 +31,9 @@
 <template name="me">
   <h2>My Profile</h2>
   <button>Take a Photo</button>
-  {{#if photo}}
+  {{#if photo profile.id}}
     <div>
-      <img src={{photo}} class="img-thumbnail img-responsive"/>
+      <img src={{photo profile.id}} class="img-thumbnail img-responsive"/>
     </div>
   {{/if}}
   <p>{{email}}</p>
@@ -52,14 +52,15 @@
   {{#each people}}
     {{> person}}
   {{/each}}
+  <h2>{{beerDrinkers}}</h2>
 </template>
 
 <template name="person">
   <div class="row">
     <div class="col-sm-4">
-      {{#if photo}}
+      {{#if photo this._id}}
         <div>
-          <img src={{photo}} class="img-thumbnail img-responsive"/>
+          <img src={{photo this._id}} class="img-thumbnail img-responsive"/>
         </div>
       {{/if}}
     </div>
