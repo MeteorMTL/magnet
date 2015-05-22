@@ -27,6 +27,19 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.topic.helpers({
+    canUpvote: function () {
+      return getAvailablePoints();
+    },
+    canDownvote: function () {
+      var topic = this;
+      var user = Meteor.user();
+      if (user) {
+        return Votes.findOne({userId: user._id, topicId: topic._id});
+      }
+    }
+  });
+
   Template.topic.events({
     "click .plusOne": function(event, template) {
       var topic = template.data;
@@ -66,16 +79,23 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.topic.helpers({
-    canUpvote: function () {
-      return getAvailablePoints();
+  Template.people.helpers({
+    people: function () {
+      return Meteor.users.find({}, {sort: {lastAnnounced: -1}, limit: 100});
+    }
+  });
+
+  Template.person.helpers({
+    photo: function () {
+      userPhoto = Photos.findOne({userId: this._id});
+      if (userPhoto) return userPhoto.data;
     },
-    canDownvote: function () {
-      var topic = this;
-      var user = Meteor.user();
-      if (user) {
-        return Votes.findOne({userId: user._id, topicId: topic._id});
+    profile: function () {
+      user = Meteor.users.findOne({_id: this._id});
+      if (user && user.profile) {
+        user.profile.email = user.emails ? user.emails[0].address : "";
       }
+      return user.profile;
     }
   });
 
@@ -94,26 +114,13 @@ if (Meteor.isClient) {
     profile: function () {
       user = Meteor.user();
       return user.profile;
-    }
-  });
-
-  Template.people.helpers({
-    people: function () {
-      return Meteor.users.find({}, {sort: {lastAnnounced: -1}, limit: 100});
-    }
-  });
-
-  Template.person.helpers({
-    photo: function () {
-      userPhoto = Photos.findOne({userId: this._id});
-      if (userPhoto) return userPhoto.data;
     },
-    profile: function () {
-      user = Meteor.users.findOne({_id: this._id});
-      if (user && user.profile) {
-        user.profile.email = user.emails ? user.emails[0].address : "";
+    topics: function () {
+      var user = Meteor.user();
+      if (user) {
+        var topicIds = _.pluck(Votes.find({ userId: user._id }).fetch(), 'topicId');
+        return Topics.find({ _id: {$in: topicIds}});
       }
-      return user.profile;
     }
   });
 
@@ -140,9 +147,7 @@ if (Meteor.isClient) {
     "submit form": function (event, template) {
       event.preventDefault();
       var name = event.target.name.value;
-      var interests = event.target.interests.value;
-      var needs = event.target.needs.value;
-      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.needs": needs, "lastAnnounced": new Date()}});
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "lastAnnounced": new Date()}});
     }
   });
 }

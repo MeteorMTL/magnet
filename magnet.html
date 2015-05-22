@@ -1,5 +1,5 @@
 <head>
-  <title>magnet</title>
+  <title>Topics</title>
 </head>
 
 <body>
@@ -8,8 +8,7 @@
   </ul>
   <div class="container-fluid">
     <div class="row">
-      <h1>Magnet</h1>
-      <p>Everybody's looking for something</p>
+      <h1>Topics</h1>
     </div>
     {{> topics}}
     <div class="row">
@@ -40,10 +39,18 @@
   <p>{{email}}</p>
   <form>
     <input type="text" name="name" placeholder="Name" value="{{profile.name}}" />
-    <input type="text" name="interests" placeholder="Talk to me about..." value="{{profile.interests}}" />
-    <textarea type="text" name="needs" placeholder="Looking for..." value="{{profile.needs}}"></textarea>
     <input type="submit" value="Save and Announce" />
   </form>
+  <h2>My Topics</h2>
+  {{#each topics}}
+    {{> myTopic}}
+  {{/each}}
+</template>
+
+<template name="myTopic">
+  <div class="row">
+    {{name}}
+  </div>
 </template>
 
 <template name="topics">
@@ -90,7 +97,7 @@
 </template>
 
 <template name="people">
-  <h2>Who's in the Room?</h2>
+  <h2>Who's here?</h2>
   {{#each people}}
     {{> person}}
   {{/each}}
@@ -108,8 +115,6 @@
     <div class="col-sm-8">
       <h3>{{profile.name}}</h3>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
-      <p>{{profile.interests}}</p>
-      <p>{{profile.needs}}</p>
     </div>
   </div>
 </template>
