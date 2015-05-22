@@ -30,4 +30,5 @@ input[type="text"], textarea {
 li.list-group-item {
   display: block;
   vertical-align: middle;
+  border: none;
 }
