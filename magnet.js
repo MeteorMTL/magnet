@@ -37,6 +37,20 @@ if (Meteor.isClient) {
       if (user) {
         return Votes.findOne({userId: user._id, topicId: topic._id});
       }
+    },
+    topicSize: function () {
+      var topic = this;
+      if (topic.totalPoints <= 1) {
+        return "xs-topic"
+      } else if (topic.totalPoints < 4) {
+        return "sm-topic"
+      } else if (topic.totalPoints < 10) {
+        return "md-topic"
+      } else if (topic.totalPoints < 20) {
+        return "lg-topic"
+      } else if (topic.totalPoints < 30) {
+        return "xl-topic"
+      }
     }
   });
 

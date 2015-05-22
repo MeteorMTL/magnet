@@ -4,3 +4,30 @@ input[type="text"], textarea {
   padding: 5px;
   margin: 2px;
 }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 25px;
+}
+
+.xs-topic {
+  font-size: 14px;
+}
+.sm-topic {
+  font-size: 18px;
+}
+.md-topic {
+  font-size: 22px;
+}
+.lg-topic {
+  font-size: 28px;
+}
+.xl-topic {
+  font-size: 36px;
+}
+
+li.list-group-item {
+  display: block;
+  vertical-align: middle;
+}

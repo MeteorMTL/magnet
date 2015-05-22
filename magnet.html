@@ -1,12 +1,12 @@
 <head>
-  <title>Topics</title>
+  <title>Magnet</title>
 </head>
 
 <body>
   <ul class="nav nav-tabs">
     {{> loginButtons}}
   </ul>
-  <div class="container-fluid">
+  <div class="container center-block">
     <div class="row">
       <h1>Topics</h1>
     </div>
@@ -57,20 +57,22 @@
   {{#if canVote}}
     <div class="row">
       {{#if availablePoints}}
-        Assign {{availablePoints}} points to your favorite topics:
+        You have {{availablePoints}} points to assign to your favorite topics:
       {{/if}}
     </div>
   {{/if}}
-  {{#each topics}}
-    {{> topic}}
-  {{/each}}
+  <ul class="list-group">
+    {{#each topics}}
+      {{> topic}}
+    {{/each}}
+  </ul>
   {{#if currentUser}}
     <div class="row">
       <div class="col-sm-12">
         <form role="form" class="form form-inline">
           <div class="form-group">
             <button type="submit" class="btn btn-default">Add</button>
-            <input type="text" class="form-control" name="name" placeholder="Topic" value="{{name}}" />
+            <input type="text" class="form-control" name="name" placeholder="New Topic" value="{{name}}" />
           </div>
         </form>
       </div>
@@ -79,21 +81,20 @@
 </template>
 
 <template name="topic">
-  <div class="row">
-    <span class="col-sm-1">
-      {{#if canUpvote}}
-        <button class="btn btn-default plusOne">+1</button>
-      {{/if}}
-    </span>
-    <span class="col-sm-1">
-      {{#if canDownvote}}
-        <button class="btn btn-default minusOne">-1</button>
-      {{/if}}
-    </span>
-    <span class="col-sm-10">
-      {{name}} ({{totalPoints}} points)
-    </span>
-  </div>
+  <li class="list-group-item">
+    <span class="badge">{{totalPoints}}</span>
+    {{#if canUpvote}}
+      <button class="btn btn-primary plusOne">+1</button>
+    {{else}}
+      <button class="btn btn-default disabled">+1</button>
+    {{/if}}
+    {{#if canDownvote}}
+      <button class="btn btn-danger minusOne">-1</button>
+    {{else}}
+      <button class="btn btn-default disabled">-1</button>
+    {{/if}}
+    <span class="{{topicSize}}">{{name}}</span>
+  </li>
 </template>
 
 <template name="people">
