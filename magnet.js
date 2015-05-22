@@ -2,14 +2,20 @@ Photos = new Mongo.Collection("photos");
 
 Topics = new Mongo.Collection("topics");
 
+Votes = new Mongo.Collection("votes");
+
 if (Meteor.isClient) {
 
   Meteor.subscribe("userData");
 
   Template.topics.helpers({
+    canVote: function () {
+      return Meteor.user() && Topics.find().count();
+    },
     topics: function() {
       return Topics.find({}, {sort: {totalPoints: -1}});
-    }
+    },
+    availablePoints: getAvailablePoints
   });
 
   Template.topics.events({
@@ -17,6 +23,58 @@ if (Meteor.isClient) {
       event.preventDefault();
       var name = event.target.name.value;
       Topics.insert({name: name, totalPoints: 0});
+    }
+  });
+
+  Template.topic.events({
+    "click .plusOne": function(event, template) {
+      var topic = template.data;
+      var user = Meteor.user();
+      if (user) {
+        var vote = Votes.findOne({
+          userId: user._id,
+          topicId: topic._id
+        });
+        if (vote) {
+          Votes.update({_id: vote._id}, {$inc: {points: 1}});
+        }
+        else {
+          Votes.insert({userId: user._id, topicId: topic._id, points: 1});
+        }
+        Topics.update({_id: topic._id}, {$inc: {totalPoints: 1}});
+      }
+    },
+    "click .minusOne": function(event, template) {
+      var topic = template.data;
+      var user = Meteor.user();
+      if (user) {
+        var vote = Votes.findOne({
+          userId: user._id,
+          topicId: topic._id
+        });
+        if (vote) {
+          if (vote.points == 1) {
+            Votes.remove({_id: vote._id});
+          }
+          else {
+            Votes.update({_id: vote._id}, {$inc: {points: -1}});
+          }
+        }
+        Topics.update({_id: topic._id}, {$inc: {totalPoints: -1}});
+      }
+    }
+  });
+
+  Template.topic.helpers({
+    canUpvote: function () {
+      return getAvailablePoints();
+    },
+    canDownvote: function () {
+      var topic = this;
+      var user = Meteor.user();
+      if (user) {
+        return Votes.findOne({userId: user._id, topicId: topic._id});
+      }
     }
   });
 
@@ -86,6 +144,27 @@ if (Meteor.isClient) {
       Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.needs": needs, "lastAnnounced": new Date()}});
     }
   });
+}
+
+function getAvailablePoints() {
+
+  var user = Meteor.user();
+  if (user) {
+    var usedPoints;
+    var votes = Votes.find({userId: user._id}).fetch();
+    if (!votes.length) usedPoints = 0;
+    else {
+      usedPoints = _.reduce(_.map(
+        votes,
+        function (vote) {
+          return vote.points;
+        }),
+        function (sum, points) {
+          return sum + points;
+        });
+    }
+    return 20 - usedPoints;
+  }
 }
 
 if (Meteor.isServer) {

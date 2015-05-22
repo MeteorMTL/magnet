@@ -47,12 +47,15 @@
 </template>
 
 <template name="topics">
-  {{#each topics}}
+  {{#if canVote}}
     <div class="row">
-      <div class="col-sm-12">
-        {{> topic}}
-      </div>
+      {{#if availablePoints}}
+        Assign {{availablePoints}} points to your favorite topics:
+      {{/if}}
     </div>
+  {{/if}}
+  {{#each topics}}
+    {{> topic}}
   {{/each}}
   {{#if currentUser}}
     <div class="row">
@@ -68,9 +71,19 @@
 
 <template name="topic">
   <div class="row">
-    <div class="col-sm-12">
+    <span class="col-sm-1">
+      {{#if canUpvote}}
+        <button class="btn btn-default plusOne">+1</button>
+      {{/if}}
+    </span>
+    <span class="col-sm-1">
+      {{#if canDownvote}}
+        <button class="btn btn-default minusOne">-1</button>
+      {{/if}}
+    </span>
+    <span class="col-sm-10">
       {{name}} {{totalPoints}}
-    </div>
+    </span>
   </div>
 </template>
 
