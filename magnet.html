@@ -41,8 +41,6 @@
     <input type="text" name="name" placeholder="Name" value="{{profile.name}}" />
     <input type="text" name="interests" placeholder="Talk to me about..." value="{{profile.interests}}" />
     <textarea type="text" name="needs" placeholder="Looking for..." value="{{profile.needs}}"></textarea>
-    Grab a beer: <input name="beer" type="text" value="{{profile.beer}}">
-    <br />
     <input type="submit" value="Save and Announce" />
   </form>
 </template>
@@ -68,7 +66,6 @@
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       <p>{{profile.interests}}</p>
       <p>{{profile.needs}}</p>
-      <p>Grab a beer: {{profile.beer}}</p>
     </div>
   </div>
 </template>

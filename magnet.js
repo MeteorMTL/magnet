@@ -1,14 +1,14 @@
 Photos = new Mongo.Collection("photos");
 
 if (Meteor.isClient) {
+
   Meteor.subscribe("userData");
-  // counter starts at 0
-  Session.setDefault("counter", 0);
+
   Template.me.helpers({
     email: function () {
       email = "You need to log in or register";
       if (Meteor.user()) {
-        email = Meteor.user().emails[0].address
+        email = Meteor.user().emails[0].address;
       }
       return email;
     },
@@ -24,7 +24,7 @@ if (Meteor.isClient) {
 
   Template.people.helpers({
     people: function () {
-      return Meteor.users.find({}, {sort: {lastAnnounced: -1}, limit: 100})
+      return Meteor.users.find({}, {sort: {lastAnnounced: -1}, limit: 100});
     }
   });
 
@@ -53,7 +53,7 @@ if (Meteor.isClient) {
         Session.set("photo", data);
         userPhoto = Photos.findOne({userId: Meteor.userId()});
         if (userPhoto) {
-          Photos.update({_id: userPhoto._id}, {$set: {data: data}})
+          Photos.update({_id: userPhoto._id}, {$set: {data: data}});
         } else {
           Photos.insert({
             userId: Meteor.userId(),
@@ -67,10 +67,9 @@ if (Meteor.isClient) {
       var name = event.target.name.value;
       var interests = event.target.interests.value;
       var needs = event.target.needs.value;
-      var beer = event.target.beer.value;
-      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.beer": beer , "profile.needs": needs, "lastAnnounced": new Date()}})
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "profile.interests": interests, "profile.needs": needs, "lastAnnounced": new Date()}});
     }
-  })
+  });
 }
 
 if (Meteor.isServer) {
