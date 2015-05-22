@@ -11,6 +11,7 @@
       <h1>Magnet</h1>
       <p>Everybody's looking for something</p>
     </div>
+    {{> topics}}
     <div class="row">
       <div class="col-sm-8">
         {{> people}}
@@ -43,6 +44,34 @@
     <textarea type="text" name="needs" placeholder="Looking for..." value="{{profile.needs}}"></textarea>
     <input type="submit" value="Save and Announce" />
   </form>
+</template>
+
+<template name="topics">
+  {{#each topics}}
+    <div class="row">
+      <div class="col-sm-12">
+        {{> topic}}
+      </div>
+    </div>
+  {{/each}}
+  {{#if currentUser}}
+    <div class="row">
+      <div class="col-sm-12">
+        <form>
+          <input type="submit" value="Add" />
+          <input type="text" name="name" placeholder="Topic" value="{{name}}" />
+        </form>
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+<template name="topic">
+  <div class="row">
+    <div class="col-sm-12">
+      {{name}} {{totalPoints}}
+    </div>
+  </div>
 </template>
 
 <template name="people">

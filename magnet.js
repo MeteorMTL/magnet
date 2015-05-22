@@ -1,8 +1,24 @@
 Photos = new Mongo.Collection("photos");
 
+Topics = new Mongo.Collection("topics");
+
 if (Meteor.isClient) {
 
   Meteor.subscribe("userData");
+
+  Template.topics.helpers({
+    topics: function() {
+      return Topics.find({}, {sort: {totalPoints: -1}});
+    }
+  });
+
+  Template.topics.events({
+    "submit form": function(event, template) {
+      event.preventDefault();
+      var name = event.target.name.value;
+      Topics.insert({name: name, totalPoints: 0});
+    }
+  });
 
   Template.me.helpers({
     email: function () {
