@@ -21,8 +21,9 @@ if (Meteor.isClient) {
   Template.topics.events({
     "submit form": function(event, template) {
       event.preventDefault();
-      var name = event.target.name.value;
-      Topics.insert({name: name, totalPoints: 0});
+      var input = event.target.name;
+      Topics.insert({name: input.value, totalPoints: 0});
+      input.value = '';
     }
   });
 
