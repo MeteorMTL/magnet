@@ -1,0 +1,20 @@
+<template name="Home">
+  <div class="row">
+    <h1>Topics</h1>
+  </div>
+  {{> Topics}}
+  <div class="row">
+    <div class="col-sm-8">
+      {{> People}}
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        {{#if currentUser}}
+          {{> Me}}
+        {{else}}
+          <p>Please log-in/register to announce your presence</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

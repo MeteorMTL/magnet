@@ -1,0 +1,18 @@
+<template name="Me">
+  <h2>My Profile</h2>
+  <button>Take a Photo</button>
+  {{#if photo}}
+    <div>
+      <img src={{photo}} class="img-thumbnail img-responsive"/>
+    </div>
+  {{/if}}
+  <p>{{email}}</p>
+  <form>
+    <input type="text" name="name" placeholder="Name" value="{{profile.name}}" />
+    <input type="submit" value="Save and Announce" />
+  </form>
+  <h2>My Topics</h2>
+  {{#each topics}}
+    {{> MyTopic}}
+  {{/each}}
+</template>

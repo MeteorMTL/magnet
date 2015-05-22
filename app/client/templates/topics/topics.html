@@ -1,0 +1,26 @@
+<template name="Topics">
+  {{#if canVote}}
+    <div class="row">
+      {{#if availablePoints}}
+        You have {{availablePoints}} points to assign to your favorite topics:
+      {{/if}}
+    </div>
+  {{/if}}
+  <ul class="list-group">
+    {{#each topics}}
+      {{> Topic}}
+    {{/each}}
+  </ul>
+  {{#if currentUser}}
+    <div class="row">
+      <div class="col-sm-12">
+        <form role="form" class="form form-inline">
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Add</button>
+            <input type="text" class="form-control" name="name" placeholder="New Topic" value="{{name}}" />
+          </div>
+        </form>
+      </div>
+    </div>
+  {{/if}}
+</template>

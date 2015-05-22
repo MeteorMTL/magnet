@@ -1,0 +1,15 @@
+<template name="Person">
+  <div class="row">
+    <div class="col-sm-4">
+      {{#if photo}}
+        <div>
+          <img src={{photo}} class="img-thumbnail img-responsive"/>
+        </div>
+      {{/if}}
+    </div>
+    <div class="col-sm-8">
+      <h3>{{profile.name}}</h3>
+      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,22 @@
+<template name="Topic">
+  <li class="list-group-item">
+    <span class="badge">{{totalPoints}}</span>
+    {{#if canUpvote}}
+      <button class="btn btn-primary plusOne">+1</button>
+    {{else}}
+      <button class="btn btn-default disabled">+1</button>
+    {{/if}}
+    {{#if canDownvote}}
+      <button class="btn btn-danger minusOne">-1</button>
+    {{else}}
+      <button class="btn btn-default disabled">-1</button>
+    {{/if}}
+    <span class="{{topicSize}}">{{name}}</span>
+  </li>
+</template>
+
+<template name="MyTopic">
+  <div class="row">
+    {{name}}
+  </div>
+</template>
