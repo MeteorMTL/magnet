@@ -5,28 +5,28 @@ Router.configure({
 });
 
 Router.route('/', {
-  name: 'home',
+  name: 'Home',
   controller: 'HomeController',
   action: 'action',
   where: 'client'
 });
 
 Router.route('votes', {
-  name: 'votes',
+  name: 'Votes',
   controller: 'VotesController',
   action: 'action',
   where: 'client'
 });
 
 Router.route('topics', {
-  name: 'topics',
+  name: 'Topics',
   controller: 'TopicsController',
   action: 'action',
   where: 'client'
 });
 
 Router.route('photos', {
-  name: 'photos',
+  name: 'Photos',
   controller: 'PhotosController',
   action: 'action',
   where: 'client'

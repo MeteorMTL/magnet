@@ -2,6 +2,12 @@
 /* TopicShow: Event Handlers */
 /*****************************************************************************/
 Template.TopicShow.events({
+  "click .edit": function () {
+    Router.go('TopicEdit', {_id: Router.current().params._id});
+  },
+  "click .delete": function () {
+    Router.go('Home');
+  }
 });
 
 /*****************************************************************************/
