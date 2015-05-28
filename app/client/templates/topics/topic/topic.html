@@ -11,7 +11,11 @@
     {{else}}
       <button class="btn btn-default disabled">-1</button>
     {{/if}}
-    <span class="{{topicSize}}">{{name}}</span>
+    <span class="{{topicSize}}">
+      {{#linkTo route='TopicShow'}}
+        {{name}}
+      {{/linkTo}}
+    </span>
   </li>
 </template>
 
