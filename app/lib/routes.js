@@ -62,14 +62,14 @@ Router.route('topics/:_id/edit', {
 
 
 Router.route('teams', {
-  name: 'teams',
+  name: 'Teams',
   controller: 'TeamsController',
   action: 'action',
   where: 'client'
 });
 
 Router.route('commitments', {
-  name: 'commitments',
+  name: 'Commitments',
   controller: 'CommitmentsController',
   action: 'action',
   where: 'client'

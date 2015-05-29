@@ -1,3 +1,11 @@
+Template.registerHelper("active", function(path) {
+  if (Router.current().url === path) {
+    return "active";
+  } else {
+    return "";
+  }
+});
+
 Template.registerHelper("debug", function(optionalValue) {
   if (typeof console !== "undefined" || typeof console.log !== "undefined") {
     console.log("Current Context");
