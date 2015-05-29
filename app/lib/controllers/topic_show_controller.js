@@ -17,7 +17,6 @@ TopicShowController = RouteController.extend({
       voters: function () {
         var votes = Votes.find({topicId: Router.current().params._id}).fetch();
         var userIds = _.pluck(votes, "userId");
-        console.log("userIds: ", userIds);
         return Meteor.users.find({_id: {$in: userIds}});
       }
     };

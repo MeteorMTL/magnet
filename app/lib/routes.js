@@ -59,3 +59,18 @@ Router.route('topics/:_id/edit', {
   action: 'action',
   where: 'client'
 });
+
+
+Router.route('teams', {
+  name: 'teams',
+  controller: 'TeamsController',
+  action: 'action',
+  where: 'client'
+});
+
+Router.route('commitments', {
+  name: 'commitments',
+  controller: 'CommitmentsController',
+  action: 'action',
+  where: 'client'
+});

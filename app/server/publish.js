@@ -1,9 +1,3 @@
-/**
- * Meteor.publish('items', function (param1, param2) {
- *  this.ready();
- * });
- */
-
 Meteor.publish('Votes', function (/* args */) {
   return Votes.find();
 });
@@ -23,4 +17,12 @@ Meteor.publish('Photos', function (/* args */) {
 
 Meteor.publish("UserData", function () {
   return Meteor.users.find({}, {fields: {'profile.name': 1, 'emails': 1, 'lastAnnounced': 1}});
+});
+
+Meteor.publish('Teams', function (/* args */) {
+  return Teams.find();
+});
+
+Meteor.publish('Commitments', function (/* args */) {
+  return Commitments.find();
 });
