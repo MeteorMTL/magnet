@@ -52,6 +52,20 @@ Template.Team.helpers({
   }
 });
 
+Template.Player.events({
+  "click .cancel": function () {
+    Session.set('reacting', false);
+  }
+});
+
+Template.Player.helper({
+  reacting: function () {
+    Session.set('reacting', true);
+  },
+  hasReaction: function () {
+  }
+});
+
 /*****************************************************************************/
 /* Teams: Lifecycle Hooks */
 /*****************************************************************************/

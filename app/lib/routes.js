@@ -74,3 +74,11 @@ Router.route('commitments', {
   action: 'action',
   where: 'client'
 });
+
+
+Router.route('reactions', {
+  name: 'reactions',
+  controller: 'ReactionsController',
+  action: 'action',
+  where: 'client'
+});

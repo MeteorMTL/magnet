@@ -49,6 +49,48 @@
     <div class="col-sm-8">
       <h3>{{profile.name}}</h3>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      {{#if editing}}
+        <form role="form" class="form">
+          <div class="form-group">
+            <select name="select">
+              <option value="lead">Leadership feedback</option>
+              <option value="tech" selected>Technical feedback</option>
+              <option value="heal">Health feedback</option>
+            </select>
+            <textarea name="feedback" rows="4" cols="15" placeholder="Your constructive feedback"></textarea>
+            <button type="submit" class="btn btn-primary">R-act</button>
+            <button class="btn btn-default cancel">&times; Cancel</button>
+          </div>
+        </form>
+      {{else}}
+        <p>
+          <span class="content col-md-10" id="edit" >{{feedback}}</span>
+          <button class="btn btn-sm btn-danger" id="delete" type="submit">Delete</button>
+        </p>
+      {{/if}}
     </div>
   </div>
+</template>
+
+<template name="notnow">
+  {{#if hasReaction}}
+    <button class="btn btn-default reacting"><i class="fa fa-pencil"></i> Edit R-action</button>
+  {{else}}
+    <button class="btn btn-primary reacting"><i class="fa fa-check-square-o"></i> R-action</button>
+  {{/if}}
+
+  {{#if reacting}}
+    <form role="form" class="form">
+      <div class="form-group">
+        <select name="select">
+          <option value="lead">Leadership feedback</option>
+          <option value="tech" selected>Technical feedback</option>
+          <option value="heal">Health feedback</option>
+        </select>
+        <textarea name="feedback" rows="4" cols="15" placeholder="Your constructive feedback"></textarea>
+        <button type="submit" class="btn btn-primary">R-act</button>
+        <button class="btn btn-default cancel">&times; Cancel</button>
+      </div>
+    </form>
+  {{/if}}
 </template>

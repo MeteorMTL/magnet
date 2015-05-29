@@ -26,3 +26,7 @@ Meteor.publish('Teams', function (/* args */) {
 Meteor.publish('Commitments', function (/* args */) {
   return Commitments.find();
 });
+
+Meteor.publish('Reactions', function (/* args */) {
+  return Reactions.find();
+});
