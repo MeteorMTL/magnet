@@ -3,3 +3,12 @@
 /*****************************************************************************/
 .person {
 }
+
+ul.topics-list {
+  padding: 0;
+}
+
+ul.topics-list > li {
+  display: inline-block;
+  margin-right: 8px;
+}

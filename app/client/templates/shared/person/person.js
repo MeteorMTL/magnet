@@ -18,6 +18,13 @@ Template.Person.helpers({
       user.profile.email = user.emails ? user.emails[0].address : "";
     }
     return user.profile;
+  },
+  topics: function () {
+    var user = user = Meteor.users.findOne({_id: this._id});
+    if (user) {
+      var topicIds = _.pluck(Votes.find({userId: user._id}, {sort: {points: -1}}).fetch(), 'topicId');
+      return Topics.find({ _id: {$in: topicIds}});
+    }
   }
 });
 /*****************************************************************************/
