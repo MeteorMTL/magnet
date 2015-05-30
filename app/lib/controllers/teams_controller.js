@@ -7,6 +7,7 @@ TeamsController = RouteController.extend({
       Meteor.subscribe('Teams'),
       Meteor.subscribe('UserData'),
       Meteor.subscribe('Commitments'),
+      Meteor.subscribe('Reactions')
     ];
   },
   data: function () {

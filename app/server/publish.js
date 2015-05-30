@@ -1,8 +1,8 @@
-Meteor.publish('Votes', function (/* args */) {
+Meteor.publish('Votes', function () {
   return Votes.find();
 });
 
-Meteor.publish('Topics', function (/* args */) {
+Meteor.publish('Topics', function () {
   return Topics.find();
 });
 
@@ -11,7 +11,7 @@ Meteor.publish('Topic', function (topicId) {
   return Topics.find({_id: topicId});
 });
 
-Meteor.publish('Photos', function (/* args */) {
+Meteor.publish('Photos', function () {
   return Photos.find();
 });
 
@@ -19,14 +19,14 @@ Meteor.publish("UserData", function () {
   return Meteor.users.find({}, {fields: {'profile.name': 1, 'emails': 1, 'lastAnnounced': 1}});
 });
 
-Meteor.publish('Teams', function (/* args */) {
+Meteor.publish('Teams', function () {
   return Teams.find();
 });
 
-Meteor.publish('Commitments', function (/* args */) {
+Meteor.publish('Commitments', function () {
   return Commitments.find();
 });
 
-Meteor.publish('Reactions', function (/* args */) {
+Meteor.publish('Reactions', function () {
   return Reactions.find();
 });

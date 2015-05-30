@@ -2,7 +2,7 @@
   <h1>Teams</h1>
   <div class="row">
     <div class="col-sm-12">
-      <form role="form" class="form form-inline">
+      <form role="form" class="form form-inline" id="new-team-form">
         <div class="form-group">
           <input type="text" class="form-control" name="name" placeholder="Team Name" value="{{name}}" />
           <input type="text" class="form-control" name="purpose" placeholder="Purpose" value="{{purpose}}" />
@@ -50,21 +50,21 @@
       <h3>{{profile.name}}</h3>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       {{#if editing}}
-        <form role="form" class="form">
+        <form role="form" class="form" id="reaction-form">
           <div class="form-group">
             <select name="select">
               <option value="lead">Leadership feedback</option>
               <option value="tech" selected>Technical feedback</option>
               <option value="heal">Health feedback</option>
             </select>
-            <textarea name="feedback" rows="4" cols="15" placeholder="Your constructive feedback"></textarea>
-            <button type="submit" class="btn btn-primary">R-act</button>
+            <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve">{{feedback}}</textarea>
+            <button type="submit" class="btn btn-primary react">Submit R-action</button>
             <button class="btn btn-default cancel">&times; Cancel</button>
           </div>
         </form>
       {{else}}
         <p>
-          <span class="content col-md-10" id="edit" >{{feedback}}</span>
+          <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
           <button class="btn btn-sm btn-danger" id="delete" type="submit">Delete</button>
         </p>
       {{/if}}
