@@ -7,9 +7,12 @@
     </div>
   {{/if}}
   <p>{{email}}</p>
-  <form>
-    <input type="text" name="name" placeholder="Name" value="{{profile.name}}" />
-    <input type="submit" value="Save and Announce" />
+  <form id="profile">
+    <input type="text" name="name" placeholder="Name, e.g.: Paul Cuciureanu" value="{{profile.name}}" />
+    <input type="text" name="linkedin" placeholder="LinkedIn link, e.g.: https://ca.linkedin.com/in/paulcu" value="{{profile.linkedin}}" />
+    <input type="text" name="twitter" placeholder="Twitter link, e.g.: https://twitter.com/pcuci" value="{{profile.twitter}}" />
+    <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
+    <input type="submit" value="Save Profile" />
   </form>
   <h2>My Topics</h2>
   {{#each topics}}

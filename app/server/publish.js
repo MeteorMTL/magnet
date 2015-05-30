@@ -16,7 +16,13 @@ Meteor.publish('Photos', function () {
 });
 
 Meteor.publish("UserData", function () {
-  return Meteor.users.find({}, {fields: {'profile.name': 1, 'emails': 1, 'lastAnnounced': 1}});
+  return Meteor.users.find({}, {fields: {
+    'profile.name': 1,
+    'emails': 1,
+    'lastAnnounced': 1,
+    'profile.facebook': 1,
+    'profile.twitter': 1,
+    'profile.linkedin': 1}});
 });
 
 Meteor.publish('Teams', function () {

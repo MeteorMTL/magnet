@@ -21,10 +21,21 @@ Template.Me.events({
       }
     });
   },
-  "submit form": function (event, template) {
+  "submit #profile": function (event, template) {
     event.preventDefault();
-    var name = event.target.name.value;
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": name, "lastAnnounced": new Date()}});
+    var name = event.target.name;
+    var linkedin = event.target.linkedin;
+    var twitter = event.target.twitter;
+    var facebook = event.target.facebook;
+    Meteor.users.update({_id: Meteor.userId()}, {
+      $set: {
+        "profile.name": name.value,
+        "profile.linkedin": linkedin.value,
+        "profile.twitter": twitter.value,
+        "profile.facebook": facebook.value,
+        "lastAnnounced": new Date()
+      }
+    });
   }
 });
 

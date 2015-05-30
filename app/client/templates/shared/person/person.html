@@ -10,6 +10,23 @@
     <div class="col-sm-8">
       <h3>{{profile.name}}</h3>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      <ul class="list-inline social">
+        {{#if profile.linkedin}}
+          <li>
+              <a href="F{{profile.linkedin}}" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a>
+          </li>
+        {{/if}}
+        {{#if profile.twitter}}
+          <li>
+            <a href="{{profile.twitter}}" target="_blank"><i class="fa fa-twitter fa-fw"></i></a>
+          </li>
+        {{/if}}
+        {{#if profile.facebook}}
+          <li>
+            <a href="{{profile.facebook}}" target="_blank"><i class="fa fa-facebook fa-fw"></i></a>
+          </li>
+        {{/if}}
+      </ul>
     </div>
   </div>
 </template>
