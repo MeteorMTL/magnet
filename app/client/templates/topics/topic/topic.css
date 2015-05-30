@@ -2,4 +2,11 @@
 /* Topic: Style */
 /*****************************************************************************/
 .topic {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+	width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
 }

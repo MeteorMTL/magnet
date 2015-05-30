@@ -1,16 +1,18 @@
 <template name="Topics">
-  {{#if canVote}}
-    <div class="row">
+  <div class="row">
+    {{#if canVote}}
       {{#if availablePoints}}
-        You have {{availablePoints}} points to assign to your favorite topics:
+        <p>You have <span class="badge">{{availablePoints}}</span> points to assign to your favorite topics:</p>
+      {{else}}
+        <p class="text-danger">No more points to distribute.</p>
       {{/if}}
-    </div>
-  {{/if}}
-  <ul class="list-group">
-    {{#each topics}}
-      {{> Topic}}
-    {{/each}}
-  </ul>
+    {{/if}}
+    <ul class="list-group">
+      {{#each topics}}
+        {{> Topic}}
+      {{/each}}
+    </ul>
+  </div>
   {{#if currentUser}}
     <div class="row">
       <div class="col-sm-12">

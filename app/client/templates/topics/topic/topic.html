@@ -1,21 +1,25 @@
 <template name="Topic">
   <li class="list-group-item">
     <span class="badge">{{totalPoints}}</span>
-    {{#if canUpvote}}
-      <button class="btn btn-primary plusOne">+1</button>
-    {{else}}
-      <button class="btn btn-default disabled">+1</button>
+    {{#if currentUser}}
+      <div class="btn-group-vertical" role="group" aria-label="vote buttons">
+        {{#if canUpvote}}
+          <button class="btn btn-sm btn-primary plusOne">+1</button>
+        {{else}}
+          <button class="btn btn-sm btn-default disabled">+1</button>
+        {{/if}}
+        {{#if canDownvote}}
+          <button class="btn btn-sm btn-danger minusOne">-1</button>
+        {{else}}
+          <button class="btn btn-sm btn-default disabled">-1</button>
+        {{/if}}
+      </div>
     {{/if}}
-    {{#if canDownvote}}
-      <button class="btn btn-danger minusOne">-1</button>
-    {{else}}
-      <button class="btn btn-default disabled">-1</button>
-    {{/if}}
-    <span class="{{topicSize}}">
+    <p class="topic {{topicSize}}">
       {{#linkTo route='TopicShow'}}
         {{name}}
       {{/linkTo}}
-    </span>
+    </p>
   </li>
 </template>
 
