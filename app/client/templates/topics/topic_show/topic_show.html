@@ -1,13 +1,15 @@
 <template name="TopicShow">
-  <h3>Meet the people who +1'ed</h3>
+  <p>Meet people interested in:</p>
   <h1>
     {{topic.name}}
-    <button class="btn btn-default edit">
-      <i class="fa fa-pencil"></i>
-    </button>
-    <button class="btn btn-danger delete">
-      &times;
-    </button>
+    {{#if isInRole 'organizer'}}
+      <button class="btn btn-default edit">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="btn btn-danger delete">
+        &times;
+      </button>
+    {{/if}}
   </h1>
   {{> Voters}}
 </template>

@@ -6,6 +6,12 @@ Template.TopicShow.events({
     Router.go('TopicEdit', {_id: Router.current().params._id});
   },
   "click .delete": function () {
+    var topicId = Router.current().params._id;
+    var votes = Votes.find({topicId: topicId});
+    votes.forEach(function (vote) {
+      Votes.remove({_id: vote._id});
+    });
+    Topics.remove({_id: topicId});
     Router.go('Home');
   }
 });
@@ -15,9 +21,7 @@ Template.TopicShow.events({
 /*****************************************************************************/
 Template.TopicShow.helpers({
   voters: function () {
-    console.log(this)
     var topicVotes = Votes.find({_id: this.params._id})
-    console.log(topicVotes)
     return Meteor.users.find({}, {sort: {lastAnnounced: -1}});
   }
 });
