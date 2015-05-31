@@ -6,7 +6,11 @@
   margin-left: 10px;
   vertical-align: middle;
   text-overflow: ellipsis;
-	width: 80%;
+	width: 90%;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.topic-line {
+  white-space: nowrap;
 }
