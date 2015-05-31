@@ -20,11 +20,16 @@ Template.Person.helpers({
     return user.profile;
   },
   topics: function () {
-    var user = user = Meteor.users.findOne({_id: this._id});
+    var user = Meteor.users.findOne({_id: this._id});
     if (user) {
       var topicIds = _.pluck(Votes.find({userId: user._id}, {sort: {points: -1}}).fetch(), 'topicId');
       return Topics.find({ _id: {$in: topicIds}});
     }
+  },
+  reactions: function () {
+    var user = Meteor.users.findOne({_id: this._id});
+    //return Reactions.find({$and: [{userId: user._id}, {evaluator: user._id}]});
+    return Reactions.find({userId: user._id});
   }
 });
 /*****************************************************************************/

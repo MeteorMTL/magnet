@@ -1,6 +1,12 @@
 Meteor.startup(function () {
-  var users = Meteor.users.find({emails: {$elemMatch: {address: {$in: ["davidrowley01@gmail.com", "paulcu@gmail.com", "tzumby@gmail.com", "tzumby@gmail.com", "calincu@gmail.com"]}}}});
+  var users = Meteor.users.find({emails: {$elemMatch: {address: {$in: ["davidrowley01@gmail.com", "paulcu@gmail.com", "tzumby@gmail.com", "ogourment@smarterportal.com", "calincu@gmail.com"]}}}});
   users.forEach(function (user) {
     Roles.addUsersToRoles(user._id, ['organizer']);
   });
+  var feedbacks = Feedbacks.findOne({});
+  if (!feedbacks) {
+    Feedbacks.insert({name: "lead", description: "Leadership", instructions: "Has the leader lead well?"});
+    Feedbacks.insert({name: "heal", description: "Health", instructions: "Did anyone burn out? How to avoid?"});
+    Feedbacks.insert({name: "tech", description: "Technical", instructions: "Did they apply and improve their skills by working with you in this project?"});
+  }
 });

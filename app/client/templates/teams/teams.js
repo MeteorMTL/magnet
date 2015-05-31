@@ -58,14 +58,15 @@ Template.Player.events({
     var userId = template.data._id;
     var teamId = Template.parentData(1)._id;
     var feedback = event.target.feedback;
+    var type = event.target.select;
     if (feedback.value) {
       console.log(feedback.value);
-      var existingReaction = Reactions.findOne({userId: userId, teamId: teamId, evaluator: Meteor.userId()});
+      var existingReaction = Reactions.findOne({userId: userId, teamId: teamId, type: type.value, evaluator: Meteor.userId()});
       if (existingReaction) {
         console.log("existing: ", existingReaction);
         Reactions.update({_id: existingReaction._id}, {$set: {feedback: feedback.value}});
       } else {
-        Reactions.insert({userId: userId, teamId: teamId, evaluator: Meteor.userId(), feedback: feedback.value});
+        Reactions.insert({userId: userId, teamId: teamId, type: type.value, evaluator: Meteor.userId(), feedback: feedback.value});
       }
     }
     Session.set("target" + userId + teamId, false);
@@ -110,6 +111,9 @@ Template.Player.helpers({
       return reaction.feedback;
     }
     return null;
+  },
+  feedbacks: function () {
+    return Feedbacks.find({});
   }
 });
 

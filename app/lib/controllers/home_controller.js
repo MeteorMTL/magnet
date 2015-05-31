@@ -2,6 +2,8 @@ HomeController = RouteController.extend({
   layoutTemplate: 'MasterLayout',
   subscriptions: function () {
     this.subscribe('Photos').wait();
+    this.subscribe('Reactions').wait();
+    this.subscribe('Feedbacks').wait();
   },
   waitOn: function () {
     return [

@@ -82,3 +82,11 @@ Router.route('reactions', {
   action: 'action',
   where: 'client'
 });
+
+
+Router.route('feedbacks', {
+  name: 'Feedbacks',
+  controller: 'FeedbacksController',
+  action: 'action',
+  where: 'client'
+});

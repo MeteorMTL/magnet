@@ -12,3 +12,12 @@ ul.topics-list > li {
   display: inline-block;
   margin-right: 8px;
 }
+
+ul.reactions-list {
+  padding: 0;
+}
+
+ul.reactions-list > li {
+  display: inline-block;
+  margin: 0;
+}

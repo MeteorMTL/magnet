@@ -1,6 +1,12 @@
 <template name="Person">
   <div class="row">
     <div class="col-sm-4">
+      <h3>{{profile.name}}</h3>
+      <ul class="reactions-list">
+        {{#each reactions}}
+          <li><span class="label label-success"> </span></li>
+        {{/each}}
+      </ul>
       {{#if photo}}
         <div>
           <img src={{photo}} class="img-thumbnail img-responsive"/>
@@ -8,7 +14,6 @@
       {{/if}}
     </div>
     <div class="col-sm-8">
-      <h3>{{profile.name}}</h3>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       <ul class="list-inline social">
         {{#if profile.linkedin}}

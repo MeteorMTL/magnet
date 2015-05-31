@@ -40,3 +40,7 @@ Meteor.publish('Reactions', function () {
 Meteor.publish(null, function () {
   return Meteor.roles.find({});
 });
+
+Meteor.publish('Feedbacks', function () {
+  return Feedbacks.find();
+});

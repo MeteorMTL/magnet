@@ -1,6 +1,7 @@
 ReactionsController = RouteController.extend({
   subscriptions: function () {
     this.subscribe('Photos').wait();
+    this.subscribe('Feedbacks').wait();
   },
   waitOn: function () {
     return [
