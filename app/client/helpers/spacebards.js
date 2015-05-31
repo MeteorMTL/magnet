@@ -1,4 +1,4 @@
-Template.registerHelper("active", function(path) {
+Template.registerHelper("active", function (path) {
   if (Router.current().url === path) {
     return "active";
   } else {
@@ -6,7 +6,7 @@ Template.registerHelper("active", function(path) {
   }
 });
 
-Template.registerHelper("debug", function(optionalValue) {
+Template.registerHelper("debug", function (optionalValue) {
   if (typeof console !== "undefined" || typeof console.log !== "undefined") {
     console.log("Current Context");
     console.log("====================");

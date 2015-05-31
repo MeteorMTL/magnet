@@ -3,14 +3,14 @@ HomeController = RouteController.extend({
   subscriptions: function () {
     this.subscribe('Photos').wait();
   },
-  waitOn: function() {
+  waitOn: function () {
     return [
       Meteor.subscribe('Votes'),
       Meteor.subscribe('Topics'),
       Meteor.subscribe('UserData'),
     ];
   },
-  action: function() {
+  action: function () {
     this.render('Home');
   }
 });

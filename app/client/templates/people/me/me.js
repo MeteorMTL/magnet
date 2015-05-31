@@ -7,7 +7,6 @@ Template.Me.events({
       width: 800,
       height: 600
     };
-
     MeteorCamera.getPicture(cameraOptions, function (error, data) {
       Session.set("photo", data);
       userPhoto = Photos.findOne({userId: Meteor.userId()});

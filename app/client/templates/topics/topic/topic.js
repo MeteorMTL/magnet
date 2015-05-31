@@ -2,7 +2,7 @@
 /* Topic: Event Handlers */
 /*****************************************************************************/
 Template.Topic.events({
-  "click .plusOne": function(event, template) {
+  "click .plusOne": function (event, template) {
     var topic = template.data;
     var user = Meteor.user();
     if (user) {
@@ -19,7 +19,7 @@ Template.Topic.events({
       Topics.update({_id: topic._id}, {$inc: {totalPoints: 1}});
     }
   },
-  "click .minusOne": function(event, template) {
+  "click .minusOne": function (event, template) {
     var topic = template.data;
     var user = Meteor.user();
     if (user) {

@@ -2,7 +2,7 @@
 /* Teams: Event Handlers */
 /*****************************************************************************/
 Template.Teams.events({
-  "submit #new-team-form": function(event, template) {
+  "submit #new-team-form": function (event, template) {
     event.preventDefault();
     var name = event.target.name;
     var purpose = event.target.purpose;
@@ -29,10 +29,10 @@ Template.Players.helpers({
 });
 
 Template.Team.events({
-  "click .join": function(event, template) {
+  "click .join": function (event, template) {
     Commitments.insert({teamId: this._id, userId: Meteor.userId()});
   },
-  "click .leave": function(event, template) {
+  "click .leave": function (event, template) {
     var commitment = Commitments.findOne({teamId: this._id, userId: Meteor.userId()});
     Commitments.remove({_id: commitment._id});
     var wasntLastPlayer = Commitments.findOne({teamId: this._id});

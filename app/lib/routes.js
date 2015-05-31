@@ -77,7 +77,7 @@ Router.route('commitments', {
 
 
 Router.route('reactions', {
-  name: 'reactions',
+  name: 'Reactions',
   controller: 'ReactionsController',
   action: 'action',
   where: 'client'

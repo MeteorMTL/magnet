@@ -2,7 +2,7 @@
 /* Topics: Event Handlers */
 /*****************************************************************************/
 Template.Topics.events({
-  "submit form": function(event, template) {
+  "submit form": function (event, template) {
     event.preventDefault();
     var input = event.target.name;
     Topics.insert({name: input.value, totalPoints: 0});
@@ -17,7 +17,7 @@ Template.Topics.helpers({
   canVote: function () {
     return Meteor.user() && Topics.find().count();
   },
-  topics: function() {
+  topics: function () {
     return Topics.find({}, {sort: {totalPoints: -1}});
   },
   availablePoints: getAvailablePoints
