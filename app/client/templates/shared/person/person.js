@@ -28,7 +28,7 @@ Template.Person.helpers({
   },
   reactions: function () {
     var user = Meteor.users.findOne({_id: this._id});
-    //return Reactions.find({$and: [{userId: user._id}, {evaluator: user._id}]});
+    //return Reactions.find({$or: [{userId: user._id}, {evaluator: user._id}]});
     return Reactions.find({userId: user._id});
   }
 });

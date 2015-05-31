@@ -25,6 +25,14 @@ Template.Reaction.helpers({
     } else {
       return "N/A";
     }
+  },
+  chartDescription: function () {
+    var reaction = Reactions.findOne({_id: this._id});
+    var feedback = Charts.findOne({_id: reaction.feedbackClassId});
+    return "";
+  },
+  chartLabel: function () {
+
   }
 });
 

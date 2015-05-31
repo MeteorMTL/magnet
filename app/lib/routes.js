@@ -75,7 +75,6 @@ Router.route('commitments', {
   where: 'client'
 });
 
-
 Router.route('reactions', {
   name: 'Reactions',
   controller: 'ReactionsController',
@@ -83,10 +82,9 @@ Router.route('reactions', {
   where: 'client'
 });
 
-
-Router.route('feedbacks', {
-  name: 'Feedbacks',
-  controller: 'FeedbacksController',
+Router.route('charts', {
+  name: 'Charts',
+  controller: 'ChartsController',
   action: 'action',
   where: 'client'
 });

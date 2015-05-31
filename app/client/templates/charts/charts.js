@@ -1,23 +1,23 @@
 /*****************************************************************************/
-/* Feedbacks: Event Handlers */
+/* Charts: Event Handlers */
 /*****************************************************************************/
-Template.Feedbacks.events({
+Template.Charts.events({
 });
 
 /*****************************************************************************/
-/* Feedbacks: Helpers */
+/* Charts: Helpers */
 /*****************************************************************************/
-Template.Feedbacks.helpers({
+Template.Charts.helpers({
 });
 
 /*****************************************************************************/
-/* Feedbacks: Lifecycle Hooks */
+/* Charts: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Feedbacks.created = function () {
+Template.Charts.created = function () {
 };
 
-Template.Feedbacks.rendered = function () {
+Template.Charts.rendered = function () {
 };
 
-Template.Feedbacks.destroyed = function () {
+Template.Charts.destroyed = function () {
 };

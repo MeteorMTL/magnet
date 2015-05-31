@@ -58,20 +58,19 @@ Template.Player.events({
     var userId = template.data._id;
     var teamId = Template.parentData(1)._id;
     var feedback = event.target.feedback;
-    var type = event.target.select;
+    var chartName = event.target.select;
+    var chart = Charts.find({name: chartName.value});
     if (feedback.value) {
-      console.log(feedback.value);
-      var existingReaction = Reactions.findOne({userId: userId, teamId: teamId, type: type.value, evaluator: Meteor.userId()});
+      var existingReaction = Reactions.findOne({userId: userId, teamId: teamId, evaluator: Meteor.userId()});
       if (existingReaction) {
-        console.log("existing: ", existingReaction);
-        Reactions.update({_id: existingReaction._id}, {$set: {feedback: feedback.value}});
+        Reactions.update({_id: existingReaction._id}, {$set: {feedback: feedback.value, chartId: chart._id}});
       } else {
-        Reactions.insert({userId: userId, teamId: teamId, type: type.value, evaluator: Meteor.userId(), feedback: feedback.value});
+        Reactions.insert({userId: userId, teamId: teamId, feedbackId: feedback._id, evaluator: Meteor.userId(), feedback: feedback.value});
       }
     }
     Session.set("target" + userId + teamId, false);
   },
-  "click .cancel": function () {
+  "click .cancel": function (event, template) {
     var userId = template.data._id;
     var teamId = Template.parentData(1)._id;
     Session.set("target" + userId + teamId, false);
@@ -112,8 +111,8 @@ Template.Player.helpers({
     }
     return null;
   },
-  feedbacks: function () {
-    return Feedbacks.find({});
+  charts: function () {
+    return Charts.find({});
   }
 });
 

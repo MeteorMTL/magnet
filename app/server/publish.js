@@ -41,6 +41,6 @@ Meteor.publish(null, function () {
   return Meteor.roles.find({});
 });
 
-Meteor.publish('Feedbacks', function () {
-  return Feedbacks.find();
+Meteor.publish('Charts', function () {
+  return Charts.find();
 });

@@ -1,4 +1,4 @@
-FeedbacksController = RouteController.extend({
+ChartsController = RouteController.extend({
   subscriptions: function () {
     // set up the subscriptions for the route and optionally
     // wait on them like this:
@@ -23,6 +23,6 @@ FeedbacksController = RouteController.extend({
     // might also perform some conditional logic. Override
     // the data context by providing it as an option in the
     // last parameter.
-    this.render('Feedbacks', { /* data: {} */});
+    this.render('Charts', { /* data: {} */});
   }
 });

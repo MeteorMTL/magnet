@@ -3,10 +3,10 @@ Meteor.startup(function () {
   users.forEach(function (user) {
     Roles.addUsersToRoles(user._id, ['organizer']);
   });
-  var feedbacks = Feedbacks.findOne({});
-  if (!feedbacks) {
-    Feedbacks.insert({name: "lead", description: "Leadership", instructions: "Has the leader lead well?"});
-    Feedbacks.insert({name: "heal", description: "Health", instructions: "Did anyone burn out? How to avoid?"});
-    Feedbacks.insert({name: "tech", description: "Technical", instructions: "Did they apply and improve their skills by working with you in this project?"});
+  var charts = Charts.findOne({});
+  if (!charts) {
+    Charts.insert({name: "lead", description: "Leadership", instructions: "Has the leader lead well?"});
+    Charts.insert({name: "heal", description: "Health", instructions: "Did anyone burn out? How to avoid?"});
+    Charts.insert({name: "tech", description: "Technical", instructions: "Did they apply and improve their skills by working with you in this project?"});
   }
 });
