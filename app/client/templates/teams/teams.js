@@ -113,6 +113,17 @@ Template.Player.helpers({
   },
   charts: function () {
     return Charts.find({});
+  },
+  inTeamCanFeedback: function () {
+    var commitments = Commitments.find({userId: Meteor.userId()}).fetch();
+    var userId = this._id;
+    var teamId = Template.parentData(1)._id;
+    if (commitments && (Meteor.userId() != userId)) {
+      var currentUserTeamIds = _.pluck(commitments, "teamId");
+      return _.contains(currentUserTeamIds, teamId);
+    } else {
+      return false;
+    }
   }
 });
 

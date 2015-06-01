@@ -1,6 +1,5 @@
 Teams = new Mongo.Collection('teams');
 
-
 if (Meteor.isServer) {
   Teams.allow({
     insert: function (userId, doc) {

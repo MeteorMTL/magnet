@@ -1,6 +1,10 @@
 <template name="Reactions">
-  <h1>R-actions from peers</h1>
-  {{#each reactions}}
-    {{> Reaction}}
-  {{/each}}
+  {{#if currentUser}}
+    <h1>R-actions from peers</h1>
+    {{#each reactions}}
+      {{> Reaction}}
+    {{/each}}
+  {{else}}
+    <p>Log in to see your feedback from peers</p>
+  {{/if}}
 </template>

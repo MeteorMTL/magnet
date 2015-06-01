@@ -1,5 +1,5 @@
 <template name="Teams">
-  <h1>Teams</h1>
+  <h1>Teaming</h1>
   <div class="row">
     <div class="col-sm-12">
       <form role="form" class="form form-inline" id="new-team-form">
@@ -10,7 +10,9 @@
         </div>
       </form>
       {{#each teams}}
-        {{> Team}}
+        <div class="teams-row">
+          {{> Team}}
+        </div>
       {{/each}}
     </div>
   </div>
@@ -69,7 +71,9 @@
             <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
             <button class="btn btn-sm btn-danger" id="delete" type="submit"><i class="fa fa-trash-o"></i></button>
           {{else}}
-            <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
+            {{#if inTeamCanFeedback}}
+              <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
+            {{/if}}
           {{/if}}
         </p>
       {{/if}}
