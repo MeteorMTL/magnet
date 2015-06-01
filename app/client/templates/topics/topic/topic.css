@@ -13,4 +13,6 @@
 
 .topic-line {
   white-space: nowrap;
+  padding: 2px;
+  margin: 2px 0;
 }
