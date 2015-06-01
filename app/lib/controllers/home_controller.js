@@ -4,6 +4,7 @@ HomeController = RouteController.extend({
     this.subscribe('Photos').wait();
     this.subscribe('Reactions').wait();
     this.subscribe('Charts').wait();
+    this.subscribe('Votes').wait();
   },
   waitOn: function () {
     return [
