@@ -90,7 +90,7 @@ Template.Player.events({
     }
   },
   "click #delete": function (event, template) {
-    var reaction = Reactons.findOne({userId: template.data._id, teamId: Template.parentData(1)._id});
+    var reaction = Reactions.findOne({userId: template.data._id, teamId: Template.parentData(1)._id});
     Reactions.remove({_id: reaction._id});
   }
 });
