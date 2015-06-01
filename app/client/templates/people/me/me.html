@@ -1,21 +1,27 @@
 <template name="Me">
-  <h2>My Profile</h2>
-  <button>Take a Photo</button>
-  {{#if photo}}
-    <div>
-      <img src={{photo}} class="img-thumbnail img-responsive"/>
-    </div>
-  {{/if}}
-  <p>{{email}}</p>
-  <form id="profile">
-    <input type="text" name="name" placeholder="Name, e.g.: Paul Cuciureanu" value="{{profile.name}}" />
-    <input type="text" name="linkedin" placeholder="LinkedIn link, e.g.: https://ca.linkedin.com/in/paulcu" value="{{profile.linkedin}}" />
-    <input type="text" name="twitter" placeholder="Twitter link, e.g.: https://twitter.com/pcuci" value="{{profile.twitter}}" />
-    <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
-    <input type="submit" value="Save Profile" />
-  </form>
-  <h2>My Topics</h2>
-  {{#each topics}}
-    {{> MyTopic}}
-  {{/each}}
+  <div class="well">
+    <h2>My Profile</h2>
+    {{#if currentUser}}
+      <button>Take a Photo</button>
+      {{#if photo}}
+        <div>
+          <img src={{photo}} class="img-thumbnail img-responsive"/>
+        </div>
+      {{/if}}
+      <p>{{email}}</p>
+      <form id="profile">
+        <input type="text" name="name" placeholder="Name, e.g.: Paul Cuciureanu" value="{{profile.name}}" />
+        <input type="text" name="linkedin" placeholder="LinkedIn link, e.g.: https://ca.linkedin.com/in/paulcu" value="{{profile.linkedin}}" />
+        <input type="text" name="twitter" placeholder="Twitter link, e.g.: https://twitter.com/pcuci" value="{{profile.twitter}}" />
+        <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
+        <input type="submit" value="Save Profile" />
+      </form>
+      <h2>My Topics</h2>
+      {{#each topics}}
+        {{> MyTopic}}
+      {{/each}}
+    {{else}}
+      <p>Please log-in/register to announce your presence</p>
+    {{/if}}
+  </div>
 </template>

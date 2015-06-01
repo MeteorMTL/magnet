@@ -1,20 +1,22 @@
 <template name="Home">
-  <div class="row">
-    <h1>eHealth Conference Topics</h1>
-  </div>
-  {{> Topics}}
-  <div class="row">
-    <div class="col-sm-8">
-      {{> People}}
+  <section id="topics">
+    <div class="row">
+      <h1>Topics at eHealth &lt;+&gt; Hacking Health</h1>
+      {{#if currentUser}}
+      {{else}}
+        Sign in to upvote key-words and team up with people
+      {{/if}}
     </div>
-    <div class="col-sm-4">
-      <div class="well">
-        {{#if currentUser}}
-          {{> Me}}
-        {{else}}
-          <p>Please log-in/register to announce your presence</p>
-        {{/if}}
+    {{> Topics}}
+  </section>
+  <section id="people">
+    <div class="row">
+      <div class="col-sm-8">
+        {{> People}}
+      </div>
+      <div class="col-sm-4">
+        {{> Me}}
       </div>
     </div>
-  </div>
+  </section>
 </template>
