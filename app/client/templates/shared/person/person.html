@@ -1,5 +1,5 @@
 <template name="Person">
-  <div class="row">
+  <div class="row bg-gray person-row">
     <div class="col-sm-4">
       <h3>{{profile.name}}</h3>
       <ul class="reactions-list">
@@ -14,7 +14,9 @@
       {{/if}}
     </div>
     <div class="col-sm-8">
-      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      {{#if currentUser}}
+        <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      {{/if}}
       <ul class="list-inline social">
         {{#if profile.linkedin}}
           <li>
