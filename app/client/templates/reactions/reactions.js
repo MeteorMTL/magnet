@@ -8,6 +8,9 @@ Template.Reactions.events({
 /* Reactions: Helpers */
 /*****************************************************************************/
 Template.Reactions.helpers({
+  hasReactions: function () {
+    return Reactions.find({userId: Meteor.userId()}).count();
+  }
 });
 
 /*****************************************************************************/
