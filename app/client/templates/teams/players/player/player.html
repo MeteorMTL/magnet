@@ -1,0 +1,40 @@
+<template name="Player">
+  <div class="row">
+    <div class="col-xs-4">
+      {{#if photo}}
+        <div>
+          <img src={{photo}} class="img-thumbnail img-responsive"/>
+        </div>
+      {{/if}}
+    </div>
+    <div class="col-xs-8">
+      <h3>{{profile.name}}</h3>
+      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      {{#if editing}}
+        <form role="form" class="form" id="reaction-form">
+          <div class="form-group">
+            <select name="select">
+              {{#each charts}}
+                <option value="{{name}}">{{description}}</option>
+              {{/each}}
+            </select>
+            <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve.">{{feedback}}</textarea>
+            <button type="submit" class="btn btn-primary react">Save R-action</button>
+            <button class="btn btn-default cancel">&times; Cancel</button>
+          </div>
+        </form>
+      {{else}}
+        <p>
+          {{#if feedback}}
+            <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
+            <button class="btn btn-sm btn-danger" id="delete" type="submit"><i class="fa fa-trash-o"></i></button>
+          {{else}}
+            {{#if inTeamCanFeedback}}
+              <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
+            {{/if}}
+          {{/if}}
+        </p>
+      {{/if}}
+    </div>
+  </div>
+</template>

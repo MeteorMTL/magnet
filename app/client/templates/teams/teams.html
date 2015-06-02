@@ -1,6 +1,5 @@
 <template name="Teams">
   <h1>Teaming</h1>
-
   <div class="row">
     <div class="col-sm-12">
       {{#if currentUser}}
@@ -19,75 +18,6 @@
           {{> Team}}
         </div>
       {{/each}}
-    </div>
-  </div>
-</template>
-
-<template name="Team">
-  {{#if currentUser}}
-    {{#if participating}}
-      <button class="btn btn-default leave pull-right">
-        <i class="fa fa-sign-out"></i> Leave Project
-      </button>
-    {{else}}
-      <button class="btn btn-default join pull-right">
-        <i class="fa fa-sign-in"></i> Join 3 Week Project
-      </button>
-    {{/if}}
-  {{/if}}
-  <h2>{{name}}</h2>
-  <h3>{{purpose}}</h3>
-  <ul class="topics-list">
-    {{#each topics}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-  {{> Players}}
-</template>
-
-<template name="Players">
-  {{#each players}}
-    {{> Player}}
-  {{/each}}
-</template>
-
-<template name="Player">
-  <div class="row">
-    <div class="col-xs-4">
-      {{#if photo}}
-        <div>
-          <img src={{photo}} class="img-thumbnail img-responsive"/>
-        </div>
-      {{/if}}
-    </div>
-    <div class="col-xs-8">
-      <h3>{{profile.name}}</h3>
-      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
-      {{#if editing}}
-        <form role="form" class="form" id="reaction-form">
-          <div class="form-group">
-            <select name="select">
-              {{#each charts}}
-                <option value="{{name}}">{{description}}</option>
-              {{/each}}
-            </select>
-            <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve.">{{feedback}}</textarea>
-            <button type="submit" class="btn btn-primary react">Save R-action</button>
-            <button class="btn btn-default cancel">&times; Cancel</button>
-          </div>
-        </form>
-      {{else}}
-        <p>
-          {{#if feedback}}
-            <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
-            <button class="btn btn-sm btn-danger" id="delete" type="submit"><i class="fa fa-trash-o"></i></button>
-          {{else}}
-            {{#if inTeamCanFeedback}}
-              <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
-            {{/if}}
-          {{/if}}
-        </p>
-      {{/if}}
     </div>
   </div>
 </template>
