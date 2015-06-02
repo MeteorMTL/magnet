@@ -1,10 +1,13 @@
 TeamsController = RouteController.extend({
   subscriptions: function () {
     this.subscribe('Photos').wait();
+    this.subscribe('Reactions').wait();
     this.subscribe('Charts').wait();
+    this.subscribe('Votes').wait();
   },
   waitOn: function () {
     return [
+      Meteor.subscribe('Topics'),
       Meteor.subscribe('Teams'),
       Meteor.subscribe('UserData'),
       Meteor.subscribe('Commitments'),

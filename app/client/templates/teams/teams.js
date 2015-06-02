@@ -49,6 +49,14 @@ Template.Team.helpers({
     } else {
       return false;
     }
+  },
+  topics: function () {
+    var teamId = this._id;
+    console.log("teamId: ", teamId);
+    var commitments = Commitments.find({teamId: teamId}).fetch();
+    var userIds = _.pluck(commitments, "userId");
+    var topicIds = _.pluck(Votes.find({userId: {$in: userIds}}, {sort: {points: -1}}).fetch(), 'topicId');
+    return Topics.find({_id: {$in: topicIds}});
   }
 });
 
@@ -96,6 +104,17 @@ Template.Player.events({
 });
 
 Template.Player.helpers({
+  photo: function () {
+    userPhoto = Photos.findOne({userId: this._id});
+    if (userPhoto) return userPhoto.data;
+  },
+  profile: function () {
+    user = Meteor.users.findOne({_id: this._id});
+    if (user && user.profile) {
+      user.profile.email = user.emails ? user.emails[0].address : "";
+    }
+    return user.profile;
+  },
   reacting: function () {
     Session.set('reacting', true);
   },

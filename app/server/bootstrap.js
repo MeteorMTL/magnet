@@ -5,8 +5,7 @@ Meteor.startup(function () {
   });
   var charts = Charts.findOne({});
   if (!charts) {
-    Charts.insert({name: "lead", description: "Leadership", instructions: "Has the leader lead well?"});
-    Charts.insert({name: "heal", description: "Health", instructions: "Did anyone burn out? How to avoid?"});
-    Charts.insert({name: "tech", description: "Technical", instructions: "Did they apply and improve their skills by working with you in this project?"});
+    Charts.insert({name: "stront-points", description: "Strong Points", instructions: "Has the leader led well?"});
+    Charts.insert({name: "consider-improving", description: "Consider Improving", instructions: "Did anyone burn out? How to avoid?"});
   }
 });

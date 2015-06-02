@@ -10,7 +10,7 @@ HomeController = RouteController.extend({
     return [
       Meteor.subscribe('Votes'),
       Meteor.subscribe('Topics'),
-      Meteor.subscribe('UserData'),
+      Meteor.subscribe('UserData')
     ];
   },
   action: function () {
