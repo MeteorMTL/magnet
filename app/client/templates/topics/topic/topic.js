@@ -67,6 +67,13 @@ Template.Topic.helpers({
     } else if (topic.totalPoints < 30) {
       return "xl-topic"
     }
+  },
+  myVotes: function () {
+    var topic = this;
+    var user = Meteor.user();
+    if (user) {
+      return Votes.find({userId: user._id, topicId: topic._id}).count();
+    }
   }
 });
 

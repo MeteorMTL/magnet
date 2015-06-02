@@ -60,7 +60,6 @@ Router.route('topics/:_id/edit', {
   where: 'client'
 });
 
-
 Router.route('teams', {
   name: 'Teams',
   controller: 'TeamsController',
@@ -85,6 +84,13 @@ Router.route('reactions', {
 Router.route('charts', {
   name: 'Charts',
   controller: 'ChartsController',
+  action: 'action',
+  where: 'client'
+});
+
+Router.route('people', {
+  name: 'People',
+  controller: 'PeopleController',
   action: 'action',
   where: 'client'
 });
