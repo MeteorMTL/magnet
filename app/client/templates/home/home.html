@@ -1,10 +1,9 @@
 <template name="Home">
   <section id="topics">
     <div class="row">
-      <h1>Topics at eHealth &lt;+&gt; Hacking Health</h1>
       {{#if currentUser}}
       {{else}}
-        Sign in to upvote key-words and team up with people
+        Sign in to upvote key words and team up with people
       {{/if}}
     </div>
     {{> Topics}}

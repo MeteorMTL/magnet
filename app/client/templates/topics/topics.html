@@ -2,11 +2,13 @@
   <div class="row">
     {{#if canVote}}
       {{#if availablePoints}}
-        <p>You have <span class="badge">{{availablePoints}}</span> points to assign to your favorite key words</p>
+        <p><span class="badge">{{availablePoints}}</span> points to assign to key words</p>
       {{else}}
         <p class="text-danger">No more points to distribute</p>
       {{/if}}
     {{/if}}
+  </div>
+  <div class="row">
     <ul class="list-group">
       {{#each topics}}
         {{> Topic}}
@@ -19,7 +21,7 @@
         <form role="form" class="form form-inline">
           <div class="form-group">
             <button type="submit" class="btn btn-default">Add</button>
-            <input type="text" class="form-control" name="name" placeholder="New Topic" value="{{name}}" />
+            <input type="text" class="form-control" name="name" placeholder="New Key Words" value="{{name}}" />
           </div>
         </form>
       </div>

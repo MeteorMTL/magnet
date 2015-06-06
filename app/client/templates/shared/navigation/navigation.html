@@ -14,26 +14,21 @@
           {{/linkTo}}
         </a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse fixed-top" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="{{active '/'}}">
+          <li data-toggle="collapse" data-target=".navbar-collapse" class="{{active '/'}}">
             {{#linkTo route='Home'}}
               Key Words
             {{/linkTo}}
           </li>
-          <li class="{{active '/people'}}">
+          <li data-toggle="collapse" data-target=".navbar-collapse" class="{{active '/people'}}">
             {{#linkTo route='People'}}
               People
             {{/linkTo}}
           </li>
-          <li class="{{active '/teams'}}">
+          <li data-toggle="collapse" data-target=".navbar-collapse" class="{{active '/teams'}}">
             {{#linkTo route='Teams'}}
               Teaming
-            {{/linkTo}}
-          </li>
-          <li class="{{active '/reactions'}}">
-            {{#linkTo route='Reactions'}}
-              Feedback
             {{/linkTo}}
           </li>
           {{> loginButtons }}

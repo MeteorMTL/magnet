@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-  var users = Meteor.users.find({emails: {$elemMatch: {address: {$in: ["davidrowley01@gmail.com", "paulcu@gmail.com", "tzumby@gmail.com", "ogourment@smarterportal.com", "calincu@gmail.com"]}}}});
+  var users = Meteor.users.find({emails: {$elemMatch: {address: {$in: ["davidrowley01@gmail.com", "paulcu@gmail.com", "yannick@bcimontreal.org", "ari.ramdial@gmail.com", "yasir.siddiqui@gmail.com"]}}}});
   users.forEach(function (user) {
     Roles.addUsersToRoles(user._id, ['organizer']);
   });

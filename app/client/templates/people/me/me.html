@@ -16,12 +16,14 @@
         <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
         <input type="submit" value="Save Profile" />
       </form>
-      <h2>My Key Words</h2>
-      {{#each topics}}
-        {{> MyTopic}}
-      {{/each}}
+      <ul class="topics-list">
+        {{#each topics}}
+          <li>{{name}}</li>
+        {{/each}}
+      </ul>
     {{else}}
       <p>Please log-in/register to announce your presence</p>
     {{/if}}
+    {{> Reactions}}
   </div>
 </template>

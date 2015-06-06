@@ -1,14 +1,14 @@
 <template name="Player">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       {{#if photo}}
         <div>
           <img src={{photo}} class="img-thumbnail img-responsive"/>
         </div>
       {{/if}}
     </div>
-    <div class="col-xs-8">
-      <h3>{{profile.name}}</h3>
+    <div class="col-xs-7 nopadding-left">
+      <h4>{{profile.name}}</h4>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       {{#if editing}}
         <form role="form" class="form" id="reaction-form">

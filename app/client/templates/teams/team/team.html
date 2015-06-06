@@ -6,16 +6,15 @@
       </button>
     {{else}}
       <button class="btn btn-primary join pull-right">
-        <i class="fa fa-sign-in"></i> Join 3 Week Project
+        <i class="fa fa-sign-in"></i> Join Project
       </button>
     {{/if}}
   {{/if}}
-  <h2>{{name}}</h2>
-  <h3>{{purpose}}</h3>
+  <h3>{{name}} - {{purpose}}</h3>
+  {{> Players}}
   <ul class="topics-list">
     {{#each topics}}
       <li>{{name}}</li>
     {{/each}}
   </ul>
-  {{> Players}}
 </template>
