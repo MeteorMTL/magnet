@@ -58,21 +58,21 @@ Template.Topic.helpers({
     var topic = this;
     if (topic.totalPoints <= 1) {
       return "xs-topic"
-    } else if (topic.totalPoints < 4) {
+    } else if (topic.totalPoints < 3) {
       return "sm-topic"
-    } else if (topic.totalPoints < 10) {
+    } else if (topic.totalPoints < 9) {
       return "md-topic"
     } else if (topic.totalPoints < 20) {
       return "lg-topic"
-    } else if (topic.totalPoints < 30) {
+    } else {
       return "xl-topic"
     }
   },
-  myVotes: function () {
+  myVotesCount: function () {
     var topic = this;
     var user = Meteor.user();
     if (user) {
-      return Votes.find({userId: user._id, topicId: topic._id}).count();
+      return Votes.findOne({userId: user._id, topicId: topic._id}).points;
     }
   }
 });
