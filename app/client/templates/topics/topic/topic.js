@@ -68,7 +68,7 @@ Template.Topic.helpers({
       return "xl-topic"
     }
   },
-  myVotesCount: function () {
+  points: function () {
     var topic = this;
     var user = Meteor.user();
     if (user) {
