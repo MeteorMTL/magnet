@@ -3,3 +3,8 @@
 /*****************************************************************************/
 .navigation {
 }
+
+button#at-nav-button.navbar-btn {
+  padding: 8px 16px;
+  margin: 6px 10px;
+}

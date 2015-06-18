@@ -37,10 +37,6 @@ Meteor.publish('Reactions', function () {
   return Reactions.find();
 });
 
-Meteor.publish(null, function () {
-  return Meteor.roles.find({});
-});
-
 Meteor.publish('Charts', function () {
   return Charts.find();
 });
