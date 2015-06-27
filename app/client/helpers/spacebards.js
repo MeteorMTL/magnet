@@ -24,3 +24,7 @@ Template.registerHelper("debug", function (optionalValue) {
   }
   return "";
 });
+
+Template.registerHelper("isInRole", function(role) {
+  return Roles.userHasRole(user._id, 'organizer');
+});
