@@ -7,11 +7,6 @@ input[type="text"], textarea {
   margin: 2px;
 }
 
-body > div.container {
-  margin: auto;
-  padding: 60px 25px;
-}
-
 .xs-topic {
   font-size: 14px;
 }
@@ -32,4 +27,16 @@ li.list-group-item {
   display: block;
   vertical-align: middle;
   border: none;
+}
+
+.btn {
+  background-color: #29b6f6;
+}
+
+.btn:hover {
+  background-color: #40c4ff;
+}
+
+img {
+  max-width: 300px;
 }

@@ -1,41 +1,42 @@
 <template name="Navigation">
-  <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="">
+  <nav>
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">
+        {{#linkTo route='Home'}}
+          Entrain
+        {{/linkTo}}
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="{{active '/'}}">
           {{#linkTo route='Home'}}
-            Entrain
+            Key Words
           {{/linkTo}}
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="{{active '/'}}">
-            {{#linkTo route='Home'}}
-              Key Words
-            {{/linkTo}}
-          </li>
-          <li class="{{active '/people'}}">
-            {{#linkTo route='People'}}
-              People
-            {{/linkTo}}
-          </li>
-          <li class="{{active '/teams'}}">
-            {{#linkTo route='Teams'}}
-              Teaming
-            {{/linkTo}}
-          </li>
-          <li>
-            {{> atNavButton}}
-          </li>
-        </ul>
-      </div>
+        </li>
+        <li class="{{active '/teams'}}">
+          {{#linkTo route='Teams'}}
+            Teaming
+          {{/linkTo}}
+        </li>
+        <li>
+          {{> atNavButton}}
+        </li>
+      </ul>
+      <ul id="slide-out" class="side-nav">
+        <li class="{{active '/'}}">
+          {{#linkTo route='Home'}}
+            Key Words
+          {{/linkTo}}
+        </li>
+        <li class="{{active '/teams'}}">
+          {{#linkTo route='Teams'}}
+            Teaming
+          {{/linkTo}}
+        </li>
+        <li>
+          {{> atNavButton}}
+        </li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
   </nav>
 </template>

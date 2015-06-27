@@ -1,13 +1,13 @@
 <template name="Person">
   <div class="row bg-gray person-row">
-    <div class="col-xs-5">
+    <div class="col s5">
       {{#if photo}}
         <div>
-          <img src={{photo}} class="img-thumbnail img-responsive"/>
+          <img src={{photo}} class="responsive-img"/>
         </div>
       {{/if}}
     </div>
-    <div class="col-xs-7">
+    <div class="col s7">
       <h3>{{profile.name}}</h3>
       <ul class="reactions-list">
         {{#each reactions}}

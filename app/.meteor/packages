@@ -4,16 +4,18 @@
 # but you can also edit it by hand.
 
 meteor-platform
+coffeescript
+fourseven:scss
 accounts-password
 mdg:camera
-twbs:bootstrap
+
+materialize:materialize
 
 orionjs:core
-orionjs:bootstrap
+orionjs:materialize
 orionjs:summernote
 orionjs:pages
 
-ian:accounts-ui-bootstrap-3
 iron:router
 natestrauser:font-awesome
 
@@ -21,3 +23,11 @@ momentjs:moment
 
 dburles:collection-helpers
 spiderable
+
+okgrow:analytics
+
+aldeed:delete-button
+gildaspk:autoform-materialize
+mrt:moment-timezone
+d3
+reywood:publish-composite

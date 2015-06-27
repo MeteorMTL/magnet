@@ -2,4 +2,8 @@
 /* Me: Style */
 /*****************************************************************************/
 .me {
+  background-color: #e8eaf6;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: 1px solid #9fa8da;
 }

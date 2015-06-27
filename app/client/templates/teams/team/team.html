@@ -1,11 +1,11 @@
 <template name="Team">
   {{#if currentUser}}
     {{#if participating}}
-      <button class="btn btn-default leave pull-right">
+      <button class="btn leave pull-right">
         <i class="fa fa-sign-out"></i> Leave Project
       </button>
     {{else}}
-      <button class="btn btn-primary join pull-right">
+      <button class="btn join pull-right">
         <i class="fa fa-sign-in"></i> Join Project
       </button>
     {{/if}}

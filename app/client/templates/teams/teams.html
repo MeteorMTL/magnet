@@ -1,12 +1,13 @@
 <template name="Teams">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col s12">
       {{#if currentUser}}
-        <form role="form" class="form form-inline" id="new-team-form">
+        <p>Create or join a team</p>
+        <form role="form" class="form" id="new-team-form">
           <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Team Name" value="{{name}}" />
             <input type="text" class="form-control" name="purpose" placeholder="Purpose" value="{{purpose}}" />
-            <button type="submit" class="btn btn-default">Create Team</button>
+            <button type="submit" class="btn">Create Team</button>
           </div>
         </form>
       {{else}}
@@ -19,4 +20,5 @@
       {{/each}}
     </div>
   </div>
+  {{> People}}
 </template>

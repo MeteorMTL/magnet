@@ -1,26 +1,35 @@
 <template name="Me">
-  <div class="well">
+  <div class="me">
     <h2>My Profile</h2>
     {{#if currentUser}}
-      <button>Take Photo</button>
-      {{#if photo}}
-        <div>
-          <img src={{photo}} class="img-thumbnail img-responsive"/>
+      <div class="row">
+        <div class="col s8 m4 l3">
+          <button class="btn">Take Photo</button>
+          {{#if photo}}
+            <div>
+              <img src={{photo}} class="responsive-img"/>
+            </div>
+          {{/if}}
+          <p>{{email}}</p>
         </div>
-      {{/if}}
-      <p>{{email}}</p>
-      <form id="profile">
-        <input type="text" name="name" placeholder="Name, e.g.: Paul Cuciureanu" value="{{profile.name}}" />
-        <input type="text" name="linkedin" placeholder="LinkedIn link, e.g.: https://ca.linkedin.com/in/paulcu" value="{{profile.linkedin}}" />
-        <input type="text" name="twitter" placeholder="Twitter link, e.g.: https://twitter.com/pcuci" value="{{profile.twitter}}" />
-        <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
-        <input type="submit" value="Save Profile" />
-      </form>
-      <ul class="topics-list">
-        {{#each topics}}
-          <li>{{name}}</li>
-        {{/each}}
-      </ul>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <form id="profile">
+            <input type="text" name="name" placeholder="Name, e.g.: Paul Cuciureanu" value="{{profile.name}}" />
+            <input type="text" name="linkedin" placeholder="LinkedIn link, e.g.: https://ca.linkedin.com/in/paulcu" value="{{profile.linkedin}}" />
+            <input type="text" name="twitter" placeholder="Twitter link, e.g.: https://twitter.com/pcuci" value="{{profile.twitter}}" />
+            <input type="text" name="facebook" placeholder="Facebook link, e.g.: https://www.facebook.com/paulcuciureanu" value="{{profile.facebook}}" />
+            <input type="submit" class="btn" value="Save Profile" />
+          </form>
+          <ul class="topics-list">
+            {{#each topics}}
+              <li>{{name}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
     {{else}}
       <p>Please log-in/register to announce your presence</p>
     {{/if}}

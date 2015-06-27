@@ -1,17 +1,17 @@
 <template name="Player">
   <div class="row">
-    <div class="col-xs-5">
+    <div class="col s5">
       {{#if photo}}
         <div>
-          <img src={{photo}} class="img-thumbnail img-responsive"/>
+          <img src={{photo}} class="responsive-img"/>
         </div>
       {{else}}
         <div>
-          <img src="img/people/default.jpg" class="img-thumbnail img-responsive"/>
+          <img src="img/people/default.jpg" class="responsive-img"/>
         </div>
       {{/if}}
     </div>
-    <div class="col-xs-7 nopadding-left">
+    <div class="col s7 nopadding-left">
       <h4>{{profile.name}}</h4>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       {{#if editing}}
