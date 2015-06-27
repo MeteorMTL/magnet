@@ -7,7 +7,6 @@ Meteor.publish('Topics', function () {
 });
 
 Meteor.publish('Topic', function (topicId) {
-  console.log("topicId: ", topicId)
   return Topics.find({_id: topicId});
 });
 

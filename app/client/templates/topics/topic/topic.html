@@ -1,22 +1,20 @@
 <template name="Topic">
   <li class="list-group-item topic-line">
     {{#if currentUser}}
-      <div class="btn-group" role="group" aria-label="vote buttons">
-        {{#if canUpvote}}
-          {{#if totalPoints}}
-            <button class="btn btn-sm btn-primary plusOne"><i class="fa fa-long-arrow-up"></i> {{totalPoints}}</button>
-          {{else}}
-            <button class="btn btn-sm btn-primary plusOne"><i class="fa fa-long-arrow-up"></i></button>
-          {{/if}}
+      {{#if canUpvote}}
+        {{#if totalPoints}}
+          <button class="btn plusOne"><i class="fa fa-long-arrow-up"></i> {{totalPoints}}</button>
         {{else}}
-          <button class="btn btn-sm btn-default disabled"><i class="fa fa-long-arrow-up"></i> {{totalPoints}}</button>
+          <button class="btn plusOne"><i class="fa fa-long-arrow-up"></i></button>
         {{/if}}
-        {{#if canDownvote}}
-          <button class="btn btn-sm btn-danger minusOne"><i class="fa fa-long-arrow-down"></i> {{points}}</button>
-        {{else}}
-          <button class="btn btn-sm btn-default disabled"><i class="fa fa-long-arrow-down"></i></button>
-        {{/if}}
-      </div>
+      {{else}}
+        <button class="btn disabled"><i class="fa fa-long-arrow-up"></i> {{totalPoints}}</button>
+      {{/if}}
+      {{#if canDownvote}}
+        <button class="btn minusOne"><i class="fa fa-long-arrow-down"></i> {{points}}</button>
+      {{else}}
+        <button class="btn disabled"><i class="fa fa-long-arrow-down"></i></button>
+      {{/if}}
     {{/if}}
     <p class="topic {{topicSize}}">
       {{#linkTo route='TopicShow'}}

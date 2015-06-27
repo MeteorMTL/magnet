@@ -1,2 +1,2 @@
 Options.set('forbidClientAccountCreation', false);
-Options.arrayPush('defaultRoles', 'patient');
+Options.arrayPush('defaultRoles', 'participant');

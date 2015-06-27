@@ -11,7 +11,7 @@
         </div>
       {{/if}}
     </div>
-    <div class="col s7 nopadding-left">
+    <div class="F nopadding-left">
       <h4>{{profile.name}}</h4>
       <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
       {{#if editing}}
@@ -24,7 +24,7 @@
             </select>
             <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve.">{{feedback}}</textarea>
             <button type="submit" class="btn btn-primary react">Save R-action</button>
-            <button class="btn btn-default cancel">&times; Cancel</button>
+            <button class="btn cancel">&times; Cancel</button>
           </div>
         </form>
       {{else}}
