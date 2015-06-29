@@ -1,44 +1,40 @@
 <template name="Player">
-  <div class="row">
-    <div class="col s5">
-      {{#if photo}}
-        <div>
-          <img src={{photo}} class="responsive-img"/>
+  <div class="player">
+    {{#if photo}}
+      <div>
+        <img src={{photo}} class="responsive-img player-photo"/>
+      </div>
+    {{else}}
+      <div>
+        <img src="img/people/default.jpg" class="responsive-img"/>
+      </div>
+    {{/if}}
+    <h5>{{profile.name}}</h5>
+    <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+    {{#if editing}}
+      <form role="form" class="form" id="reaction-form">
+        <div class="form-group">
+          <select name="select">
+            {{#each charts}}
+              <option value="{{name}}">{{description}}</option>
+            {{/each}}
+          </select>
+          <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve.">{{feedback}}</textarea>
+          <button type="submit" class="btn btn-primary react">Save R-action</button>
+          <button class="btn cancel">&times; Cancel</button>
         </div>
-      {{else}}
-        <div>
-          <img src="img/people/default.jpg" class="responsive-img"/>
-        </div>
-      {{/if}}
-    </div>
-    <div class="F nopadding-left">
-      <h4>{{profile.name}}</h4>
-      <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
-      {{#if editing}}
-        <form role="form" class="form" id="reaction-form">
-          <div class="form-group">
-            <select name="select">
-              {{#each charts}}
-                <option value="{{name}}">{{description}}</option>
-              {{/each}}
-            </select>
-            <textarea name="feedback" rows="4" cols="15" placeholder="Help {{profile.name}} improve.">{{feedback}}</textarea>
-            <button type="submit" class="btn btn-primary react">Save R-action</button>
-            <button class="btn cancel">&times; Cancel</button>
-          </div>
-        </form>
-      {{else}}
-        <p>
-          {{#if feedback}}
-            <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
-            <button class="btn btn-sm btn-danger" id="delete" type="submit"><i class="fa fa-trash-o"></i></button>
-          {{else}}
-            {{#if inTeamCanFeedback}}
-              <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
-            {{/if}}
+      </form>
+    {{else}}
+      <p>
+        {{#if feedback}}
+          <span class="content col-md-10" id="edit">Feedback: {{feedback}}</span>
+          <button class="btn btn-sm btn-danger" id="delete" type="submit"><i class="fa fa-trash-o"></i></button>
+        {{else}}
+          {{#if inTeamCanFeedback}}
+            <button class="btn btn-sm btn-primary" id="edit" type="submit">Give Feedback to {{profile.name}}</button>
           {{/if}}
-        </p>
-      {{/if}}
-    </div>
+        {{/if}}
+      </p>
+    {{/if}}
   </div>
 </template>

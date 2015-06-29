@@ -2,4 +2,16 @@
 /* Player: Style */
 /*****************************************************************************/
 .player {
+  max-width: 150px;
+  display: inline-block;
+  border: 1px solid #b2dfdb;
+  padding: 5px;
+  margin: 2px;
+  background-color: white;
+  vertical-align: top;
+  border-radius: 4px;
+}
+
+img.player-photo {
+  width: auto;
 }

@@ -1,5 +1,4 @@
 <template name="TopicShow">
-  <p>Meet people interested in:</p>
   <h1>
     {{topic.name}}
     {{#if isInRole 'organizer'}}
@@ -11,5 +10,10 @@
       </button>
     {{/if}}
   </h1>
+  {{#each teams}}
+    <div class="teams-row">
+      {{> Team}}
+    </div>
+  {{/each}}
   {{> Voters}}
 </template>

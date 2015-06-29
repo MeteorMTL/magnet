@@ -28,6 +28,14 @@ Meteor.publish('Teams', function () {
   return Teams.find();
 });
 
+Meteor.publish('TopicTeams', function (topicId) {
+  var votes = Votes.find({topicId: topicId}).fetch();
+  var userIds = _.pluck(votes, "userId");
+  var commitments = Commitments.find({userId: {$in: userIds}}).fetch();
+  var teamIds = _.pluck(commitments, "teamId");
+  return Teams.find({_id: {$in: teamIds}});
+});
+
 Meteor.publish('Commitments', function () {
   return Commitments.find();
 });
