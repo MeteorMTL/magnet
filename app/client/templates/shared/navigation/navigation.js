@@ -24,8 +24,10 @@ Template.Navigation.created = function () {
 };
 
 Template.Navigation.rendered = function () {
-  $('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
+  $(".button-collapse").sideNav({
+    menuWidth: 300,
+    edge: "left",
+    closeOnClick: true
   });
 };
 
