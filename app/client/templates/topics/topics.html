@@ -2,18 +2,18 @@
   <div class="row">
     {{#if canVote}}
       {{#if availablePoints}}
-        <p><span class="badge points">{{availablePoints}} Points</span></p>
+        <p>Connect on key words <span class="badge points right">{{availablePoints}} Points</span></p>
       {{else}}
         <p>No more points to distribute</p>
       {{/if}}
     {{/if}}
   </div>
   <div class="row">
-    <ul class="list-group">
+    <div class="list-group">
       {{#each topics}}
         {{> Topic}}
       {{/each}}
-    </ul>
+    </div>
   </div>
   {{#if currentUser}}
     <div class="row">

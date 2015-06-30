@@ -9,24 +9,23 @@ input[type="text"], textarea {
 
 .xs-topic {
   font-size: 14px;
+  display: inline-block;
 }
 .sm-topic {
-  font-size: 18px;
+  font-size: 16px;
+  display: inline-block;
 }
 .md-topic {
-  font-size: 22px;
+  font-size: 20px;
+  display: inline-block;
 }
 .lg-topic {
-  font-size: 30px;
+  font-size: 26px;
+  display: inline-block;
 }
 .xl-topic {
-  font-size: 40px;
-}
-
-li.list-group-item {
-  display: block;
-  vertical-align: middle;
-  border: none;
+  font-size: 30px;
+  display: inline-block;
 }
 
 .btn {

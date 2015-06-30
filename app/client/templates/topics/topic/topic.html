@@ -1,37 +1,28 @@
 <template name="Topic">
-  <li class="list-group-item topic-line">
+  <div class="topic">
     {{#if currentUser}}
       {{#if canUpvote}}
         {{#if totalPoints}}
-          <button class="btn plusOne">
-            <span class="topic {{topicSize}}">
-              {{#linkTo route='TopicShow'}}
-                {{name}}
-              {{/linkTo}}
-            </span>
-            <i class="fa fa-long-arrow-up"></i>
-            {{totalPoints}}
-          </button>
+          {{#linkTo route='TopicShow' class="btn plusOne"}}
+            <div class="{{topicSize}}">{{name}}</div>
+            <span class="right">&nbsp;+ {{totalPoints}}</span>
+          {{/linkTo}}
         {{else}}
-          <button class="btn plusOne"><i class="fa fa-long-arrow-up"></i></button>
+          <a class="btn plusOne">
+            <div class="topic {{topicSize}}">{{name}}</div>
+          </a>
         {{/if}}
       {{else}}
-        {{#linkTo route='TopicShow'}}
-          <button class="btn disabled">
-            <span class="topic {{topicSize}}">
-              {{name}}
-            </span>
-            <i class="fa fa-long-arrow-up"></i>
-            {{totalPoints}}
-          </button>
+        {{#linkTo route='TopicShow' class="btn disabled"}}
+          <div class="{{topicSize}}">
+            {{name}}
+          </div>
+          <span class="right">&nbsp;+ {{totalPoints}}</span>
         {{/linkTo}}
       {{/if}}
       {{#if canDownvote}}
-        <button class="btn minusOne"><i class="fa fa-long-arrow-down"></i> {{points}}</button>
-      {{else}}
-        <button class="btn disabled"><i class="fa fa-long-arrow-down"></i></button>
+        <a class="btn minusOne">- {{points}}</a>
       {{/if}}
     {{/if}}
-
-  </li>
+  </div>
 </template>

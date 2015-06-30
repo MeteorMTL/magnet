@@ -3,20 +3,37 @@
 /*****************************************************************************/
 .topic {
   display: inline-block;
-  margin-left: 10px;
   vertical-align: middle;
   text-overflow: ellipsis;
-	width: 90%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-.topic-line {
   white-space: nowrap;
-  padding: 2px;
-  margin: 2px 0;
+  overflow: hidden;
+  margin: 2px 0px;
 }
 
 .plusOne a {
   color: white;
+}
+
+.topic > a.btn.disabled {
+  cursor: pointer;
+  color: white;
+  background-color: #9fa8da;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+a.btn.plusOne {
+  min-width: 150px;
+}
+
+a.btn.minusOne {
+  background-color: #4dd0e1;
+  min-width: 40px;
+  padding: 0px;
+  margin-left:-4px;
+}
+
+a.btn.disabled {
+  background-color: #4dd0e1;
+  min-width: 40px;
+  margin-left:-4px;
 }
