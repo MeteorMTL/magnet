@@ -23,13 +23,13 @@ input[type="text"], textarea {
   font-size: 26px;
   display: inline-block;
 }
-.xl-topic {
+.F {
   font-size: 30px;
   display: inline-block;
 }
 
 .btn {
-  background-color: #29b6f6;
+  background-color: #03a9f4;
 }
 
 .btn:hover {

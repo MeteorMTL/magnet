@@ -1,44 +1,36 @@
 <template name="Person">
-  <div class="row bg-gray person-row">
-    <div class="col s5">
-      {{#if photo}}
-        <div>
-          <img src={{photo}} class="responsive-img"/>
-        </div>
+  <div class="person">
+    {{#if photo}}
+      <div>
+        <img src={{photo}} class="responsive-img player-photo"/>
+      </div>
+    {{else}}
+      <div>
+        <img src="img/people/default.jpg" class="responsive-img"/>
+      </div>
+    {{/if}}
+    <p>{{profile.name}}</p>
+    <ul class="list-inline social">
+      {{#if profile.linkedin}}
+        <li>
+            <a href="{{profile.linkedin}}" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a>
+        </li>
       {{/if}}
-    </div>
-    <div class="col s7">
-      <h3>{{profile.name}}</h3>
-      <ul class="reactions-list">
-        {{#each reactions}}
-          <li><span class="label label-success"> </span></li>
-        {{/each}}
-      </ul>
-      {{#if currentUser}}
-        <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+      {{#if profile.twitter}}
+        <li>
+          <a href="{{profile.twitter}}" target="_blank"><i class="fa fa-twitter fa-fw"></i></a>
+        </li>
       {{/if}}
-      <ul class="list-inline social">
-        {{#if profile.linkedin}}
-          <li>
-              <a href="{{profile.linkedin}}" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a>
-          </li>
-        {{/if}}
-        {{#if profile.twitter}}
-          <li>
-            <a href="{{profile.twitter}}" target="_blank"><i class="fa fa-twitter fa-fw"></i></a>
-          </li>
-        {{/if}}
-        {{#if profile.facebook}}
-          <li>
-            <a href="{{profile.facebook}}" target="_blank"><i class="fa fa-facebook fa-fw"></i></a>
-          </li>
-        {{/if}}
-      </ul>
-      <ul class="topics-list">
-        {{#each topics}}
-          <li>{{name}}</li>
-        {{/each}}
-      </ul>
-    </div>
+      {{#if profile.facebook}}
+        <li>
+          <a href="{{profile.facebook}}" target="_blank"><i class="fa fa-facebook fa-fw"></i></a>
+        </li>
+      {{/if}}
+    </ul>
+    <ul class="topics-list">
+      {{#each topics}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
   </div>
 </template>

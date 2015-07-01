@@ -1,11 +1,7 @@
 <template name="Topics">
   <div class="row">
     {{#if canVote}}
-      {{#if availablePoints}}
-        <p>Connect on key words <span class="badge points right">{{availablePoints}} Points</span></p>
-      {{else}}
-        <p>No more points to distribute</p>
-      {{/if}}
+      <p>Use keywords to find people <span class="points">{{availablePoints}} to distribute</span></p>
     {{/if}}
   </div>
   <div class="row">
