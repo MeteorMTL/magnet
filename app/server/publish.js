@@ -28,6 +28,10 @@ Meteor.publish('Teams', function () {
   return Teams.find();
 });
 
+Meteor.publish('Messages', function (teamId) {
+  return Messages.find({teamId: teamId});
+});
+
 Meteor.publish('TopicTeams', function (topicId) {
   var votes = Votes.find({topicId: topicId}).fetch();
   var userIds = _.pluck(votes, "userId");

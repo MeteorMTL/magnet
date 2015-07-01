@@ -10,7 +10,12 @@
       </button>
     {{/if}}
   {{/if}}
-  <p class="team-name">{{name}} - {{purpose}}</p>
+  {{#linkTo route='TeamShow' class="btn team-name"}}
+    <i class="material-icons small">chat</i>
+    {{name}}
+  {{/linkTo}}
+  <br />
+  {{purpose}}
   {{> Players}}
   <ul class="topics-list">
     {{#each topics}}
