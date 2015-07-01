@@ -1,14 +1,10 @@
 <template name="TopicShow">
+  {{#if isInRole 'organizer'}}
+    <a class="btn delete right"><i class="material-icons">delete</i></a>
+    <a class="btn edit right"><i class="material-icons">mode_edit</i></a>
+  {{/if}}
   <h1>
     {{topic.name}}
-    {{#if isInRole 'organizer'}}
-      <button class="btn edit">
-        <i class="fa fa-pencil"></i>
-      </button>
-      <button class="btn delete">
-        &times;
-      </button>
-    {{/if}}
   </h1>
   {{#each teams}}
     <div class="teams-row">

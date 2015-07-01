@@ -16,6 +16,7 @@ orionjs:materialize
 orionjs:summernote
 orionjs:pages
 
+
 iron:router
 natestrauser:font-awesome
 
@@ -23,7 +24,7 @@ momentjs:moment
 
 dburles:collection-helpers
 spiderable
-
+sacha:spin
 okgrow:analytics
 
 aldeed:delete-button
