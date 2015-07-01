@@ -16,4 +16,4 @@ this.getAvailablePoints = function () {
     }
     return 20 - usedPoints;
   }
-}
+};
