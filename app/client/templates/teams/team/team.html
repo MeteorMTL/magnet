@@ -2,7 +2,7 @@
   {{#if currentUser}}
     {{#if participating}}
       <button class="btn leave pull-right">
-        <i class="fa fa-sign-out"></i> Leave Project
+        <i class="fa fa-sign-out"></i> Quit Project
       </button>
     {{else}}
       <button class="btn join pull-right">
@@ -10,7 +10,7 @@
       </button>
     {{/if}}
   {{/if}}
-  {{#linkTo route='TeamShow' class="btn"}}
+  {{#linkTo route='TeamShow' class="btn team-name"}}
     <i class="material-icons small">chat</i>
     {{name}}
   {{/linkTo}}

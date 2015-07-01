@@ -2,6 +2,14 @@
 /* Person: Style */
 /*****************************************************************************/
 .person {
+  max-width: 130px;
+  display: inline-block;
+  border: 1px solid #b2dfdb;
+  padding: 5px;
+  margin: 2px;
+  background-color: white;
+  vertical-align: top;
+  border-radius: 4px;
 }
 
 ul.topics-list {
@@ -11,6 +19,10 @@ ul.topics-list {
 ul.topics-list > li {
   display: inline-block;
   margin-right: 8px;
+  background-color: #80d8ff;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin: 1px;
 }
 
 ul.reactions-list {

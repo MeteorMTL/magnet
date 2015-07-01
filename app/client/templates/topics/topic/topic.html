@@ -23,6 +23,13 @@
       {{#if canDownvote}}
         <a class="btn minusOne">- {{points}}</a>
       {{/if}}
+    {{else}}
+      {{#linkTo route='TopicShow' class="btn disabled"}}
+        <div class="{{topicSize}}">
+          {{name}}
+        </div>
+        <span class="right">&nbsp;+ {{totalPoints}}</span>
+      {{/linkTo}}
     {{/if}}
   </div>
 </template>
