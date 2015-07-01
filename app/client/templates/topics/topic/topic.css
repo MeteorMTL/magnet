@@ -14,7 +14,7 @@
   color: white;
 }
 
-.topic > a.btn.disabled {
+.topic > a.btn.unvotable {
   cursor: pointer;
   color: white;
   background-color: #9fa8da;
@@ -25,7 +25,7 @@
   padding: 0px 12px;
 }
 
-a.btn.plusOne, a.btn.minusOne, a.btn.disabled {
+a.btn.plusOne, a.btn.minusOne, a.btn.unvotable {
 
 }
 
@@ -34,7 +34,11 @@ a.btn.minusOne {
   margin-left: -4px;
 }
 
-a.btn.disabled {
+a.btn.unvotable {
   background-color: #4dd0e1;
   margin-left: -4px;
+}
+
+a.btn.unvotable:hover {
+  background-color: #b388ff;
 }

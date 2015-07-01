@@ -13,7 +13,7 @@
           </a>
         {{/if}}
       {{else}}
-        {{#linkTo route='TopicShow' class="btn disabled"}}
+        {{#linkTo route='TopicShow' class="btn unvotable"}}
           <div class="{{topicSize}}">
             {{name}}
           </div>
@@ -24,7 +24,7 @@
         <a class="btn minusOne">- {{points}}</a>
       {{/if}}
     {{else}}
-      {{#linkTo route='TopicShow' class="btn disabled"}}
+      {{#linkTo route='TopicShow' class="btn unvotable"}}
         <div class="{{topicSize}}">
           {{name}}
         </div>
