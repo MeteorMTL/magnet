@@ -9,12 +9,14 @@
     -webkit-animation: popout 1.5s ease;
 }
 @keyframes popout {
-    from { transform: scale(0); background-color: white; }
-    40% { transform: scale(1.2); background-color: orange; }
-    60% { transform: scale(1); background-color: blue; }
+    from { transform: scale(0); background-color: #ccff90; }
+    20% { transform: scale(0.4); background-color: #ffc107; }
+    40% { transform: scale(1.2); background-color: #b2ff59; }
+    60% { transform: scale(1); background-color: #76ff03; }
 }
 @-webkit-keyframes popout {
-    from { -webkit-transform: scale(0); background-color: white; }
-    40% { -webkit-transform: scale(1.2); background-color: orange; }
-    60% { -webkit-transform: scale(1); background-color: blue; }
+    from { -webkit-transform: scale(0); background-color: #ccff90; }
+    20% { -webkit-transform: scale(0.4); background-color: #ffc107; }
+    40% { -webkit-transform: scale(1.2); background-color: #b2ff59; }
+    60% { -webkit-transform: scale(1); background-color: #76ff03; }
 }
