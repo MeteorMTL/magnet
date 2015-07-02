@@ -4,24 +4,35 @@
   </h1>
   <ul class="collection">
     {{#each messages}}
-      <li class="collection-item avatar">
-        <img src="{{photo}}" alt="" class="circle">
-        <p>{{message}}</p>
-        <span class="secondary-content">
-          {{#if canDelete}}
-            <a href="#"><i class="material-icons tiny">delete</i></a>
-          {{/if}}
-          <a href="#"><i class="material-icons">thumb_up</i></a>
-        </span>
-      </li>
+      {{> Message}}
     {{/each}}
   </ul>
   {{#if currentUser}}
-    <li class="collection-item avatar">
-      <form role="form" class="form form-inline">
-        <input type="text" class="form-control" name="message" placeholder="Question? or answer 😄" value="{{message}}" autofocus />
-        <button type="submit" class="secondary-content"><i class="material-icons btn">send</i></button>
-      </form>
-    </li>
+    <form role="form" class="form form-inline">
+      <label for="message">Message:</label>
+      <input type="text" class="form-control" id="message" name="message" placeholder="Question? or answer 😄" value="{{message}}" autofocus />
+      <button type="submit" class="btn"><i class="material-icons">send</i></button>
+    </form>
   {{/if}}
+</template>
+
+<template name="Message">
+  <li id="{{_id}}" class="collection-item avatar {{css_class}}">
+    <img src="{{photo}}" alt="" class="circle">
+    <p>{{message}}</p>
+    <span class="secondary-content">
+      {{#if canDelete}}
+        <a href="#"><i class="material-icons tiny delete">delete</i></a>
+      {{/if}}
+      {{#if canLike}}
+        {{likes}}
+        <a href="#"><i class="material-icons thumbs_up">thumb_up</i></a>
+      {{else}}
+        {{likes}}
+        {{#if likes}}
+          <i class="material-icons thumbs_up">thumb_up</i>
+        {{/if}}
+      {{/if}}
+    </span>
+  </li>
 </template>

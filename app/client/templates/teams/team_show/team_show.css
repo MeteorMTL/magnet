@@ -3,3 +3,18 @@
 /*****************************************************************************/
 .team-show {
 }
+
+.popout {
+    animation: popout 1.5s ease;
+    -webkit-animation: popout 1.5s ease;
+}
+@keyframes popout {
+    from { transform: scale(0); background-color: white; }
+    40% { transform: scale(1.2); background-color: orange; }
+    60% { transform: scale(1); background-color: blue; }
+}
+@-webkit-keyframes popout {
+    from { -webkit-transform: scale(0); background-color: white; }
+    40% { -webkit-transform: scale(1.2); background-color: orange; }
+    60% { -webkit-transform: scale(1); background-color: blue; }
+}

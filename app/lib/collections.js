@@ -1,7 +1,7 @@
-Charts = new orion.collection('charts');
-Commitments = new orion.collection('commitments');
-Photos = new orion.collection('photos');
-Reactions = new orion.collection('reactions');
+Charts = new Mongo.Collection('charts');
+Commitments = new Mongo.Collection('commitments');
+Photos = new Mongo.Collection('photos');
+Reactions = new Mongo.Collection('reactions');
 Teams = new orion.collection('teams', {
   tabular: {
     columns: [
@@ -11,8 +11,8 @@ Teams = new orion.collection('teams', {
     ]
   }
 });
-Topics = new orion.collection('topics');
-Votes = new orion.collection('votes');
+Topics = new Mongo.Collection('topics');
+Votes = new Mongo.Collection('votes');
 Messages = new orion.collection('messages', {
   tabular: {
     columns: [
@@ -23,3 +23,4 @@ Messages = new orion.collection('messages', {
     ]
   }
 });
+Likes = new Mongo.Collection('likes');
