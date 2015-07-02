@@ -4,6 +4,6 @@
 .topics {
 }
 
-span.points {
-  float: right;
+.voting-explain {
+  color: gray;
 }

@@ -1,27 +1,31 @@
 <template name="TeamShow">
   <h1>
-    <i class="material-icons large">chat</i> {{team.name}}
+    {{team.name}} Chat <i class="material-icons">chat</i>
   </h1>
   <ul class="collection">
     {{#each messages}}
       <li class="collection-item avatar">
         <img src="{{photo}}" alt="" class="circle">
         <p>{{message}}</p>
-        <span class="secondary-content">
+        <!--<span class="secondary-content">
           {{#if canDelete}}
             <a href="#"><i class="material-icons tiny">delete</i></a>
           {{/if}}
           <a href="#"><i class="material-icons">thumb_up</i></a>
-        </span>
+        </span>-->
       </li>
     {{/each}}
   </ul>
   {{#if currentUser}}
-    <li class="collection-item avatar">
-      <form role="form" class="form form-inline">
-        <input type="text" class="form-control" name="message" placeholder="Question? or answer 😄" value="{{message}}" autofocus />
-        <button type="submit" class="secondary-content"><i class="material-icons btn">send</i></button>
-      </form>
-    </li>
+    <form class="col s12">
+      <div class="row valign-wrapper">
+        <div class="input-field col s10">
+          <input name="message" type="text" class="validate" placeholder="Question? Answer. 😄" value="{{message}}">
+        </div>
+        <div class="col s2">
+          <button type="submit" class="btn"><i class="material-icons">send</i></button>
+        </div>
+      </div>
+    </form>
   {{/if}}
 </template>
