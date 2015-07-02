@@ -1,4 +1,4 @@
-this.getAvailablePoints = function () {
+this.getUsedPoints = function () {
   var user = Meteor.user();
   if (user) {
     var usedPoints;
@@ -14,6 +14,10 @@ this.getAvailablePoints = function () {
           return sum + points;
         });
     }
-    return 20 - usedPoints;
+    return usedPoints;
   }
+};
+
+this.getAvailablePoints = function () {
+  return 20 - getUsedPoints();
 };

@@ -34,7 +34,8 @@ Template.Topics.helpers({
   topics: function () {
     return Topics.find({}, {sort: {totalPoints: -1}});
   },
-  availablePoints: getAvailablePoints
+  availablePoints: getAvailablePoints,
+  usedPoints: getUsedPoints
 });
 
 /*****************************************************************************/

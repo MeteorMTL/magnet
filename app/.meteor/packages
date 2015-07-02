@@ -24,7 +24,6 @@ momentjs:moment
 
 dburles:collection-helpers
 spiderable
-sacha:spin
 okgrow:analytics
 
 aldeed:delete-button

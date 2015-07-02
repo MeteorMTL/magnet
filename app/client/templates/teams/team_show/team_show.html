@@ -1,6 +1,6 @@
 <template name="TeamShow">
   <h1>
-    <i class="material-icons large">chat</i> {{team.name}}
+    {{team.name}} Chat <i class="material-icons">chat</i>
   </h1>
   <ul class="collection">
     {{#each messages}}
@@ -8,10 +8,15 @@
     {{/each}}
   </ul>
   {{#if currentUser}}
-    <form role="form" class="form form-inline">
-      <label for="message">Message:</label>
-      <input type="text" class="form-control" id="message" name="message" placeholder="Question? or answer 😄" value="{{message}}" autofocus />
-      <button type="submit" class="btn"><i class="material-icons">send</i></button>
+    <form class="col s12">
+      <div class="row valign-wrapper">
+        <div class="input-field col s10">
+          <input name="message" type="text" class="validate" placeholder="Question? Answer. 😄" value="{{message}}">
+        </div>
+        <div class="col s2">
+          <button type="submit" class="btn"><i class="material-icons">send</i></button>
+        </div>
+      </div>
     </form>
   {{/if}}
 </template>

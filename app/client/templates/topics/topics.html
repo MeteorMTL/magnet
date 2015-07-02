@@ -1,19 +1,23 @@
 <template name="Topics">
   <div class="row">
     {{#if canVote}}
-      <p>Use keywords to find people <span class="points">{{availablePoints}} to distribute</span></p>
+      <p>Use keywords to find people</p>
     {{/if}}
     <div class="list-group">
       {{#each topics}}
         {{> Topic}}
       {{/each}}
+      <p class="voting-explain">‎Viewing keywords votes them up; you voted {{usedPoints}}/20 times. Use the green button to reclaim your votes</p>
     </div>
     {{#if currentUser}}
-      <p>‎Viewing keywords votes them upward; use the green button to remove votes</p>
-      <form role="form" class="form form-inline">
-        <div class="form-group">
-          <input type="text" class="form-control" name="name" placeholder="New Keyword" value="{{name}}" />
-          <button type="submit" class="btn">Add</button>
+      <form class="col s12">
+        <div class="row valign-wrapper">
+          <div class="input-field col s10">
+            <input placeholder="New Keyword" id="first_name" type="text" value="{{name}}">
+          </div>
+          <div class="col s2">
+            <button type="submit" class="btn">Add</button>
+          </div>
         </div>
       </form>
     {{/if}}

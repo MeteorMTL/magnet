@@ -1,18 +1,14 @@
 Meteor.startup(function () {
-
   bootstrapUsers();
-
   var charts = Charts.findOne({});
   if (!charts) {
     Charts.insert({name: "stront-points", description: "Strong Points", instructions: "Has the leader led well?"});
     Charts.insert({name: "consider-improving", description: "Consider Improving", instructions: "Did anyone burn out? How to avoid?"});
   }
-
-  bootstrapTeams();
+  //bootstrapTeams();
 });
 
 function bootstrapUsers() {
-
   var users = Meteor.users.find({emails: {$elemMatch: {address: {$in: ["davidrowley01@gmail.com", "paulcu@gmail.com", "yannick@bcimontreal.org", "ari.ramdial@gmail.com", "yasir.siddiqui@gmail.com", "ogourment@smarterportal.com"]}}}});
 
   if (!Roles._collection.findOne({"name": "organizer"})) {
@@ -30,17 +26,13 @@ function bootstrapUsers() {
       Roles.addUserToRoles(user._id, ['admin']);
     }
   });
-
-  console.log('bootstrapUsers', Meteor.users.find().count());
+  //console.log('bootstrapUsers', Meteor.users.find().count());
 }
 
 function bootstrapTeams() {
-
   var user = Meteor.users.findOne();
-
   var message = Messages.findOne({});
   if (!message) {
-
     var team = Teams.findOne({});
     if (!team) {
       teamId = Teams.insert({
@@ -65,6 +57,5 @@ function bootstrapTeams() {
     });
   }
 
-  console.log('bootstrapTeams teams:%d messages:%d',
-    Teams.find().count(), Messages.find().count());
+  console.log('bootstrapTeams teams:%d messages:%d', Teams.find().count(), Messages.find().count());
 }

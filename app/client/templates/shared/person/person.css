@@ -2,27 +2,39 @@
 /* Person: Style */
 /*****************************************************************************/
 .person {
-  max-width: 130px;
+  max-width: 120px;
   display: inline-block;
-  border: 1px solid #b2dfdb;
+  border: 1px solid #ffe0b2;
   padding: 5px;
-  margin: 2px;
+  margin: 0 3px 0 0;
   background-color: white;
   vertical-align: top;
   border-radius: 4px;
 }
 
+ul.social-icons {
+  padding: 0;
+  margin: 2px;
+}
+
+ul.social-icons > li {
+  display: inline-block;
+  padding: 0;
+  margin-right: 4px;
+}
+
 ul.topics-list {
   padding: 0;
+  margin: 5px 0;
 }
 
 ul.topics-list > li {
   display: inline-block;
   margin-right: 8px;
-  background-color: #80d8ff;
+  background-color: #eceff1;
   border-radius: 3px;
   padding: 1px 5px;
-  margin: 1px;
+  margin: 1px 0;
 }
 
 ul.reactions-list {

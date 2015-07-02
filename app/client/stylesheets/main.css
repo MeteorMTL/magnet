@@ -1,12 +1,6 @@
 /*****************************************************************************/
 /* main: Style */
 /*****************************************************************************/
-input[type="text"], textarea {
-  width: 100%;
-  padding: 5px;
-  margin: 2px;
-}
-
 .xs-topic {
   font-size: 14px;
   display: inline-block;
@@ -23,7 +17,7 @@ input[type="text"], textarea {
   font-size: 26px;
   display: inline-block;
 }
-.F {
+.xl-topic {
   font-size: 30px;
   display: inline-block;
 }
@@ -38,4 +32,12 @@ input[type="text"], textarea {
 
 img {
   max-width: 300px;
+}
+
+.row {
+  margin-bottom: 5px;
+}
+
+section {
+  margin-bottom: 30px;
 }
