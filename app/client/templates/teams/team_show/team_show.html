@@ -4,16 +4,7 @@
   </h1>
   <ul class="collection">
     {{#each messages}}
-      <li class="collection-item avatar">
-        <img src="{{photo}}" alt="" class="circle">
-        <p>{{message}}</p>
-        <!--<span class="secondary-content">
-          {{#if canDelete}}
-            <a href="#"><i class="material-icons tiny">delete</i></a>
-          {{/if}}
-          <a href="#"><i class="material-icons">thumb_up</i></a>
-        </span>-->
-      </li>
+      {{> Message}}
     {{/each}}
   </ul>
   {{#if currentUser}}
@@ -28,4 +19,25 @@
       </div>
     </form>
   {{/if}}
+</template>
+
+<template name="Message">
+  <li id="{{_id}}" class="collection-item avatar {{css_class}}">
+    <img src="{{photo}}" alt="" class="circle">
+    <p>{{message}}</p>
+    <span class="secondary-content">
+      {{#if canDelete}}
+        <a href="#"><i class="material-icons tiny delete">delete</i></a>
+      {{/if}}
+      {{#if canLike}}
+        {{likes}}
+        <a href="#"><i class="material-icons thumbs_up">thumb_up</i></a>
+      {{else}}
+        {{likes}}
+        {{#if likes}}
+          <i class="material-icons thumbs_up">thumb_up</i>
+        {{/if}}
+      {{/if}}
+    </span>
+  </li>
 </template>

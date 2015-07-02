@@ -2,12 +2,14 @@ TeamShowController = RouteController.extend({
   subscriptions: function () {
     this.subscribe('Photos').wait();
     this.subscribe('Messages').wait();
+    this.subscribe('Likes').wait();
   },
   waitOn: function () {
     return [
       Meteor.subscribe('Teams'),
       Meteor.subscribe('UserData'),
-      Meteor.subscribe('Messages', Router.current().params._id)
+      Meteor.subscribe('Messages', Router.current().params._id),
+      Meteor.subscribe('Likes', Router.current().params._id)
     ];
   },
   data: function () {
