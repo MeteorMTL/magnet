@@ -2,7 +2,8 @@
 /* Me: Event Handlers */
 /*****************************************************************************/
 Template.Me.events({
-  'click button': function () {
+  'click .material-icons': function () {
+    console.log("camera clicked");
     var cameraOptions = {
       width: 800,
       height: 600
