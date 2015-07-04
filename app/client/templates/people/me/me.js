@@ -2,7 +2,7 @@
 /* Me: Event Handlers */
 /*****************************************************************************/
 Template.Me.events({
-  'click button': function () {
+  'click #photo_camera': function () {
     var cameraOptions = {
       width: 800,
       height: 600
