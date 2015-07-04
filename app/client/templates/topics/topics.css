@@ -7,3 +7,21 @@
 .voting-explain {
   color: gray;
 }
+
+.new-keyword-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.flex-inline-container input[type=text] {
+  margin-right: 20px;
+}
+
+.new-keyword-container button {
+  flex-grow: 1;
+  position: static;
+  display: inline-block;
+  align-self: center;
+}

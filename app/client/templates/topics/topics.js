@@ -2,10 +2,11 @@
 /* Topics: Event Handlers */
 /*****************************************************************************/
 Template.Topics.events({
-  "submit form": function (event, template) {
+  "submit #new-keyword": function (event, template) {
     event.preventDefault();
-    var input = event.target.name;
-    var topicId = Topics.insert({name: input.value, totalPoints: 0});
+    var name = event.target.name;
+    console.log("value: ", name.value);
+    var topicId = Topics.insert({name: name.value, totalPoints: 0});
     var topic = Topics.findOne({_id: topicId});
     var user = Meteor.user();
     if (user) {
@@ -20,7 +21,7 @@ Template.Topics.events({
       }
       Topics.update({_id: topic._id}, {$inc: {totalPoints: 1}});
     }
-    input.value = '';
+    name.value = '';
   }
 });
 

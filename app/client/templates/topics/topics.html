@@ -10,12 +10,10 @@
       <p class="voting-explain">‎Viewing keywords votes them up; you voted {{usedPoints}}/20 times. Use the green button to reclaim your votes</p>
     </div>
     {{#if currentUser}}
-      <form class="col s12">
-        <div class="row valign-wrapper">
-          <div class="input-field col s10">
-            <input placeholder="New Keyword" id="first_name" type="text" value="{{name}}">
-          </div>
-          <div class="col s2">
+      <form id="new-keyword" class="col s12">
+        <div class="row">
+          <div class="new-keyword-container">
+            <input name="name" placeholder="New Keyword" type="text" value="{{name}}">
             <button type="submit" class="btn">Add</button>
           </div>
         </div>
