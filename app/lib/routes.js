@@ -4,6 +4,16 @@ Router.configure({
   notFoundTemplate: 'NotFound'
 });
 
+Router.onBeforeAction((function() {
+  if (!Meteor.user()) {
+    return this.render("AccessDenied");
+  } else {
+    return this.next();
+  }
+}), {
+  only: ["profile"]
+});
+
 Router.route('/', {
   name: 'Home',
   controller: 'HomeController',
@@ -98,6 +108,14 @@ Router.route('charts', {
 Router.route('people', {
   name: 'People',
   controller: 'PeopleController',
+  action: 'action',
+  where: 'client'
+});
+
+
+Router.route('profile', {
+  name: 'profile',
+  controller: 'ProfileController',
   action: 'action',
   where: 'client'
 });

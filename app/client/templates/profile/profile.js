@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /* Me: Event Handlers */
 /*****************************************************************************/
-Template.Me.events({
+Template.Profile.events({
   'click #photo_camera': function () {
     var cameraOptions = {
       width: 800,
@@ -41,7 +41,7 @@ Template.Me.events({
 /*****************************************************************************/
 /* Me: Helpers */
 /*****************************************************************************/
-Template.Me.helpers({
+Template.Profile.helpers({
   email: function () {
     email = "You need to log in or register";
     if (Meteor.user()) {
@@ -69,11 +69,11 @@ Template.Me.helpers({
 /*****************************************************************************/
 /* Me: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Me.created = function () {
+Template.Profile.created = function () {
 };
 
-Template.Me.rendered = function () {
+Template.Profile.rendered = function () {
 };
 
-Template.Me.destroyed = function () {
+Template.Profile.destroyed = function () {
 };

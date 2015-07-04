@@ -17,6 +17,13 @@
             Teaming
           {{/linkTo}}
         </li>
+        {{#if currentUser}}
+          <li class="{{active '/teams'}}">
+            {{#linkTo route='profile'}}
+              My Profile
+            {{/linkTo}}
+          </li>
+        {{/if}}
         <li>
           {{> atNavButton}}
         </li>
@@ -32,6 +39,13 @@
             Teaming
           {{/linkTo}}
         </li>
+        {{#if currentUser}}
+          <li class="{{active '/teams'}}">
+            {{#linkTo route='profile'}}
+              My Profile
+            {{/linkTo}}
+          </li>
+        {{/if}}
         <li>
           {{> atNavButton}}
         </li>

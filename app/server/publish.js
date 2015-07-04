@@ -14,6 +14,10 @@ Meteor.publish('Photos', function () {
   return Photos.find();
 });
 
+Meteor.publish('ProfilePhoto', function () {
+  return Photos.find({userId: this.userId});
+});
+
 Meteor.publish("UserData", function () {
   return Meteor.users.find({}, {fields: {
     'profile.name': 1,
