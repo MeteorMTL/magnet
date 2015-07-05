@@ -7,7 +7,9 @@
       {{#each topics}}
         {{> Topic}}
       {{/each}}
-      <p class="voting-explain">‎Viewing keywords votes them up; you voted {{usedPoints}}/20 times. Use the green button to reclaim your votes</p>
+      {{#if currentUser}}
+        <p class="voting-explain">‎Viewing keywords automatically votes them up; you voted {{usedPoints}}/20 times. Use the green button to down-vote keywords and reclaim your votes</p>
+      {{/if}}
     </div>
     {{#if currentUser}}
       <form id="new-keyword" class="col s12">
