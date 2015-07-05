@@ -1,3 +1,50 @@
+.input-field label.active {
+  font-size: 0.8rem;
+  -webkit-transform: translateY(-180%);
+  -moz-transform: translateY(-180%);
+  -ms-transform: translateY(-180%);
+  -o-transform: translateY(-180%);
+  transform: translateY(-180%);
+}
+
+.collection {
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 2.508rem;
+  margin: 1.14rem 0 0.912rem 0;
+}
+
+h2 {
+  font-size: 1.9rem;
+  line-height: 2.1rem;
+  margin: 0.95rem 0 0.82rem 0;
+}
+
+h3 {
+  font-size: 1.60rem;
+  line-height: 1.804rem;
+  margin: 0.82rem 0 0.656rem 0;
+}
+
+h4 {
+  font-size: 1.42rem;
+  line-height: 1.6rem;
+  margin: 0.71rem 0 0.58rem 0;
+}
+
+h5 {
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  margin: 0.65rem 0 0.5rem 0;
+}
+
 /*****************************************************************************/
 /* main: Style */
 /*****************************************************************************/

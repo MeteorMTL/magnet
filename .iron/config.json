@@ -1,8 +1,8 @@
 {
   "engines": {
-    "html": "html",
-    "js": "js",
-    "css": "css"
+    "html": "jade",
+    "js": "coffee",
+    "css": "scss"
   },
 
   "template": {

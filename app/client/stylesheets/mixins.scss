@@ -1,0 +1,27 @@
+@mixin transition-all() {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+@mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@mixin sans-serif-font() {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin serif-font() {
+    font-family: "Cardo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin heading-font() {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: $themePrimary;
+}

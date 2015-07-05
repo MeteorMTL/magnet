@@ -6,6 +6,8 @@
 meteor-platform
 coffeescript
 fourseven:scss
+mquandalle:jade
+
 accounts-password
 mdg:camera
 
