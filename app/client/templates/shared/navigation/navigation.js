@@ -15,6 +15,15 @@ Template.Navigation.events({
 /* Navigation: Helpers */
 /*****************************************************************************/
 Template.Navigation.helpers({
+  myName: function (){
+    // if a user exists use the profile name, if that is no good use the email if all fails use 'who'
+    return Meteor.user() ? 
+             Meteor.user().profile.name ? 
+	       Meteor.user().profile.name : 
+	         Meteor.user().emails[0].address ?
+	           Meteor.user().emails[0].address : "who"
+	   : "who";
+  }
 });
 
 /*****************************************************************************/

@@ -18,9 +18,9 @@
           {{/linkTo}}
         </li>
         {{#if currentUser}}
-          <li class="{{active '/teams'}}">
+          <li class="{{active '/profile'}}">
             {{#linkTo route='profile'}}
-              My Profile
+	    {{myName}}'s Profile
             {{/linkTo}}
           </li>
         {{/if}}
@@ -40,9 +40,9 @@
           {{/linkTo}}
         </li>
         {{#if currentUser}}
-          <li class="{{active '/teams'}}">
+          <li class="{{active '/profile'}}">
             {{#linkTo route='profile'}}
-              My Profile
+	    {{myName}}'s Profile
             {{/linkTo}}
           </li>
         {{/if}}
