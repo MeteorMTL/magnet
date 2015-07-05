@@ -3,7 +3,9 @@
 /*****************************************************************************/
 Template.Team.events({
   "click .join": function (event, template) {
+   if (!Template.Team.helpers.participating)
     Commitments.insert({teamId: this._id, userId: Meteor.userId()});
+   else alert ("you are already on the team");
   },
   "click .leave": function (event, template) {
     var commitment = Commitments.findOne({teamId: this._id, userId: Meteor.userId()});
