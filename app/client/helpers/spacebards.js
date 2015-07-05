@@ -1,9 +1,5 @@
 Template.registerHelper("active", function (path) {
-  if (Router.current().url === path) {
-    return "active";
-  } else {
-    return "";
-  }
+  return Router.current().url === path ? "active" : "";
 });
 
 Template.registerHelper("debug", function (optionalValue) {
@@ -26,5 +22,6 @@ Template.registerHelper("debug", function (optionalValue) {
 });
 
 Template.registerHelper("isInRole", function(role) {
-  return Roles.userHasRole(Meteor.user()._id, 'organizer');
+  role = typeof role !== 'undefined' ? role : 'organizer';
+  return Meteor.user() ? Roles.userHasRole(Meteor.user()._id, role):"";
 });
