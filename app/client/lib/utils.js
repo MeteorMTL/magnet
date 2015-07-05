@@ -1,10 +1,9 @@
 this.getUsedPoints = function () {
-  var user = Meteor.user();
-  if (user) {
-    var usedPoints;
-    var votes = Votes.find({userId: user._id}).fetch();
-    if (!votes.length) usedPoints = 0;
-    else {
+// count the number of Votes by this user
+  if (Meteor.user()) {
+    var usedPoints = 0;
+    var votes = Votes.find({userId: Meteor.user()._id}).fetch();
+    if (votes.length) {
       usedPoints = _.reduce(_.map(
         votes,
         function (vote) {
