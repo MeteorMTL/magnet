@@ -1,3 +1,6 @@
 <template name="TopicEdit">
-  <h1>Find me in app/client/templates/topic_edit/topic_edit</h1>
+  {{#autoForm id="topicEditForm" collection="Topics" type="update" doc=this}}
+    {{> afQuickField name="name"}}
+    <button type="submit" class="btn">Update Topic</button>
+  {{/autoForm}}
 </template>

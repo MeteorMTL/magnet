@@ -2,6 +2,9 @@
 /* TopicEdit: Event Handlers */
 /*****************************************************************************/
 Template.TopicEdit.events({
+  "submit #topicEditForm": function (event, Template) {
+    Router.go("/")
+  }
 });
 
 /*****************************************************************************/

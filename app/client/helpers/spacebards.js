@@ -26,5 +26,5 @@ Template.registerHelper("debug", function (optionalValue) {
 });
 
 Template.registerHelper("isInRole", function(role) {
-  return Roles.userHasRole(user._id, 'organizer');
+  return Roles.userHasRole(Meteor.user()._id, 'organizer');
 });
