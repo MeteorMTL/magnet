@@ -4,6 +4,8 @@
 # but you can also edit it by hand.
 
 meteor-platform
+service-configuration
+accounts-ui
 coffeescript
 fourseven:scss
 mquandalle:jade
@@ -34,3 +36,7 @@ mrt:moment-timezone
 d3
 reywood:publish-composite
 nicolaslopezj:roles
+accounts-facebook
+accounts-google
+accounts-twitter
+accounts-github
