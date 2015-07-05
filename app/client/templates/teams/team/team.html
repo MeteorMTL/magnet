@@ -1,19 +1,11 @@
 <template name="Team">
   {{#if currentUser}}
-    {{#if participating}}
-      <button class="btn leave pull-right">
-        <i class="fa fa-sign-out"></i> Quit Project
-      </button>
-    {{else}}
-      <button class="btn join pull-right">
-        <i class="fa fa-sign-in"></i> Join Team
-      </button>
-    {{/if}}
+    {{#linkTo route='TeamShow' class='btn right'}}
+      <i class="material-icons left">chat_bubble_outline</i> Team Chat
+    {{/linkTo}}
   {{/if}}
   <h1>
-    {{name}} - {{purpose}} {{#linkTo route='TeamShow'}}
-    <i class="material-icons">chat</i>
-    {{/linkTo}}
+    {{name}} - {{purpose}}
   </h1>
   {{> Players}}
   <ul class="topics-list">
@@ -21,4 +13,17 @@
       <li>{{name}}</li>
     {{/each}}
   </ul>
+  {{#if currentUser}}
+    <div class="row">
+      {{#if participating}}
+        <button class="btn-flat leave right">
+          <i class="material-icons left">clear</i> Quit Project
+        </button>
+      {{else}}
+        <button class="btn join right">
+          <i class="material-icons left">input</i> Join Team
+        </button>
+      {{/if}}
+    </div>
+  {{/if}}
 </template>

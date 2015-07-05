@@ -41,3 +41,11 @@ img {
 section {
   margin-bottom: 30px;
 }
+
+i.material-icons.left {
+  margin-right: 7px;
+}
+
+i.material-icons.right {
+  margin-left: 7px;
+}
