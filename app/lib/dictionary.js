@@ -5,7 +5,7 @@ orion.dictionary.addDefinition('name', 'site', {
 
 orion.dictionary.addDefinition('email', 'site', {
   type: String,
-  label: "Site Name"
+  label: "Site Email Contact"
 });
 
 orion.dictionary.addDefinition('company.name', 'site', {
