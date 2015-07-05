@@ -93,6 +93,8 @@ orionjs:lang-en@1.1.1
 orionjs:materialize@1.1.6
 orionjs:pages@1.1.2
 orionjs:summernote@1.1.0
+pauli:accounts-linkedin@1.1.2
+pauli:linkedin@1.1.2
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
