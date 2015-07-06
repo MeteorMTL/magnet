@@ -1,6 +1,3 @@
-/*****************************************************************************/
-/* TopicShow: Event Handlers */
-/*****************************************************************************/
 Template.TopicShow.events({
   "click .edit": function () {
     Router.go('TopicEdit', {_id: Router.current().params._id});
@@ -16,9 +13,6 @@ Template.TopicShow.events({
   }
 });
 
-/*****************************************************************************/
-/* TopicShow: Helpers */
-/*****************************************************************************/
 Template.TopicShow.helpers({
   voters: function () {
     var topicVotes = Votes.find({_id: this.params._id})
@@ -26,9 +20,6 @@ Template.TopicShow.helpers({
   }
 });
 
-/*****************************************************************************/
-/* TopicShow: Lifecycle Hooks */
-/*****************************************************************************/
 Template.TopicShow.created = function () {
 };
 
