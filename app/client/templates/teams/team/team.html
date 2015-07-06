@@ -4,26 +4,27 @@
       <i class="material-icons left">chat_bubble_outline</i> Team Chat
     {{/linkTo}}
   {{/if}}
-  <h1>
-    {{name}} - {{purpose}}
-  </h1>
+  <h2>{{name}}</h2>
+  <p class="purpose">{{purpose}}</p>
   {{> Players}}
-  <ul class="topics-list">
-    {{#each topics}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-  {{#if currentUser}}
-    <div class="row">
-      {{#if participating}}
-        <button class="btn-flat leave right">
-          <i class="material-icons left">clear</i> Quit Project
-        </button>
-      {{else}}
-        <button class="btn join right">
-          <i class="material-icons left">input</i> Join Team
-        </button>
-      {{/if}}
-    </div>
-  {{/if}}
+  <div class="team-footer">
+    <ul class="topics-list">
+      {{#each topics}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
+    {{#if currentUser}}
+      <div class="team-actions">
+        {{#if participating}}
+          <button class="btn-flat leave right">
+            <i class="material-icons left">clear</i> Quit Project
+          </button>
+        {{else}}
+          <button class="btn join right">
+            <i class="material-icons left">input</i> Join Team
+          </button>
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
 </template>

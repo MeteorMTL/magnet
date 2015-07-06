@@ -3,13 +3,10 @@
     {{#if canVote}}
       <p>Use keywords to find people</p>
     {{/if}}
-    <div class="list-group">
+    <div class="keywords">
       {{#each topics}}
         {{> Topic}}
       {{/each}}
-      {{#if currentUser}}
-        <p class="voting-explain">‎Viewing keywords automatically votes them up; you voted {{usedPoints}}/20 times. Use the green button to down-vote keywords and reclaim your votes</p>
-      {{/if}}
     </div>
     {{#if currentUser}}
       <form id="new-keyword" class="col s12">
@@ -20,6 +17,7 @@
           </div>
         </div>
       </form>
+      <p class="voting-explain">‎Viewing keywords automatically votes them up; you voted {{usedPoints}}/20 times<br />Use the green button to down-vote keywords and reclaim your votes</p>
     {{/if}}
   </div>
 </template>
