@@ -2,14 +2,10 @@
   <div class="row">
     <div class="col s12">
       {{#if currentUser}}
-        <p>Team up</p>
-        <form role="form" class="form" id="new-team-form">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Team Name" value="{{name}}" />
-            <input type="text" class="form-control" name="purpose" placeholder="Purpose" value="{{purpose}}" />
-            <button type="submit" class="btn">Create Team</button>
-          </div>
-        </form>
+        {{#linkTo route="TeamNew"}}
+          <button type="submit" class="btn right">Create Team</button>
+        {{/linkTo}}
+        <h1>Team up on small projects</h1>
       {{else}}
         <p>Sign in to join teams or create your own project</p>
       {{/if}}

@@ -70,13 +70,6 @@ Router.route('topics/:_id/edit', {
   where: 'client'
 });
 
-Router.route('teams', {
-  name: 'Teams',
-  controller: 'TeamsController',
-  action: 'action',
-  where: 'client'
-});
-
 Router.route('teams/:_id', {
   name: 'TeamShow',
   controller: 'TeamShowController',

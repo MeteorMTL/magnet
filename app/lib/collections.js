@@ -16,6 +16,37 @@ Topics.attachSchema(new SimpleSchema({
   name: {
     type: String,
     label: "Name"
+  },
+  totalPoints: {
+    type: Number,
+    label: "Total Points",
+    optional: true,
+  },
+  created: {
+    type: Date,
+    label: "Created At",
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date;
+      } else if (this.isUpsert) {
+        return {
+          $setOnInsert: new Date
+        };
+      } else {
+        return this.unset();
+      }
+    }
+  },
+  updated: {
+    type: Date,
+    label: "Updated At",
+    autoValue: function() {
+      return new Date();
+    }
+  },
+  authorId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id
   }
 }));
 Votes = new orion.collection('votes');
