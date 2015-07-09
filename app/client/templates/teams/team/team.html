@@ -7,6 +7,16 @@
   <h2>{{name}}</h2>
   <p class="purpose">{{purpose}}</p>
   {{> Players}}
+
+  {{#if latestMessage}}
+    <p>
+      {{#linkTo route='TeamShow'}}
+        <i class="material-icons left">chat_bubble_outline</i>
+        <i>"{{latestMessage}}"</i>
+      {{/linkTo}}
+    </p>
+  {{/if}}
+
   <div class="team-footer">
     <ul class="topics-list">
       {{#each topics}}

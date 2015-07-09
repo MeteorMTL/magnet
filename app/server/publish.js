@@ -36,6 +36,10 @@ Meteor.publish('Messages', function (teamId) {
   return Messages.find({teamId: teamId});
 });
 
+Meteor.publish('LatestMessages', function () {
+  return Messages.find({}, {sort: {createdAt: -1}, limit: 1});
+});
+
 Meteor.publish('Likes', function (teamId) {
   return Likes.find({teamId: teamId});
 });
