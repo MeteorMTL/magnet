@@ -41,6 +41,10 @@ Template.TeamShow.helpers({
   messages: function () {
     var teamId = Router.current().params._id;
     return Messages.find({teamId: teamId}, {sort: {createdAt: 1}});
+  },
+  photo: function () {
+    userPhoto = Photos.findOne({userId: Meteor.userId()});
+    return userPhoto ? userPhoto.data : "";
   }
 });
 

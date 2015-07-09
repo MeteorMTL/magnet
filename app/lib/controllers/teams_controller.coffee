@@ -10,7 +10,8 @@
       Meteor.subscribe("Teams"),
       Meteor.subscribe("UserData"),
       Meteor.subscribe("Commitments"),
-      Meteor.subscribe("Reactions")
+      Meteor.subscribe("Reactions"),
+      Meteor.subscribe("LatestMessages")
     ]
   data: ->
     teams: ->
