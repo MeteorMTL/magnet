@@ -28,6 +28,14 @@ Template.Team.helpers({
       return false;
     }
   },
+  latestMessage: function () {
+    var teamId = this._id;
+    var messages = Messages.find({teamId: teamId}, {sort: {createdAt: -1}}).fetch();
+    if (messages.length) {
+      return messages[0].message;
+    }
+    return '';
+  },
   topics: function () {
     var teamId = this._id;
     var commitments = Commitments.find({teamId: teamId}).fetch();

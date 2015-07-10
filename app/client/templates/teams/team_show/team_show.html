@@ -10,6 +10,9 @@
   {{#if currentUser}}
     <form class="col s12">
       <div class="row valign-wrapper">
+        <div class="col s2">
+          <img src="{{photo}}" class="circle" height="50px" width="50px" />
+        </div>
         <div class="input-field col s10">
           <input name="message" type="text" class="validate" placeholder="Question? Answer. 😄" value="{{message}}">
         </div>

@@ -4,6 +4,11 @@
 
 .btn {
   background-color: #03a9f4;
+  &.delete, &.edit {
+    margin: 2px;
+    padding: 0px 10px;
+    background-color: #a1887f;
+  }
 }
 
 .btn:hover {
