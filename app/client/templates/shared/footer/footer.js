@@ -2,6 +2,10 @@
 /* Footer: Event Handlers */
 /*****************************************************************************/
 Template.Footer.events({
+  'click .__alert': function(e, t) {
+    msg="Live social teaming for in-person events: http://speedteam.ca. Find team mates, do micro-projects";
+    AntiModals.alert({title: "About", message: msg});
+  }
 });
 
 /*****************************************************************************/
