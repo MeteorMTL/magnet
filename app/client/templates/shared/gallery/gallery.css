@@ -1,0 +1,39 @@
+/* CSS declarations go here */
+
+#anti-modal-box {
+  width: 1200px;
+}
+#acc-wrap {
+  height: 400px;
+  width: 1200px;
+}
+/*
+#accdiv {
+	height: 300px;
+	overflow: hidden;
+	
+	}
+
+#accul {
+	width: 5000px;
+	margin: 0;
+	padding: 0;
+}
+
+#accul.hover .accli,
+#accul:hover .accli {
+	width: 100px;
+}
+ */
+#accordion .accli {
+	display: inline;
+	float: left;
+	width: 198.33333333333334px;
+	height: 360px;
+	-webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+	box-shadow: -10px 0 15px 0 rgba(0,0,0,0.2);
+	border-left: 2px solid rgba(255, 255, 255, 0.5);
+	position: relative;
+	box-sizing: content-box;
+}
