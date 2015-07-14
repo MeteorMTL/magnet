@@ -9,6 +9,7 @@
       {{/each}}
     </div>
     {{#if currentUser}}
+    {{#if anyPoints}}
       <form id="new-keyword" class="col s12">
         <div class="row">
           <div class="new-keyword-container">
@@ -18,6 +19,9 @@
         </div>
       </form>
       <p class="voting-explain">‎Viewing keywords automatically votes them up; you voted {{usedPoints}}/20 times<br />Use the green button to down-vote keywords and reclaim your votes</p>
+    {{else}}
+      <p class="voting-explain">‎You voted too many times<br />Use the green button to down-vote keywords and reclaim your votes</p>
+    {{/if}}
     {{/if}}
   </div>
 </template>

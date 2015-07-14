@@ -2,34 +2,33 @@
   <div class="topic">
     {{#if currentUser}}
       {{#if canUpvote}}
-        {{#if totalPoints}}
+        {{#if totalPoints}} <!-- user has hit their max -->
           {{#linkTo route='TopicShow' class="btn plusOne"}}
             <div class="{{topicSize}}">{{name}}</div>
             <span class="right">&nbsp;+ {{totalPoints}}</span>
           {{/linkTo}}
-        {{else}}
+        {{else}} <!-- !totalPoints -->
           <a class="btn plusOne">
             <div class="topic {{topicSize}}">{{name}}</div>
           </a>
         {{/if}}
       {{else}}
-        {{#linkTo route='TopicShow' class="btn unvotable"}}
-          <div class="{{topicSize}}">
-            {{name}}
-          </div>
-          <span class="right">&nbsp;+ {{totalPoints}}</span>
-        {{/linkTo}}
+        {{> unvotable }}<!-- !upvote --> 
       {{/if}}
       {{#if canDownvote}}
         <a class="btn minusOne">- {{points}}</a>
       {{/if}}
     {{else}}
-      {{#linkTo route='TopicShow' class="btn unvotable"}}
-        <div class="{{topicSize}}">
-          {{name}}
-        </div>
-        <span class="right">&nbsp;+ {{totalPoints}}</span>
-      {{/linkTo}}
+      {{> unvotable }}<!-- !currentUser or 'not loggedin' -->
     {{/if}}
   </div>
+</template>
+
+<template name="unvotable">
+  {{#linkTo route='TopicShow' class="btn unvotable"}}
+    <div class="{{topicSize}}">
+	{{name}}
+    </div>
+    <span class="right">&nbsp;+ {{totalPoints}}</span>
+{{/linkTo}}
 </template>
