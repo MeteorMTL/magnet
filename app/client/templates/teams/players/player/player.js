@@ -77,8 +77,11 @@ Template.Player.helpers({
   charts: function () {
     return Charts.find({});
   },
+  creator: function () {
+    return this._id === Template.parentData(1).createdBy ? "organizer":"";
+  },
   inTeamCanFeedback: function () {
-    var commitments = Commitments.find({userId: Meteor.userId()}).fetch();
+	  var commitments = Commitments.find({userId: Meteor.userId()}).fetch();
     var userId = this._id;
     var teamId = Template.parentData(1)._id;
     if (commitments && (Meteor.userId() != userId)) {

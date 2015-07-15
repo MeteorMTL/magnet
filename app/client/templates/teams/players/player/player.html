@@ -1,15 +1,17 @@
 <template name="Player">
-  <div class="player">
+  <div class="player {{creator}}">
     {{#if photo}}
       <div>
-        <img src="{{photo}}" class="responsive-img player-photo"/>
+	      <img src="{{photo}}" class="responsive-img player-photo "/>
       </div>
     {{else}}
       <div>
-        <img src="/img/people/default.jpg" class="responsive-img"/>
+	      <img src="/img/people/default.jpg" class="responsive-img "/>
       </div>
     {{/if}}
     <p>{{profile.name}}</p>
+    <p>{{profile.firstName}}</p>
+    
     <!--{{#if editing}}
       <form role="form" class="form" id="reaction-form">
         <div class="form-group">

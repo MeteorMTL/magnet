@@ -20,3 +20,7 @@ this.getUsedPoints = function () {
 this.getAvailablePoints = function () {
   return 20 - getUsedPoints();
 };
+this.getAnyPoints = function () {
+	console.log  (getAvailablePoints());
+  return getAvailablePoints() > 0;
+};
