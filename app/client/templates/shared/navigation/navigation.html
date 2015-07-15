@@ -7,20 +7,20 @@
         {{/linkTo}}
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="{{active '/'}}">
-          {{#linkTo route='Home'}}
-            Keywords
-          {{/linkTo}}
-        </li>
         <li class="{{active '/teams'}}">
           {{#linkTo route='Teams'}}
             Teaming
           {{/linkTo}}
         </li>
+        <li class="{{active '/keywords'}}">
+          {{#linkTo route='Keywords'}}
+            Keywords
+          {{/linkTo}}
+        </li>
         {{#if currentUser}}
           <li class="{{active '/profile'}}">
             {{#linkTo route='profile'}}
-	    {{myName}} Profile
+	             {{myName}}
             {{/linkTo}}
           </li>
         {{/if}}
@@ -29,20 +29,20 @@
         </li>
       </ul>
       <ul id="slide-out" class="side-nav">
-        <li class="{{active '/'}}">
-          {{#linkTo route='Home'}}
-            Key Words
-          {{/linkTo}}
-        </li>
         <li class="{{active '/teams'}}">
           {{#linkTo route='Teams'}}
             Teaming
           {{/linkTo}}
         </li>
+        <li class="{{active '/keywords'}}">
+          {{#linkTo route='Keywords'}}
+            Keywords
+          {{/linkTo}}
+        </li>
         {{#if currentUser}}
           <li class="{{active '/profile'}}">
             {{#linkTo route='profile'}}
-	    {{myName}} Profile
+	            {{myName}}
             {{/linkTo}}
           </li>
         {{/if}}

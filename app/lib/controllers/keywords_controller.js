@@ -1,4 +1,4 @@
-HomeController = RouteController.extend({
+KeywordsController = RouteController.extend({
   layoutTemplate: 'MasterLayout',
   subscriptions: function () {
     this.subscribe('Photos').wait();
@@ -14,6 +14,6 @@ HomeController = RouteController.extend({
     ];
   },
   action: function () {
-    this.render('Home');
+    this.render('Keywords');
   }
 });

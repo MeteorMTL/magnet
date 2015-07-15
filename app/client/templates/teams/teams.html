@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col s12">
       {{#if currentUser}}
-        {{#linkTo route="TeamNew"}}
-          <button type="submit" class="btn right">Create Team</button>
-        {{/linkTo}}
-        <p>Team up on small projects</p>
+        <div class="section-header">
+          {{#linkTo route="TeamNew"}}
+            <button id="create-team" type="submit" class="btn right"><i class="material-icons left">add</i>Create Team</button>
+          {{/linkTo}}
+          <p>Team up on small projects</p>
+        </div>
       {{else}}
         <p>Sign in to join teams or create your own project</p>
       {{/if}}

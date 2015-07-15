@@ -3,3 +3,15 @@
 /*****************************************************************************/
 .teams {
 }
+
+.section-header {
+  margin: 10px 0;
+  clear: both;
+  overflow: auto;
+}
+
+button#create-team {
+  position: static;
+  display: inline-block;
+  background-color: #ff9800;
+}

@@ -2,7 +2,7 @@
 /* Person: Style */
 /*****************************************************************************/
 .person {
-  max-width: 120px;
+  max-width: 100px;
   display: inline-block;
   border: 1px solid #ffe0b2;
   padding: 4px;
