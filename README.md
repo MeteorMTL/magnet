@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/MeteorMTL/magnet.png?label=ready&title=Ready)](https://waffle.io/MeteorMTL/magnet)
 # magnet
 Live social teaming for in-person events: http://speedteam.ca (International Startup Fest instance)
 
