@@ -1,8 +1,7 @@
 /*****************************************************************************/
 /* Navigation: Style */
 /*****************************************************************************/
-.navigation {
-}
+.navigation {}
 
 button#at-nav-button.navbar-btn {
   padding: 8px 16px;
@@ -12,4 +11,9 @@ button#at-nav-button.navbar-btn {
 nav {
   color: white;
   background-color: #ff7043;
+  .brand-logo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

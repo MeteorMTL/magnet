@@ -1,6 +1,4 @@
-Template.Teams.events {
-  
-}
+Template.Teams.events {}
 
 Template.Teams.helpers {}
 

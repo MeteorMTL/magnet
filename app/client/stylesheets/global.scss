@@ -88,3 +88,9 @@ i.material-icons.left {
 i.material-icons.right {
   margin-left: 7px;
 }
+
+.container:after { 
+   content: "";
+   display: block;
+   clear: both;
+}

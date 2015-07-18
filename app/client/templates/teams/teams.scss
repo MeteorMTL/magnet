@@ -1,8 +1,7 @@
 /*****************************************************************************/
 /* Teams: Style */
 /*****************************************************************************/
-.teams {
-}
+.teams {}
 
 .section-header {
   margin: 10px 0;
@@ -10,8 +9,6 @@
   overflow: auto;
 }
 
-button#create-team {
-  position: static;
-  display: inline-block;
+a#create-team {
   background-color: #ff9800;
 }

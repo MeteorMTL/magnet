@@ -1,11 +1,9 @@
 <template name="Navigation">
   <nav>
     <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">
-        {{#linkTo route='Teams'}}
-          {{dict 'site.name' 'Magnet'}}
-        {{/linkTo}}
-      </a>
+      {{#linkTo route='Teams' class="brand-logo"}}
+        {{dict 'site.name' 'Magnet'}}
+      {{/linkTo}}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="{{active '/teams'}}">
           {{#linkTo route='Teams'}}
@@ -20,7 +18,7 @@
         {{#if currentUser}}
           <li class="{{active '/profile'}}">
             {{#linkTo route='profile'}}
-	             {{myName}}
+	            {{myName}}
             {{/linkTo}}
           </li>
         {{/if}}
