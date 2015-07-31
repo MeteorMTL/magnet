@@ -26,6 +26,45 @@
     {{#if currentUser}}
       <div class="team-actions">
         {{#if participating}}
+	    {{#if creator}}
+
+	    {{#if playersNotOnTeam.length}}
+	    <form role="form" class="form" id="addPlayersForm">
+		    <div class="form-group">
+			    <select name="selectPlayer">
+				    {{#each playersNotOnTeam}}
+				    <option value="{{_id}}">{{profile.name}}{{profile.firstName}}</option> 
+				    {{/each}}
+
+			    </select>
+		    </div>
+		    <button type="submit" class="btn btn-primary addPlayers">Add Players To Team</button>
+	    </form>
+	    {{/if}}
+
+
+	    {{#if players.length}}
+	    {{#if playersLengthGreaterThanOne}}
+
+	    <form role="form" class="form" id="changeOwnerForm">
+            <div class="form-group">
+	    <select name="select">
+		    {{#each players}}
+		    <option value="{{_id}}">{{profile.name}}{{profile.firstName}}</option> 
+		    {{/each}}
+
+	    </select>
+            </div>
+	    <button type="submit" class="btn btn-primary changeOwner">Change Owner</button>
+            </form>
+	    {{/if}}
+	    {{#if playersLengthEqualsOne}}
+	      <button class="btn-flat changeOwner right">
+	         <i class="material-icons left">clear</i> Change Owner
+	      </button>
+	    {{/if}}
+	    {{/if}}
+	    {{/if}}
           <button class="btn-flat leave right">
             <i class="material-icons left">clear</i> Quit Project
           </button>
