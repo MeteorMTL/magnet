@@ -3,6 +3,11 @@ Router.configure
   loadingTemplate: "Loading"
   notFoundTemplate: "NotFound"
 
+Router.before(->
+  @subscribe("pages")
+  @next()
+)
+
 Router.onBeforeAction (->
   unless Meteor.user()
     @render "AccessDenied"
