@@ -1,8 +1,10 @@
 [![Stories in Ready](https://badge.waffle.io/MeteorMTL/magnet.png?label=ready&title=Ready)](https://waffle.io/MeteorMTL/magnet)
-# magnet
-Live social teaming for in-person events: http://speedteam.ca (International Startup Fest instance)
+# Magnet
+Live social teaming for in-person events. Find team mates, do micro-projects
 
-Find team mates, do micro-projects
+Montreal: http://speedteam.ca
+
+UX MTL: http://ux.speedteam.ca
 
 ## Previous event instances:
 1. Magnet at the eHealth Conference - http://magnet.meteor.com/
