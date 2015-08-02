@@ -1,5 +1,4 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/MeteorMTL/magnet?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Stories in Ready](https://badge.waffle.io/MeteorMTL/magnet.png?label=ready&title=Ready)](https://waffle.io/MeteorMTL/magnet)
 
 # Magnet
