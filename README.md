@@ -3,7 +3,7 @@
 [![Stories in Ready](https://badge.waffle.io/MeteorMTL/magnet.png?label=ready&title=Ready)](https://waffle.io/MeteorMTL/magnet)
 
 # Magnet
-Live social teaming for in-person events. Find team mates, do micro-projects
+Teaming for in-person events. Find team mates, work on small projects, broadcast your team!
 
 Montreal: http://speedteam.ca
 
