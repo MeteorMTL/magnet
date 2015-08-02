@@ -1,8 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/MeteorMTL/magnet?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Stories in Ready](https://badge.waffle.io/MeteorMTL/magnet.png?label=ready&title=Ready)](https://waffle.io/MeteorMTL/magnet)
 
-# Magnet
-Teaming for in-person events. Find team mates, work on small projects, broadcast your team!
+# Magnet - Teaming for Events
+Find team mates, work on small projects, get better feedback!
 
 Montreal: http://speedteam.ca
 
