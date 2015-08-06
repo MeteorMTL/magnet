@@ -17,11 +17,35 @@
     </p>
   {{/if}}
 
+	  <p>
+	  <div class="keywords"> 
+		  {{#each teamTopics}}
+		  <div class="topic btn">{{name}}</div>
+		  {{/each}}
+	  </div>
+	  </p>
   <div class="team-footer">
-    <ul class="topics-list">
-      {{#each topics}}
-        <li>{{name}}</li>
-      {{/each}}
+    <ul class="teamTopics-list">
+      <form role="form" class="form" id="addPlayersKeywordsForm">
+	      <div class="form-group">
+		      <select name="selectPlayerKeywords">
+			      {{#each topics}}
+			      <option value="{{name}}">{{name}}</option> 
+			      {{/each}}
+
+		      </select>
+	      </div>
+	      <button type="submit" class="btn btn-primary addPlayersKeywords">Add Players Keywords To Team</button>
+      </form>
+
+      <form id="new-keyword" class="form">
+        <div class="row">
+          <div class="new-keyword-container">
+            <input name="name" placeholder="New Keyword" type="text" value="{{xoxoxname}}">
+            <button type="submit" class="btn">Add</button>
+          </div>
+        </div>
+      </form>
     </ul>
     {{#if currentUser}}
       <div class="team-actions">

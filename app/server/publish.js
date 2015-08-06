@@ -26,6 +26,7 @@ Meteor.publish("UserData", function () {
     'lastAnnounced': 1,
     'profile.facebook': 1,
     'profile.twitter': 1,
+    'profile.firstName': 1,
     'profile.linkedin': 1}});
 });
 
@@ -51,6 +52,11 @@ Meteor.publish('TopicTeams', function (topicId) {
   var commitments = Commitments.find({userId: {$in: userIds}}).fetch();
   var teamIds = _.pluck(commitments, "teamId");
   return Teams.find({_id: {$in: teamIds}});
+});
+
+Meteor.publish('TeamTopics', function () {
+  //console.log(TeamTopics.find().fetch());
+  return TeamTopics.find();
 });
 
 Meteor.publish('Commitments', function () {

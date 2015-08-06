@@ -11,6 +11,48 @@ Teams = new orion.collection('teams', {
     ]
   }
 });
+TeamTopics = new orion.collection('teamTopics');
+TeamTopics.attachSchema(new SimpleSchema({
+  name: {
+    type: String,
+    label: "Name"
+  },
+  totalPoints: {
+    type: Number,
+    label: "Total Points",
+    optional: true,
+  },
+  created: {
+    type: Date,
+    label: "Created At",
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date;
+      } else if (this.isUpsert) {
+        return {
+          $setOnInsert: new Date
+        };
+      } else {
+        return this.unset();
+      }
+    }
+  },
+  updated: {
+    type: Date,
+    label: "Updated At",
+    autoValue: function() {
+      return new Date();
+    }
+  },
+  teamId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id
+  },
+  authorId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id
+  }
+}));
 Topics = new orion.collection('topics');
 Topics.attachSchema(new SimpleSchema({
   name: {
