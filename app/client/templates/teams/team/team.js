@@ -10,7 +10,27 @@ Template.Team.events({
    var newPlayer = event.target.selectPlayer.value;
    if (!Commitments.findOne({teamId: this._id, userId: newPlayer})) {
       Commitments.insert({teamId: this._id, userId: newPlayer});
-   } else { alert ("you are already on the team"); }
+   } else { alert ("already exists"); }
+  },
+"submit #addPlayersKeywordsForm": function (event, template) {
+	event.preventDefault();
+	var newTeamTopic = event.target.selectPlayerKeywords.value;
+	if (!TeamTopics.findOne({teamId: this._id, authorId: Meteor.userId(), name: newTeamTopic})) {
+		TeamTopics.insert({teamId: this._id, authorId: Meteor.userId(), name: newTeamTopic});
+	} else { alert ("already exists"); }
+},
+ "submit #new-keyword": function (event, template) {
+   event.preventDefault();
+   var newTeamTopic = event.target.name.value;
+   console.log(newTeamTopic);
+   if (newTeamTopic.length === 0) {
+     alert("can't be blank");
+     return;
+   }
+   if (!TeamTopics.findOne({teamId: this._id, authorId: Meteor.userId(), name: newTeamTopic})) {
+      TeamTopics.insert({teamId: this._id, authorId: Meteor.userId(), name: newTeamTopic});
+      event.target.name.value="";
+   } else { alert ("you are not on the team"); }
   },
  "submit #changeOwnerForm": function (event, template) {
    event.preventDefault();
@@ -99,6 +119,11 @@ Template.Team.helpers({
       return messages[0].message;
     }
     return '';
+  },
+  teamTopics: function () {
+    console.log("team topics");
+    //return TeamTopics.find({});
+    return TeamTopics.find({teamId: this._id});
   },
   topics: function () {
     var teamId = this._id;
