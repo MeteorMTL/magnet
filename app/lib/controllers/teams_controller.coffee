@@ -4,8 +4,7 @@
     @subscribe("Reactions").wait()
     @subscribe("Charts").wait()
     @subscribe("Votes").wait()
-  waitOn: ->
-    [
+  waitOn: -> [
       Meteor.subscribe("Topics"),
       Meteor.subscribe("Teams"),
       Meteor.subscribe("UserData"),
