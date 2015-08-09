@@ -19,9 +19,9 @@ Router.onBeforeAction (->
 Router.route "/", ->
   this.redirect('Teams');
 
-Router.route "keywords",
-  name: "Keywords"
-  controller: "KeywordsController"
+Router.route "words",
+  name: "Words"
+  controller: "WordsController"
   action: "action"
   where: "client"
 
@@ -120,3 +120,9 @@ Router.route "t/:_id/edit",
   controller: "TeamsController"
   action: "new"
   where: "client"
+
+Router.route 'keywords',
+  name: 'keywords'
+  controller: 'KeywordsController'
+  action: 'action'
+  where: 'client'

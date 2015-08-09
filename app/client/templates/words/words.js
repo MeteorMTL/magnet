@@ -1,23 +1,23 @@
 /*****************************************************************************/
 /* Home: Event Handlers */
 /*****************************************************************************/
-Template.Keywords.events({
+Template.Words.events({
 });
 
 /*****************************************************************************/
 /* Home: Helpers */
 /*****************************************************************************/
-Template.Keywords.helpers({
+Template.Words.helpers({
 });
 
 /*****************************************************************************/
 /* Home: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Keywords.created = function () {
+Template.Words.created = function () {
 };
 
-Template.Keywords.rendered = function () {
+Template.Words.rendered = function () {
 };
 
-Template.Keywords.destroyed = function () {
+Template.Words.destroyed = function () {
 };

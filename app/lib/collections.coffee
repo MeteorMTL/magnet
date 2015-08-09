@@ -20,12 +20,10 @@ TeamTopics.attachSchema new SimpleSchema(
   name:
     type: String
     label: "Name"
-
   totalPoints:
     type: Number
     label: "Total Points"
     optional: true
-
   created:
     type: Date
     label: "Created At"
@@ -36,17 +34,38 @@ TeamTopics.attachSchema new SimpleSchema(
         $setOnInsert: new Date
       else
         @unset()
-
   updated:
     type: Date
     label: "Updated At"
     autoValue: ->
       new Date()
-
   teamId:
     type: String
     regEx: SimpleSchema.RegEx.Id
-
+  authorId:
+    type: String
+    regEx: SimpleSchema.RegEx.Id
+)
+@Keywords = new orion.collection('keywords')
+Keywords.attachSchema new SimpleSchema(
+  name:
+    type: String
+    label: "Keyword Name"
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
   authorId:
     type: String
     regEx: SimpleSchema.RegEx.Id
@@ -56,12 +75,10 @@ Topics.attachSchema new SimpleSchema(
   name:
     type: String
     label: "Name"
-
   totalPoints:
     type: Number
     label: "Total Points"
     optional: true
-
   created:
     type: Date
     label: "Created At"
@@ -72,13 +89,11 @@ Topics.attachSchema new SimpleSchema(
         $setOnInsert: new Date
       else
         @unset()
-
   updated:
     type: Date
     label: "Updated At"
     autoValue: ->
       new Date()
-
   authorId:
     type: String
     regEx: SimpleSchema.RegEx.Id

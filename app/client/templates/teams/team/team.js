@@ -65,7 +65,7 @@ _players = function(teamId) {
 	userIds = _.reject(userIds,function(id){ return id  === Meteor.userId(); });
 	players = Meteor.users.find({_id: {$in: userIds}}).fetch();
 	//console.log(players);
-	return players;    
+	return players;
 }
 
 _changeOwner = function(teamId) {
@@ -101,16 +101,16 @@ Template.Team.helpers({
 	  commitments = Commitments.find({teamId: this._id}).fetch();
 	  userIds = _.pluck(commitments, "userId");
 	  players = Meteor.users.find({_id: {$nin: userIds}}).fetch();
-	  return players;    
+	  return players;
   },
   players: function() {
 	  return _players(this._id);
   },
   playersLengthGreaterThanOne : function() {
-	  return _players(this._id).length > 1;    
+	  return _players(this._id).length > 1;
   },
   playersLengthEqualsOne: function() {
-	  return _players(this._id).length === 1;    
+	  return _players(this._id).length === 1;
   },
   latestMessage: function () {
     var teamId = this._id;
@@ -121,8 +121,6 @@ Template.Team.helpers({
     return '';
   },
   teamTopics: function () {
-    console.log("team topics");
-    //return TeamTopics.find({});
     return TeamTopics.find({teamId: this._id});
   },
   topics: function () {
