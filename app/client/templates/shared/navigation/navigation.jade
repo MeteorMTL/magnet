@@ -1,0 +1,39 @@
+template(name="Navigation")
+  nav
+    .nav-wrapper.container
+      +linkTo(route='Teams' class="brand-logo")
+        | {{dict 'site.name' 'Magnet'}}
+      ul#nav-mobile.right.hide-on-med-and-down
+        li(class="{{active '/teams'}}")
+          +linkTo(route='Teams')
+            | Teaming
+        li(class="{{active '/keywords'}}")
+          +linkTo(route='Keywords')
+            | Keywords
+        li(class="{{active '/words'}}")
+          +linkTo(route='Words')
+            | Words
+        if currentUser
+          li(class="{{active '/profile'}}")
+            +linkTo(route='profile')
+              | {{myName}}
+        li
+          +atNavButton
+      ul#slide-out.side-nav
+        li(class="{{active '/teams'}}")
+          +linkTo(route='Teams')
+            | Teaming
+        li(class="{{active '/keywords'}}")
+          +linkTo(route='Keywords')
+            | Keywords
+        li(class="{{active '/words'}}")
+          +linkTo(route='Words')
+            | Words
+        if currentUser
+          li(class="{{active '/profile'}}")
+            +linkTo(route='profile')
+              | {{myName}}
+        li
+          +atNavButton
+      a(href="#" data-activates="slide-out" class="button-collapse")
+        i(class="mdi-navigation-menu")

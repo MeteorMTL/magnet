@@ -122,7 +122,7 @@ Router.route "t/:_id/edit",
   where: "client"
 
 Router.route 'keywords',
-  name: 'keywords'
+  name: 'Keywords'
   controller: 'KeywordsController'
-  action: 'action'
+  action: 'list'
   where: 'client'

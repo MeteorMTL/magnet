@@ -25,7 +25,6 @@ Meteor.publish "UserData", ->
       "profile.firstName": 1
       "profile.linkedin": 1
 
-
 Meteor.publish "Teams", ->
   Teams.find()
 
@@ -69,3 +68,5 @@ Meteor.publish "Charts", ->
 
 Meteor.publish 'Keywords', ->
   Keywords.find()
+Meteor.publish 'interests', ->
+  Interests.find()

@@ -116,3 +116,4 @@ Topics.attachSchema new SimpleSchema(
      ]
 )
 @Likes = new orion.collection("likes")
+@Interests = new Mongo.Collection('interests')

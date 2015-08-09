@@ -5,7 +5,6 @@ Template.Topics.events({
   "submit #new-keyword": function (event, template) {
     event.preventDefault();
     var name = event.target.name;
-    console.log("value: ", name.value);
     var topicId = Topics.insert({name: name.value, totalPoints: 0, authorId: Meteor.userId()});
     var topic = Topics.findOne({_id: topicId});
     var user = Meteor.user();

@@ -1,2 +1,16 @@
 template(name='Keywords')
-  | Find me in app/client/templates/keywords/keywords
+  .row
+    p Use keywords to team up
+    div.keywords
+      each keywords
+        +Keyword
+    if currentUser
+      form#new-keyword.col.s12
+        .row.new-keyword-container
+          input(name="name" placeholder="New Keyword" type="text" value="{{name}}")
+          button.btn(type="submit") Add
+      p.voting-explain ‎Viewing keywords automatically votes them up; can unvote too
+
+template(name='Keyword')
+  .keyword
+    | #{name}
