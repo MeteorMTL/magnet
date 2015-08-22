@@ -16,6 +16,12 @@ Router.onBeforeAction (->
 ),
   only: [ "profile" ]
 
+Router.route "/login", (->
+  @layout ReactiveTemplates.get("outAdminLayout")
+  @render ReactiveTemplates.get("login")
+),
+  name: "login"
+
 Router.route "/", ->
   this.redirect('Teams');
 
