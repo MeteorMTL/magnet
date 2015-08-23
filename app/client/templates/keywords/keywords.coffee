@@ -8,7 +8,13 @@ Template.Keywords.events {
     name.value = ""
 }
 
-Template.Keywords.helpers {}
+Template.Keywords.helpers {
+  keywords: ->
+    Keywords.find({},
+      sort:
+        name: -1
+    )
+}
 
 # Keywords: Lifecycle Hooks
 Template.Keywords.created = ->

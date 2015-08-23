@@ -1,0 +1,52 @@
+/*****************************************************************************/
+/* Keyword: Style */
+/*****************************************************************************/
+.keyword {
+  color: #3C80F6;
+  display: inline-block;
+  margin-left: 10px;
+  position: relative;
+  background-color: #F6F6F6;
+  padding: 8px 7px 6px;
+  border-radius: 6px;
+  border: none;
+  vertical-align: middle;
+  line-height: 1;
+  top: -1px;
+  white-space: nowrap;
+  &:hover {
+    cursor: pointer;
+    background-color: #F3F3FE;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  a.name {
+    &:hover {
+      cursor: pointer;
+    }
+    &:visited {
+      color: #3F51B5;
+    }
+  }
+
+  span.votes {
+    display: inline-block;
+    position: relative;
+    font-weight: normal;
+    font-size: 11px;
+    text-align: center;
+    color: #919191;
+    background-color: #DEDEDE;
+    padding: 4px 5px 2px 5px;
+    border-radius: 10px;
+    border: none;
+    vertical-align: middle;
+    line-height: 1;
+    top: -1px;
+    white-space: nowrap;
+    margin-left: 2px;
+  }
+}

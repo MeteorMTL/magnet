@@ -132,3 +132,9 @@ Router.route 'keywords',
   controller: 'KeywordsController'
   action: 'list'
   where: 'client'
+
+Router.route 'k/:_id',
+  name: 'KeywordEdit'
+  controller: 'KeywordsController'
+  action: 'edit'
+  where: 'client'

@@ -8,9 +8,7 @@ template(name='Keywords')
       form#new-keyword.col.s12
         .row.new-keyword-container
           input(name="name" placeholder="New Keyword" type="text" value="{{name}}")
-          button.btn(type="submit") Add
-      p.voting-explain ‎Viewing keywords automatically votes them up; can unvote too
-
-template(name='Keyword')
-  .keyword
-    | #{name}
+          button.btn(type="submit")
+            i.material-icons.left add
+            | Add
+      p.voting-explain ‎Viewing keywords automatically votes them up

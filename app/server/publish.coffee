@@ -66,7 +66,24 @@ Meteor.publish "Reactions", ->
 Meteor.publish "Charts", ->
   Charts.find()
 
-Meteor.publish 'Keywords', ->
-  Keywords.find()
 Meteor.publish 'interests', ->
   Interests.find()
+
+Meteor.publish 'Keywords', ->
+  Keywords.find()
+Meteor.publish 'UserKeywords', ->
+  userKeywords = UserKeywords.find()
+  keywords = Keywords.find().fetch()
+  self = @
+  _.each(keywords, (keyword) ->
+    votes = UserKeywords.find(keywordId: keyword._id)
+    Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, votes)
+  )
+  userKeywords
+Meteor.publish 'TeamKeywords', ->
+
+  TeamKeywords.find()
+Meteor.publish 'UserKeywordsUser', ->
+  UserKeywords.find(userId: @userId)
+Meteor.publish 'TeamKeywordsTeam', (teamId) ->
+  TeamKeywords.find(teamId: teamId)

@@ -13,7 +13,7 @@
     ,
       data: "createdBy"
       title: "Created by"
-     ]
+    ]
 )
 @TeamTopics = new orion.collection("teamTopics")
 TeamTopics.attachSchema new SimpleSchema(
@@ -116,4 +116,37 @@ Topics.attachSchema new SimpleSchema(
      ]
 )
 @Likes = new orion.collection("likes")
-@Interests = new Mongo.Collection('interests')
+@Interests = new orion.collection('interests')
+@CommunityKeywords = new orion.collection('community_keywords')
+@EventKeywords = new orion.collection('event_keywords')
+@TeamKeywords = new orion.collection('team_keywords')
+@UserKeywords = new orion.collection('user_keywords')
+UserKeywords.attachSchema new SimpleSchema(
+  userId:
+    type: String
+    label: "User"
+    regEx: SimpleSchema.RegEx.Id
+  keywordId:
+    type: String
+    label: "Keyword"
+    regEx: SimpleSchema.RegEx.Id
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    label: "Author"
+    regEx: SimpleSchema.RegEx.Id
+)

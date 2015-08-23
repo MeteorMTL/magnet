@@ -2,9 +2,13 @@
   layoutTemplate: "SimpleLayout"
   waitOn: -> [
     Meteor.subscribe("Keywords")
+    Meteor.subscribe("UserKeywords")
+    Meteor.subscribe("TeamKeywords")
   ]
   data: ->
-    keywords: Keywords.find({}, {sort: {name: -1}})
+    Keywords.findOne _id: @params._id
   list: ->
     @render "Keywords"
+  edit: ->
+    @render "KeywordEdit"
 )

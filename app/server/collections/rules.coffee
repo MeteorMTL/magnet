@@ -177,3 +177,67 @@ Interests.deny
     false
   remove: (userId, doc) ->
     false
+
+CommunityKeywords.allow
+  insert: (userId, doc) ->
+    true
+  update: (userId, doc, fieldNames, modifier) ->
+    true
+  remove: (userId, doc) ->
+    true
+
+CommunityKeywords.deny
+  insert: (userId, doc) ->
+    false
+  update: (userId, doc, fieldNames, modifier) ->
+    false
+  remove: (userId, doc) ->
+    false
+
+UserKeywords.allow
+  insert: (userId, doc) ->
+    true
+  update: (userId, doc, fieldNames, modifier) ->
+    true
+  remove: (userId, doc) ->
+    true
+
+UserKeywords.deny
+  insert: (userId, doc) ->
+    false
+  update: (userId, doc, fieldNames, modifier) ->
+    false
+  remove: (userId, doc) ->
+    false
+
+TeamKeywords.allow
+  insert: (userId, doc) ->
+    true
+  update: (userId, doc, fieldNames, modifier) ->
+    true
+  remove: (userId, doc) ->
+    true
+
+TeamKeywords.deny
+  insert: (userId, doc) ->
+    false
+  update: (userId, doc, fieldNames, modifier) ->
+    false
+  remove: (userId, doc) ->
+    false
+
+EventKeywords.allow
+  insert: (userId, doc) ->
+    true
+  update: (userId, doc, fieldNames, modifier) ->
+    true
+  remove: (userId, doc) ->
+    true
+
+EventKeywords.deny
+  insert: (userId, doc) ->
+    false
+  update: (userId, doc, fieldNames, modifier) ->
+    false
+  remove: (userId, doc) ->
+    false

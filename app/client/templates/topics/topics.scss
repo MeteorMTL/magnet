@@ -12,17 +12,13 @@
 .new-keyword-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: nowrap;
-}
-
-.new-keyword-container input[type=text] {
-  margin-right: 15px;
-}
-
-.new-keyword-container button {
-  flex-grow: 1;
-  position: static;
-  display: inline-block;
-  align-self: center;
+  input[type=text] {
+    flex: 1 0 0;
+    margin-right: 15px;
+  }
+  button {
+    position: static;
+    display: inline-block;
+  }
 }
