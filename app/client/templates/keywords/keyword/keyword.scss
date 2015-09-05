@@ -3,24 +3,23 @@
 /*****************************************************************************/
 .keyword {
   color: #3C80F6;
-  display: inline-block;
-  margin-left: 10px;
-  position: relative;
+  flex: 0 0 auto;
+  margin: 2px;
   background-color: #F6F6F6;
-  padding: 8px 7px 6px;
+  padding: 8px 7px 5px;
   border-radius: 6px;
   border: none;
-  vertical-align: middle;
-  line-height: 1;
-  top: -1px;
+  line-height: 1rem;
   white-space: nowrap;
+  text-align: center;
+  height: 30px;
   &:hover {
     cursor: pointer;
     background-color: #F3F3FE;
   }
 
-  &:first-child {
-    margin-left: 0;
+  &:last-child {
+    margin-right: 0;
   }
 
   a.name {
@@ -35,6 +34,7 @@
   span.votes {
     display: inline-block;
     position: relative;
+    top: -1px;
     font-weight: normal;
     font-size: 11px;
     text-align: center;
@@ -45,7 +45,6 @@
     border: none;
     vertical-align: middle;
     line-height: 1;
-    top: -1px;
     white-space: nowrap;
     margin-left: 2px;
   }

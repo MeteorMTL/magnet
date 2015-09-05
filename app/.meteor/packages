@@ -13,7 +13,6 @@ mquandalle:jade
 accounts-password
 mdg:camera
 
-materialize:materialize
 
 orionjs:core
 orionjs:materialize
@@ -45,3 +44,4 @@ splendido:accounts-meld
 anti:modals
 anbuselvan:accordion-gallery
 tmeasday:publish-counts
+poetic:materialize-scss
