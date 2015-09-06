@@ -5,12 +5,14 @@
     @subscribe("Charts").wait()
     @subscribe("Votes").wait()
   waitOn: -> [
-      Meteor.subscribe("Topics"),
-      Meteor.subscribe("Teams"),
-      Meteor.subscribe("UserData"),
-      Meteor.subscribe("Commitments"),
-      Meteor.subscribe("Reactions"),
+      Meteor.subscribe("Topics")
+      Meteor.subscribe("Teams")
+      Meteor.subscribe("UserData")
+      Meteor.subscribe("Commitments")
+      Meteor.subscribe("Reactions")
       Meteor.subscribe("LatestMessages")
+      Meteor.subscribe("TeamKeywords")
+      Meteor.subscribe("Keywords")
     ]
   data: ->
     teams: ->

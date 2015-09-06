@@ -2,7 +2,6 @@
 Template.Team.events
   "click .changeOwner": (event, template) ->
     _changeOwner @_id
-
   "submit #addPlayersForm": (event, template) ->
     event.preventDefault()
     newPlayer = event.target.selectPlayer.value
@@ -13,10 +12,8 @@ Template.Team.events
       Commitments.insert
         teamId: @_id
         userId: newPlayer
-
     else
       alert "already exists"
-
   "submit #addPlayersKeywordsForm": (event, template) ->
     event.preventDefault()
     newTeamTopic = event.target.selectPlayerKeywords.value
@@ -29,10 +26,8 @@ Template.Team.events
         teamId: @_id
         authorId: Meteor.userId()
         name: newTeamTopic
-
     else
       alert "already exists"
-
   "submit #new-keyword": (event, template) ->
     event.preventDefault()
     newTeamTopic = event.target.name.value
@@ -48,11 +43,9 @@ Template.Team.events
         teamId: @_id
         authorId: Meteor.userId()
         name: newTeamTopic
-
       event.target.name.value = ""
     else
       alert "you are not on the team"
-
   "submit #changeOwnerForm": (event, template) ->
     event.preventDefault()
     newOwner = event.target.select.value
@@ -65,10 +58,8 @@ Template.Team.events
       ,
         $set:
           createdBy: newOwner
-
     else
       alert "you are not on the team"
-
   "click .join": (event, template) ->
     unless Commitments.findOne(
       teamId: @_id
@@ -77,10 +68,8 @@ Template.Team.events
       Commitments.insert
         teamId: @_id
         userId: Meteor.userId()
-
     else
       alert "you are already on the team"
-
   "click .leave": (event, template) ->
     _changeOwner @_id  if _players(@_id).length > 1 and Meteor.userId() is @createdBy
     commitment = Commitments.findOne(
@@ -137,7 +126,6 @@ _creator = (createdBy) ->
 
 Template.Team.helpers
   participating: ->
-
     #alert("teamID " + this._id);
     if Commitments.findOne(
       teamId: @_id
@@ -146,10 +134,8 @@ Template.Team.helpers
       true
     else
       false
-
   creator: ->
     _creator @createdBy
-
   playersNotOnTeam: ->
     commitments = Commitments.find(teamId: @_id).fetch()
     userIds = _.pluck(commitments, "userId")
@@ -157,16 +143,12 @@ Template.Team.helpers
       $nin: userIds
     ).fetch()
     players
-
   players: ->
     _players @_id
-
   playersLengthGreaterThanOne: ->
     _players(@_id).length > 1
-
   playersLengthEqualsOne: ->
     _players(@_id).length is 1
-
   latestMessage: ->
     teamId = @_id
     messages = Messages.find(
@@ -177,10 +159,8 @@ Template.Team.helpers
     ).fetch()
     return messages[0].message  if messages.length
     ""
-
   teamTopics: ->
     TeamTopics.find teamId: @_id
-
   topics: ->
     teamId = @_id
     commitments = Commitments.find(teamId: teamId).fetch()

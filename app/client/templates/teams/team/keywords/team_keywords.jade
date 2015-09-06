@@ -1,12 +1,11 @@
-template(name='Keywords')
+template(name="TeamKeywords")
   .row
     .col.s12
-      p Explore keywords to team up
       div.keywords
         each keywords
           +Keyword
       if currentUser
-        form#new-keyword.col.s12
+        form#new-team-keyword.col.s12
           .row.new-keyword-container
             input(name="name" placeholder="New Keyword" type="text" value="{{name}}")
             button.btn(type="submit")

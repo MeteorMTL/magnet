@@ -1,5 +1,6 @@
 Template.Keyword.events {
   'click .keyword': (event, template) ->
+    console.log("tmpl.data", template.data)
     event.preventDefault()
     keywordId = template.data._id
     userKeyword = UserKeywords.findOne(userId: Meteor.userId(), keywordId: keywordId)
@@ -14,7 +15,6 @@ Template.Keyword.events {
         userId: Meteor.userId()
         keywordId: keywordId
         authorId: Meteor.userId()
-
     setTimeout(() ->
       Router.go('KeywordEdit', _id: keywordId)
     ,
@@ -25,10 +25,3 @@ Template.Keyword.helpers {
   userKeywordsCount: ->
     Counts.get('userKeywordsByKeyword-' + @_id)
 }
-
-# Keyword: Lifecycle Hooks
-Template.Keyword.created = ->
-
-Template.Keyword.rendered = ->
-
-Template.Keyword.destroyed = ->
