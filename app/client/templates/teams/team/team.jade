@@ -1,0 +1,60 @@
+template(name="Team")
+  if currentUser
+    +linkTo(route='TeamShow' class='btn right')
+      i.material-icons.left chat_bubble_outline
+      | Team Chat
+  h2 {{name}}
+  p.purpose {{purpose}}
+  +Players
+  if latestMessage
+    p
+      linkTo(route='TeamShow')
+        i.material-icons.left chat_bubble_outline
+        i {{latestMessage}}
+    p
+      .keywords
+        +each teamTopics
+          .topic.btn {{name}}
+    .team-footer
+      ul.teamTopics-list
+        form#addPlayersKeywordsForm.form(role="form")
+          .form-group
+            select(name="selectPlayerKeywords")
+              +each topics
+                option(value="{{name}}") {{name}}
+          button.btn.btn-primary.addPlayersKeywords(type="submit") Add Players Keywords To Team
+        form#new-keyword.form
+          .row
+            .new-keyword-container
+              input(name="name" placeholder="New Keyword" type="text" value="{{xoxoxname}}")
+              button.btn(type="submit") Add
+  if currentUser
+    .team-actions
+      if participating
+        if creator
+          if playersNotOnTeam.length
+            form#addPlayersForm.form(role="form")
+              .form-group
+                select(name="selectPlayer")
+                  +each playersNotOnTeam
+                    option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
+              button.btn.btn-primary.addPlayers(type="submit") Add Players To Team
+        if players.length
+          if playersLengthGreaterThanOne
+            form#changeOwnerForm.form(role="form")
+              .form-group
+                select(name="select")
+                  +each players
+                    option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
+              button.btn.btn-primary.changeOwner(type="submit") Change Owner
+          if playersLengthEqualsOne
+            button.btn-flat.changeOwner.right
+               i.material-icons.left clear
+               | Change Owner
+        button.btn-flat.leave.right
+          i.material-icons.left clear
+          | Quit Project
+      else
+        button.btn.join.right
+          i.material-icons.left input
+          | Join Team

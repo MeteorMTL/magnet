@@ -64,8 +64,7 @@ Template.Player.events
 Template.Player.helpers
   photoBackgroundStyle: ->
     userPhoto = Photos.findOne(userId: @_id)
-    console.log("background-image: url('" + userPhoto.data + "')")
-    "background-image: url('" + userPhoto.data + "')" if userPhoto
+    "background-image: url('" + userPhoto?.data + "')" if userPhoto
 
   profile: ->
     user = Meteor.users.findOne(_id: @_id)

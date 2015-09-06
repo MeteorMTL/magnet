@@ -120,6 +120,35 @@ Topics.attachSchema new SimpleSchema(
 @CommunityKeywords = new orion.collection('community_keywords')
 @EventKeywords = new orion.collection('event_keywords')
 @TeamKeywords = new orion.collection('team_keywords')
+TeamKeywords.attachSchema new SimpleSchema(
+  teamId:
+    type: String
+    label: "Team"
+    regEx: SimpleSchema.RegEx.Id
+  keywordId:
+    type: String
+    label: "Keyword"
+    regEx: SimpleSchema.RegEx.Id
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    label: "Author"
+    regEx: SimpleSchema.RegEx.Id
+)
 @UserKeywords = new orion.collection('user_keywords')
 UserKeywords.attachSchema new SimpleSchema(
   userId:
