@@ -1,0 +1,56 @@
+/*****************************************************************************/
+/* Player: Style */
+/*****************************************************************************/
+.player {
+  flex: 0 0 auto;
+  padding: 0;
+  margin: 2px;
+  background-color: #F6F6F6;
+  color: #3C80F6;
+  border-radius: 26px;
+  border: none;
+  line-height: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #FFF3FE;
+  }
+  .avatar {
+    background: url(/img/people/default.jpg) no-repeat center center;
+    flex: 0 0 auto;
+    margin: 0 5px 0 0;
+    border-radius: 26px;
+    border: none;
+    height: 26px;
+    width: 26px;
+    background-size: cover;
+  }
+  span.name {
+    flex: 0 0 auto;
+    color: #919191;
+    border: none;
+    white-space: nowrap;
+    max-width: 338px;
+  }
+  span.cancel {
+    flex: 0 0 auto;
+    padding: 0 10px 0 5px;
+    color: gray;
+    opacity: 0.6;
+    font-size: 20px;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.organizer {
+    background-color: #ede7f6;
+    &:hover {
+      background-color: #FFF3FE;
+    }
+  }
+}
