@@ -18,7 +18,7 @@ Template.Keyword.events {
     setTimeout(() ->
       Router.go('KeywordEdit', _id: keywordId)
     ,
-      500)
+      200)
 }
 
 Template.Keyword.helpers {

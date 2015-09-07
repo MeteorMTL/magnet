@@ -1,3 +1,19 @@
+@roleOrganizer = new Roles.Role("organizer")
+@roleParticipant = new Roles.Role("participant")
+
+Roles.registerAction('userKeywords.insert', false, true)
+UserKeywords.attachRoles "userKeywords"
+roleParticipant.deny "userKeywords.insert", (userId, doc) ->
+  userKeyword = UserKeywords.findOne(userId: userId)
+  if userKeyword then true else false
+roleParticipant.deny "userKeywords.update", (userId, doc, fields, modifier) ->
+  true
+roleParticipant.deny "userKeywords.remove", (userId, doc) ->
+  true
+roleParticipant.allow "userKeywords.insert", (userId, doc) ->
+  doc.authorId is userId and doc.userId is userId
+
+
 Charts.allow
   insert: (userId, doc) ->
     true
@@ -141,21 +157,6 @@ Votes.allow
   remove: (userId, doc) ->
     true
 Votes.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
-Keywords.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Keywords.deny
   insert: (userId, doc) ->
     false
   update: (userId, doc, fieldNames, modifier) ->

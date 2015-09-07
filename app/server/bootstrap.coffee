@@ -4,11 +4,9 @@ bootstrapUsers = ->
       address:
         $in: [ "davidrowley01@gmail.com", "paulcu@gmail.com", "yannick@bcimontreal.org", "ari.ramdial@gmail.com", "yasir.siddiqui@gmail.com", "ogourment@smarterportal.com" ]
   )
-  organizerRole = new Roles.Role("organizer")  unless Roles._collection.findOne(name: "organizer")
-  participantRole = new Roles.Role("participant")  unless Roles._collection.findOne(name: "participant")
   users.forEach (user) ->
-    Roles.addUserToRoles user._id, [ "organizer" ]  unless Roles.userHasRole(user._id, "organizer")
-    Roles.addUserToRoles user._id, [ "admin" ]  unless Roles.userHasRole(user._id, "admin")
+    Roles.addUserToRoles user._id, ["organizer"] unless Roles.userHasRole(user._id, "organizer")
+    Roles.addUserToRoles user._id, ["admin"] unless Roles.userHasRole(user._id, "admin")
 
 Meteor.startup ->
   bootstrapUsers()
