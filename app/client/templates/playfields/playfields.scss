@@ -1,0 +1,15 @@
+/*****************************************************************************/
+/* Playfields: Style */
+/*****************************************************************************/
+.playfields {
+}
+#activePlayfield {
+  width: auto;
+  p {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  af-checkbox-group + label {
+    display: none;
+  }
+}

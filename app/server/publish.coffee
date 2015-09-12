@@ -95,3 +95,9 @@ Meteor.publish 'UserKeywordsUser', ->
   UserKeywords.find(userId: @userId)
 Meteor.publish 'TeamKeywordsTeam', (teamId) ->
   TeamKeywords.find(teamId: teamId)
+
+Meteor.publish 'Playfields', ->
+  Playfields.find()
+
+Meteor.publish 'TeamPlayfields', ->
+  TeamPlayfields.find()

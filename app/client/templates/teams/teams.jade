@@ -1,0 +1,17 @@
+template(name="Teams")
+  .row
+    .col.s12
+      if currentUser
+        .section-header
+          +autoForm(id="activePlayfield" schema=activePlayfieldSchema type="normal")
+            +afQuickField(name="playfieldId")
+          +linkTo(id="create-team" route="TeamNew" class="btn right")
+            i.material-icons.left add
+            | Create Team
+          p Team up on small projects
+      else
+        p Sign in to join teams or create your own project
+      each teams
+        .team
+          +Team
+  +People

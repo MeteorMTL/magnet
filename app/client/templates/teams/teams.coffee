@@ -1,6 +1,9 @@
 Template.Teams.events {}
 
-Template.Teams.helpers {}
+Template.Teams.helpers {
+  activePlayfieldSchema: ->
+    schemas.activePlayfield
+}
 
 Template.Teams.created = ->
 

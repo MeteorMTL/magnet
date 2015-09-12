@@ -5,6 +5,7 @@ Router.configure
 
 Router.before(->
   @subscribe("pages")
+  @subscribe("Playfields")
   @next()
 )
 
@@ -137,4 +138,16 @@ Router.route 'k/:_id',
   name: 'KeywordEdit'
   controller: 'KeywordsController'
   action: 'edit'
+  where: 'client'
+
+Router.route 'playfields',
+  name: 'playfields'
+  controller: 'PlayfieldsController'
+  action: 'action'
+  where: 'client'
+
+Router.route 'team_playfields',
+  name: 'teamPlayfields'
+  controller: 'TeamPlayfieldsController'
+  action: 'action'
   where: 'client'

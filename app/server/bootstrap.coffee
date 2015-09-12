@@ -7,9 +7,13 @@ bootstrapUsers = ->
   users.forEach (user) ->
     Roles.addUserToRoles user._id, ["organizer"] unless Roles.userHasRole(user._id, "organizer")
     Roles.addUserToRoles user._id, ["admin"] unless Roles.userHasRole(user._id, "admin")
+  return Meteor.users.findOne(emails:
+    $elemMatch:
+      address: "paulcu@gmail.com"
+  )
 
 Meteor.startup ->
-  bootstrapUsers()
+  admin = bootstrapUsers()
   charts = Charts.findOne({})
   unless charts
     Charts.insert
@@ -21,6 +25,15 @@ Meteor.startup ->
       name: "consider-improving"
       description: "Consider Improving"
       instructions: "Did anyone burn out? How to avoid?"
+  playfield = Playfields.findOne({})
+  playfieldsNames = ["Meteor", "UX", "Hardware", "Growth Hacking"]
+  unless playfield
+    _.each(playfieldsNames, (playfieldName) ->
+      Playfields.insert
+        name: playfieldName
+        authorId: admin._id
+    )
+
 
 
 

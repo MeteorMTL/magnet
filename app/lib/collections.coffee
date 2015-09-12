@@ -179,3 +179,104 @@ UserKeywords.attachSchema new SimpleSchema(
     label: "Author"
     regEx: SimpleSchema.RegEx.Id
 )
+@Playfields = new orion.collection('playfields',
+  tabular:
+    columns: [
+      data: "name"
+      title: "Playfield Name"
+    ,
+      data: "created"
+      title: "Created"
+    ,
+      data: "updated"
+      title: "Updated"
+    ,
+      data: "authorId"
+      title: "Author"
+    ]
+)
+Playfields.attachSchema new SimpleSchema(
+  name:
+    type: String
+    label: "Playfield Name"
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    regEx: SimpleSchema.RegEx.Id
+)
+@TeamPlayfields = new orion.collection('team_playfields',
+  tabular:
+    columns: [
+      data: "teamId"
+      title: "Team"
+    ,
+      data: "playfieldId"
+      title: "Playfield"
+    ,
+      data: "created"
+      title: "Created"
+    ,
+      data: "updated"
+      title: "Updated"
+    ,
+      data: "authorId"
+      title: "Author"
+    ]
+)
+TeamPlayfields.attachSchema new SimpleSchema(
+  teamId:
+    type: String
+    label: "Team"
+    regEx: SimpleSchema.RegEx.Id
+  playfieldId:
+    type: String
+    label: "Playfield"
+    regEx: SimpleSchema.RegEx.Id
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    label: "Author"
+    regEx: SimpleSchema.RegEx.Id
+)
+@schemas = {}
+schemas.activePlayfield = new SimpleSchema(
+  playfieldId:
+    type: [String]
+    label: "Activate Playfield"
+    autoform:
+      type: "select-checkbox"
+      options: ->
+        _.map Playfields.find().fetch(), (playfield) ->
+          {
+            label: playfield.name
+            value: playfield._id
+          }
+)
