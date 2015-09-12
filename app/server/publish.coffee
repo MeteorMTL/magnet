@@ -1,12 +1,3 @@
-Meteor.publish "Votes", ->
-  Votes.find()
-
-Meteor.publish "Topics", ->
-  Topics.find()
-
-Meteor.publish "Topic", (topicId) ->
-  Topics.find _id: topicId
-
 Meteor.publish "Photos", ->
   Photos.find()
 
@@ -37,23 +28,6 @@ Meteor.publish "LatestMessages", ->
       createdAt: -1
     limit: 1
 
-Meteor.publish "Likes", (teamId) ->
-  Likes.find teamId: teamId
-
-Meteor.publish "TopicTeams", (topicId) ->
-  votes = Votes.find(topicId: topicId).fetch()
-  userIds = _.pluck(votes, "userId")
-  commitments = Commitments.find(userId:
-    $in: userIds
-  ).fetch()
-  teamIds = _.pluck(commitments, "teamId")
-  Teams.find _id:
-    $in: teamIds
-
-Meteor.publish "TeamTopics", ->
-  #console.log(TeamTopics.find().fetch());
-  TeamTopics.find()
-
 Meteor.publish "Commitments", ->
   Commitments.find()
 
@@ -73,8 +47,8 @@ Meteor.publish 'UserKeywords', ->
   keywords = Keywords.find().fetch()
   self = @
   _.each(keywords, (keyword) ->
-    votes = UserKeywords.find(keywordId: keyword._id)
-    Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, votes)
+    userKeywords = UserKeywords.find(keywordId: keyword._id)
+    Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, userKeywords)
   )
   userKeywords
 Meteor.publish 'TeamKeywords', ->
@@ -82,8 +56,8 @@ Meteor.publish 'TeamKeywords', ->
   keywords = Keywords.find().fetch()
   self = @
   _.each(keywords, (keyword) ->
-    votes = UserKeywords.find(keywordId: keyword._id)
-    Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, votes)
+    userKeywords = UserKeywords.find(keywordId: keyword._id)
+    Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, userKeywords)
   )
   teamKeywords
 Meteor.publish 'UserKeywordsUser', ->

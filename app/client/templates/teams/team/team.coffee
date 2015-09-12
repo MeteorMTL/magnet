@@ -14,38 +14,6 @@ Template.Team.events
         userId: newPlayer
     else
       alert "already exists"
-  "submit #addPlayersKeywordsForm": (event, template) ->
-    event.preventDefault()
-    newTeamTopic = event.target.selectPlayerKeywords.value
-    unless TeamTopics.findOne(
-      teamId: @_id
-      authorId: Meteor.userId()
-      name: newTeamTopic
-    )
-      TeamTopics.insert
-        teamId: @_id
-        authorId: Meteor.userId()
-        name: newTeamTopic
-    else
-      alert "already exists"
-  "submit #new-keyword": (event, template) ->
-    event.preventDefault()
-    newTeamTopic = event.target.name.value
-    if newTeamTopic.length is 0
-      alert "can't be blank"
-      return
-    unless TeamTopics.findOne(
-      teamId: @_id
-      authorId: Meteor.userId()
-      name: newTeamTopic
-    )
-      TeamTopics.insert
-        teamId: @_id
-        authorId: Meteor.userId()
-        name: newTeamTopic
-      event.target.name.value = ""
-    else
-      alert "you are not on the team"
   "submit #changeOwnerForm": (event, template) ->
     event.preventDefault()
     newOwner = event.target.select.value
@@ -156,21 +124,6 @@ Template.Team.helpers
     ).fetch()
     return messages[0].message  if messages.length
     ""
-  teamTopics: ->
-    TeamTopics.find teamId: @_id
-  topics: ->
-    teamId = @_id
-    commitments = Commitments.find(teamId: teamId).fetch()
-    userIds = _.pluck(commitments, "userId")
-    topicIds = _.pluck(Votes.find(
-      userId:
-        $in: userIds
-    ,
-      sort:
-        points: -1
-    ).fetch(), "topicId")
-    Topics.find _id:
-      $in: topicIds
   activePlayfieldClass: ->
     if Session.get("activePlayfield") is @.playfieldId
       "activePlayfield"

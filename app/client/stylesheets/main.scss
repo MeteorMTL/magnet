@@ -16,17 +16,14 @@ $primary-color: orange;
 
 @import "client/stylesheets/header.scss";
 
-@import "client/templates/topics/topics.scss";
 @import "client/templates/teams/teams.scss";
 @import "client/templates/teams/team_edit/team_edit.scss";
 @import "client/templates/teams/team_new/team_new.scss";
 
 @import "client/templates/teams/team/team.scss";
-@import "client/templates/topics/topic_show/topic_show.scss";
 @import "client/templates/shared/navigation/navigation.scss";
 @import "client/templates/layouts/page/page.scss";
 @import "client/templates/keywords/keywords.scss";
-@import "client/templates/words/words.scss";
 @import "client/templates/interests/interests.scss";
 @import "client/templates/keywords/keyword_edit/keyword_edit.scss";
 @import "client/templates/keywords/keyword/keyword.scss";

@@ -131,21 +131,6 @@ Teams.deny
   remove: (userId, doc) ->
     false
 
-Topics.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Topics.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
 Meteor.users.allow
   insert: (userId, doc) ->
     true
@@ -154,21 +139,6 @@ Meteor.users.allow
   remove: (userId, doc) ->
     true
 Meteor.users.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
-Votes.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Votes.deny
   insert: (userId, doc) ->
     false
   update: (userId, doc, fieldNames, modifier) ->

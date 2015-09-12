@@ -62,37 +62,6 @@ Teams.after.insert((userId, doc) ->
     teamId: doc._id
     userId: userId
 )
-@TeamTopics = new orion.collection("teamTopics")
-TeamTopics.attachSchema new SimpleSchema(
-  name:
-    type: String
-    label: "Name"
-  totalPoints:
-    type: Number
-    label: "Total Points"
-    optional: true
-  created:
-    type: Date
-    label: "Created At"
-    autoValue: ->
-      if @isInsert
-        new Date
-      else if @isUpsert
-        $setOnInsert: new Date
-      else
-        @unset()
-  updated:
-    type: Date
-    label: "Updated At"
-    autoValue: ->
-      new Date()
-  teamId:
-    type: String
-    regEx: SimpleSchema.RegEx.Id
-  authorId:
-    type: String
-    regEx: SimpleSchema.RegEx.Id
-)
 @Keywords = new orion.collection('keywords')
 Keywords.attachSchema new SimpleSchema(
   name:
@@ -119,35 +88,6 @@ Keywords.attachSchema new SimpleSchema(
     type: String
     regEx: SimpleSchema.RegEx.Id
 )
-@Topics = new orion.collection("topics")
-Topics.attachSchema new SimpleSchema(
-  name:
-    type: String
-    label: "Name"
-  totalPoints:
-    type: Number
-    label: "Total Points"
-    optional: true
-  created:
-    type: Date
-    label: "Created At"
-    autoValue: ->
-      if @isInsert
-        new Date
-      else if @isUpsert
-        $setOnInsert: new Date
-      else
-        @unset()
-  updated:
-    type: Date
-    label: "Updated At"
-    autoValue: ->
-      new Date()
-  authorId:
-    type: String
-    regEx: SimpleSchema.RegEx.Id
-)
-@Votes = new orion.collection("votes")
 @Messages = new orion.collection("messages",
   tabular:
     columns: [

@@ -10,9 +10,6 @@ template(name="Navigation")
         li(class="{{active '/keywords'}}")
           +linkTo(route='Keywords')
             | Keywords
-        li(class="{{active '/words'}}")
-          +linkTo(route='Words')
-            | Words
         if currentUser
           li(class="{{active '/profile'}}")
             +linkTo(route='profile')
@@ -26,9 +23,6 @@ template(name="Navigation")
         li(class="{{active '/keywords'}}")
           +linkTo(route='Keywords')
             | Keywords
-        li(class="{{active '/words'}}")
-          +linkTo(route='Words')
-            | Words
         if currentUser
           li(class="{{active '/profile'}}")
             +linkTo(route='profile')

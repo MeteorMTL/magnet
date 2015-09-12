@@ -23,25 +23,6 @@ ul.social-icons > li {
   margin-right: 4px;
 }
 
-ul.topics-list {
-  position: static;
-  display: inline-block;
-  width: 100%;
-  padding: 0;
-  margin: 4px 0 0 0;
-  overflow: hidden;
-}
-
-ul.topics-list > li {
-  position: static;
-  display: inline-block;
-  margin-right: 8px;
-  background-color: #eceff1;
-  border-radius: 2px;
-  padding: 0px 4px;
-  margin: 2px 0;
-}
-
 ul.reactions-list {
   padding: 0;
 }

@@ -3,9 +3,7 @@
     @subscribe("Photos").wait()
     @subscribe("Reactions").wait()
     @subscribe("Charts").wait()
-    @subscribe("Votes").wait()
   waitOn: -> [
-      Meteor.subscribe("Topics")
       Meteor.subscribe("Teams")
       Meteor.subscribe("UserData")
       Meteor.subscribe("Commitments")
@@ -22,19 +20,6 @@
         sort:
           updated: -1
       )
-    inactivePlayfieldTeams: ->
-      Teams.find(
-        playfieldId:
-          $not: Session.get("activePlayfield")
-      ,
-        sort:
-          updated: -1
-      )
-    partPlayers: (teamId) ->
-      commitments = Commitments.find(teamId: teamId).fetch()
-      userIds = _.pluck(votes, "userId")
-      Meteor.users.find _id:
-        $in: userIds
   list: ->
     @render "Teams", {}
   new: ->

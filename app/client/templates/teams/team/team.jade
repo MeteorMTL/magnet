@@ -13,18 +13,6 @@ template(name="Team")
         linkTo(route='TeamShow')
           i.material-icons.left chat_bubble_outline
           i {{latestMessage}}
-      p
-        .keywords
-          each teamTopics
-            .topic.btn {{name}}
-    .team-footer
-      ul.teamTopics-list
-        form#addPlayersKeywordsForm.form(role="form")
-          .form-group
-            select(name="selectPlayerKeywords")
-              each topics
-                option(value="{{name}}") {{name}}
-          button.btn.btn-primary.addPlayersKeywords(type="submit") Add Players Keywords To Team
       if currentUser
         .team-actions
           if participating
@@ -50,7 +38,7 @@ template(name="Team")
                    | Change Owner
             button.btn-flat.leave.right
               i.material-icons.left clear
-              | Quit Project
+              | Leave Project
           else
             button.btn.join.right
               i.material-icons.left input

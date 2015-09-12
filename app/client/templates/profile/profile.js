@@ -57,13 +57,6 @@ Template.Profile.helpers({
     user = Meteor.user();
     return user.profile;
   },
-  topics: function () {
-    var user = Meteor.user();
-    if (user) {
-      var topicIds = _.pluck(Votes.find({ userId: user._id }).fetch(), 'topicId');
-      return Topics.find({ _id: {$in: topicIds}});
-    }
-  }
 });
 
 /*****************************************************************************/
