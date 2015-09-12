@@ -1,19 +1,63 @@
-@Commitments = new orion.collection("commitments")
+@Commitments = new orion.collection("commitments",
+  tabular:
+    columns: [
+      data: "teamId"
+      title: "Team Id"
+    ,
+      data: "userId"
+      title: "User Id"
+    ,
+      data: "authorId"
+      title: "Author Id"
+    ]
+)
+Commitments.attachSchema new SimpleSchema(
+  teamId:
+    type: String
+    label: "Team"
+    regEx: SimpleSchema.RegEx.Id
+  userId:
+    type: String
+    label: "User"
+    regEx: SimpleSchema.RegEx.Id
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    label: "Author"
+    regEx: SimpleSchema.RegEx.Id
+)
 @Photos = new orion.collection("photos")
 @Teams = new orion.collection("teams",
   tabular:
     columns: [
+      data: "_id"
+      title: "Team Id"
+    ,
       data: "name"
-      title: "Name"
+      title: "Team Name"
     ,
       data: "purpose"
       title: "Purpose"
     ,
       data: "playfieldId"
-      title: "Playfield"
+      title: "Playfield Id"
     ,
       data: "authorId"
-      title: "Author"
+      title: "Author Id"
     ]
 )
 Teams.attachSchema new SimpleSchema(
@@ -60,7 +104,19 @@ Teams.after.insert((userId, doc) ->
     teamId: doc._id
     userId: userId
 )
-@Keywords = new orion.collection('keywords')
+@Keywords = new orion.collection('keywords',
+  tabular:
+    columns: [
+      data: "_id"
+      title: "Keyword Id"
+    ,
+      data: "name"
+      title: "Keyword Name"
+    ,
+      data: "authorId"
+      title: "Author Id"
+    ]
+)
 Keywords.attachSchema new SimpleSchema(
   name:
     type: String
@@ -100,9 +156,21 @@ Keywords.attachSchema new SimpleSchema(
     ,
       data: "userId"
       title: "Who"
+    ]
+)
+@TeamKeywords = new orion.collection('team_keywords',
+  tabular:
+    columns: [
+      data: "teamId"
+      title: "Team Id"
+    ,
+      data: "keywordId"
+      title: "Keyword Id"
+    ,
+      data: "authorId"
+      title: "Author Id"
      ]
 )
-@TeamKeywords = new orion.collection('team_keywords')
 TeamKeywords.attachSchema new SimpleSchema(
   teamId:
     type: String
@@ -132,7 +200,19 @@ TeamKeywords.attachSchema new SimpleSchema(
     label: "Author"
     regEx: SimpleSchema.RegEx.Id
 )
-@UserKeywords = new orion.collection('user_keywords')
+@UserKeywords = new orion.collection('user_keywords',
+  tabular:
+    columns: [
+      data: "userId"
+      title: "User Id"
+    ,
+      data: "keywordId"
+      title: "Keyword Id"
+    ,
+      data: "authorId"
+      title: "Author Id"
+     ]
+)
 UserKeywords.attachSchema new SimpleSchema(
   userId:
     type: String
@@ -165,6 +245,9 @@ UserKeywords.attachSchema new SimpleSchema(
 @Playfields = new orion.collection('playfields',
   tabular:
     columns: [
+      data: "_id"
+      title: "Playfield Id"
+    ,
       data: "name"
       title: "Playfield Name"
     ,
@@ -175,7 +258,7 @@ UserKeywords.attachSchema new SimpleSchema(
       title: "Updated"
     ,
       data: "authorId"
-      title: "Author"
+      title: "Author Id"
     ]
 )
 Playfields.attachSchema new SimpleSchema(
@@ -205,10 +288,10 @@ Playfields.attachSchema new SimpleSchema(
   tabular:
     columns: [
       data: "teamId"
-      title: "Team"
+      title: "Team Id"
     ,
       data: "playfieldId"
-      title: "Playfield"
+      title: "Playfield Id"
     ,
       data: "created"
       title: "Created"
@@ -217,7 +300,7 @@ Playfields.attachSchema new SimpleSchema(
       title: "Updated"
     ,
       data: "authorId"
-      title: "Author"
+      title: "Author Id"
     ]
 )
 TeamPlayfields.attachSchema new SimpleSchema(
