@@ -80,7 +80,6 @@ Template.Team.events
     Teams.remove _id: @_id  unless Commitments.findOne(teamId: @_id)
 
 # Team: Helpers
-
 # a little helper function helpers
 _players = (teamId) ->
 
@@ -172,6 +171,11 @@ Template.Team.helpers
     ).fetch(), "topicId")
     Topics.find _id:
       $in: topicIds
+  activePlayfieldClass: ->
+    if Session.get("activePlayfield") is @.playfieldId
+      "activePlayfield"
+    else
+      ""
 
 # Team: Lifecycle Hooks
 Template.Team.created = ->

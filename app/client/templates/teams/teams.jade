@@ -7,11 +7,10 @@ template(name="Teams")
             i.material-icons.left add
             | Create Team
           p Team up on small projects
-        +autoForm(id="activePlayfield" schema=activePlayfieldSchema type="normal")
+        +autoForm(id="activePlayfield" doc=activePlayfieldDoc schema=activePlayfieldSchema type="normal")
           +afQuickField(name="playfieldId")
       else
         p Sign in to join teams or create your own project
       each teams
-        .team
-          +Team
+        +Team
   +People

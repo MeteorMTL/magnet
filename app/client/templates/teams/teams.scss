@@ -12,3 +12,7 @@
 a#create-team {
   background-color: #ff9800;
 }
+
+select[name=playfieldId] {
+  display: none;
+}

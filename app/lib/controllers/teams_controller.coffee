@@ -16,7 +16,20 @@
     ]
   data: ->
     teams: ->
-      Teams.find {}
+      Teams.find(
+        playfieldId: Session.get("activePlayfield")
+      ,
+        sort:
+          updated: -1
+      )
+    inactivePlayfieldTeams: ->
+      Teams.find(
+        playfieldId:
+          $not: Session.get("activePlayfield")
+      ,
+        sort:
+          updated: -1
+      )
     partPlayers: (teamId) ->
       commitments = Commitments.find(teamId: teamId).fetch()
       userIds = _.pluck(votes, "userId")

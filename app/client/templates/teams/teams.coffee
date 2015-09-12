@@ -1,5 +1,5 @@
 Template.Teams.events {
-  'change #activePlayfield .af-radio-group': (event, template) ->
+  'change select[name=playfieldId]': (event, template) ->
     event.preventDefault()
     $("form#activePlayfield").submit()
 }
@@ -7,6 +7,10 @@ Template.Teams.events {
 Template.Teams.helpers {
   activePlayfieldSchema: ->
     schemas.activePlayfield
+  activePlayfieldDoc: ->
+    {
+      playfieldId: Session.get("activePlayfield")
+    }
 }
 
 Template.Teams.created = ->
