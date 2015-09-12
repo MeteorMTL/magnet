@@ -35,9 +35,7 @@ Meteor.publish "LatestMessages", ->
   Messages.find {},
     sort:
       createdAt: -1
-
     limit: 1
-
 
 Meteor.publish "Likes", (teamId) ->
   Likes.find teamId: teamId
@@ -53,7 +51,6 @@ Meteor.publish "TopicTeams", (topicId) ->
     $in: teamIds
 
 Meteor.publish "TeamTopics", ->
-
   #console.log(TeamTopics.find().fetch());
   TeamTopics.find()
 

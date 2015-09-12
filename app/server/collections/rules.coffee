@@ -245,30 +245,30 @@ EventKeywords.deny
 
 TeamPlayfields.allow
   insert: (userId, doc) ->
-    false
+    true
   update: (userId, doc, fieldNames, modifier) ->
-    false
+    true
   remove: (userId, doc) ->
-    false
+    true
 TeamPlayfields.deny
   insert: (userId, doc) ->
-    true
+    false
   update: (userId, doc, fieldNames, modifier) ->
-    true
+    false
   remove: (userId, doc) ->
-    true
+    false
 
 Playfields.allow
   insert: (userId, doc) ->
-    false
+    true
   update: (userId, doc, fieldNames, modifier) ->
-    false
+    true
   remove: (userId, doc) ->
-    false
+    true
 Playfields.deny
   insert: (userId, doc) ->
-    true
+    false
   update: (userId, doc, fieldNames, modifier) ->
-    true
+    false
   remove: (userId, doc) ->
-    true
+    false

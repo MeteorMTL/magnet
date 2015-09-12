@@ -1,6 +1,2 @@
 template(name='TeamNew')
-  form#new-team-form.form(role='form')
-    .form-group
-      input.form-control(type='text', name='name', placeholder='Team Name', value='{{name}}')
-      input.form-control(type='text', name='purpose', placeholder='Purpose', value='{{purpose}}')
-      button.btn.right(type='submit') Create Team
+  +quickForm(id="teamNew" collection="Teams" type="insert" omitFields="created,updated,authorId")

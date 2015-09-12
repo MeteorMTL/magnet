@@ -1,4 +1,8 @@
-Template.Teams.events {}
+Template.Teams.events {
+  'change #activePlayfield .af-radio-group': (event, template) ->
+    event.preventDefault()
+    $("form#activePlayfield").submit()
+}
 
 Template.Teams.helpers {
   activePlayfieldSchema: ->

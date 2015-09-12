@@ -57,7 +57,7 @@ Template.Team.events
         _id: @_id
       ,
         $set:
-          createdBy: newOwner
+          authorId: newOwner
     else
       alert "you are not on the team"
   "click .join": (event, template) ->
@@ -71,7 +71,7 @@ Template.Team.events
     else
       alert "you are already on the team"
   "click .leave": (event, template) ->
-    _changeOwner @_id  if _players(@_id).length > 1 and Meteor.userId() is @createdBy
+    _changeOwner @_id  if _players(@_id).length > 1 and Meteor.userId() is @authorId
     commitment = Commitments.findOne(
       teamId: @_id
       userId: Meteor.userId()
@@ -114,15 +114,13 @@ _changeOwner = (teamId) ->
       _id: teamId
     ,
       $set:
-        createdBy: newOwner
+        authorId: newOwner
 
   else
     alert "you are not on the team"
 
-_creator = (createdBy) ->
-  #console.log(Meteor.userId());
-  #console.log(this.createdBy);
-  (if Meteor.userId() is createdBy then "organizer" else "")
+_creator = (authorId) ->
+  (if Meteor.userId() is authorId then "organizer" else "")
 
 Template.Team.helpers
   participating: ->
@@ -135,7 +133,7 @@ Template.Team.helpers
     else
       false
   creator: ->
-    _creator @createdBy
+    _creator @authorId
   playersNotOnTeam: ->
     commitments = Commitments.find(teamId: @_id).fetch()
     userIds = _.pluck(commitments, "userId")

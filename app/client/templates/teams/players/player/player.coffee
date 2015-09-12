@@ -92,7 +92,7 @@ Template.Player.helpers
     Charts.find {}
 
   creator: ->
-    (if @_id is Template.parentData(1).createdBy then "organizer" else "")
+    (if @_id is Template.parentData(1).authorId then "organizer" else "")
 
   inTeamCanFeedback: ->
     commitments = Commitments.find(userId: Meteor.userId()).fetch()

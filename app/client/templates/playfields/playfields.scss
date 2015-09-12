@@ -9,7 +9,10 @@
     display: inline-block;
     margin-right: 20px;
   }
-  af-checkbox-group + label {
-    display: none;
+  .af-radio-group {
+    padding-bottom: 0;
+    & + label {
+      display: none;
+    }
   }
 }

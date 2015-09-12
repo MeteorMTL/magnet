@@ -15,13 +15,11 @@ mdg:camera
 d3
 
 poetic:materialize-scss
-gildaspk:autoform-materialize
 
 nicolaslopezj:roles
 orionjs:core
 orionjs:materialize
 orionjs:summernote
-orionjs:pages
 
 reywood:publish-composite
 accounts-ui

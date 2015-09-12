@@ -11,9 +11,56 @@
       data: "purpose"
       title: "Purpose"
     ,
-      data: "createdBy"
-      title: "Created by"
+      data: "playfieldId"
+      title: "Playfield"
+    ,
+      data: "authorId"
+      title: "Author"
     ]
+)
+Teams.attachSchema new SimpleSchema(
+  name:
+    type: String
+    label: "Team Name"
+  purpose:
+    type: String
+    label: "Team Purpose"
+  playfieldId:
+    type: String
+    label: "Playfield"
+    regEx: SimpleSchema.RegEx.Id
+    autoform:
+      type: "select"
+      options: ->
+        _.map Playfields.find().fetch(), (playfield) ->
+          {
+            label: playfield.name
+            value: playfield._id
+          }
+  created:
+    type: Date
+    label: "Created At"
+    autoValue: ->
+      if @isInsert
+        new Date
+      else if @isUpsert
+        $setOnInsert: new Date
+      else
+        @unset()
+  updated:
+    type: Date
+    label: "Updated At"
+    autoValue: ->
+      new Date()
+  authorId:
+    type: String
+    label: "Author"
+    regEx: SimpleSchema.RegEx.Id
+)
+Teams.after.insert((userId, doc) ->
+  Commitments.insert
+    teamId: doc._id
+    userId: userId
 )
 @TeamTopics = new orion.collection("teamTopics")
 TeamTopics.attachSchema new SimpleSchema(
@@ -269,10 +316,10 @@ TeamPlayfields.attachSchema new SimpleSchema(
 @schemas = {}
 schemas.activePlayfield = new SimpleSchema(
   playfieldId:
-    type: [String]
+    type: String
     label: "Activate Playfield"
     autoform:
-      type: "select-checkbox"
+      type: "select"
       options: ->
         _.map Playfields.find().fetch(), (playfield) ->
           {
