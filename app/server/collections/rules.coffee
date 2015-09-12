@@ -3,16 +3,19 @@
 
 Roles.registerAction('userKeywords.insert', false, true)
 UserKeywords.attachRoles "userKeywords"
+
 roleParticipant.deny "userKeywords.insert", (userId, doc) ->
-  userKeyword = UserKeywords.findOne(userId: userId)
+  userKeyword = UserKeywords.findOne
+    userId: doc.userId
+    keywordId: doc._id
   if userKeyword then true else false
+
 roleParticipant.deny "userKeywords.update", (userId, doc, fields, modifier) ->
   true
 roleParticipant.deny "userKeywords.remove", (userId, doc) ->
   true
 roleParticipant.allow "userKeywords.insert", (userId, doc) ->
   doc.authorId is userId and doc.userId is userId
-
 
 Charts.allow
   insert: (userId, doc) ->

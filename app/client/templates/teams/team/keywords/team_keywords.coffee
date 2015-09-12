@@ -23,10 +23,8 @@ Template.TeamKeywords.events {
 
 Template.TeamKeywords.helpers {
   keywords: ->
-    console.log("template.currentData", Template.currentData())
     teamKeywords = TeamKeywords.find({teamId: Template.currentData()._id}).fetch()
     keywordIds = _.pluck(teamKeywords, "keywordId")
-    console.log("teamKeywords", teamKeywords)
     Keywords.find(
       _id:
         $in: keywordIds

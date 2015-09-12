@@ -1,15 +1,16 @@
 Template.Keyword.events {
   'click .keyword': (event, template) ->
-    console.log("tmpl.data", template.data)
     event.preventDefault()
+    console.log("template.data", template.data)
     keywordId = template.data._id
     userKeyword = UserKeywords.findOne(userId: Meteor.userId(), keywordId: keywordId)
+    console.log("userkyeword", userKeyword)
     if userKeyword
       UserKeywords.update
         _id: userKeyword._id
       ,
         $set:
-          keywordId: userKeyword.keywordId
+          keywordId: userKeyword.keywordId # Set to same value to trigger update timestamp update
     else
       UserKeywords.insert
         userId: Meteor.userId()
