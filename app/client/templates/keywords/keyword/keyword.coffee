@@ -1,10 +1,8 @@
 Template.Keyword.events {
   'click .keyword': (event, template) ->
     event.preventDefault()
-    console.log("template.data", template.data)
     keywordId = template.data._id
     userKeyword = UserKeywords.findOne(userId: Meteor.userId(), keywordId: keywordId)
-    console.log("userkyeword", userKeyword)
     if userKeyword
       UserKeywords.update
         _id: userKeyword._id

@@ -37,7 +37,7 @@ Template.Team.events
         teamId: @_id
         userId: Meteor.userId()
     else
-      alert "you are already on the team"
+      alert "You are already on the team"
   "click .leave": (event, template) ->
     _changeOwner @_id  if _players(@_id).length > 1 and Meteor.userId() is @authorId
     commitment = Commitments.findOne(
@@ -45,16 +45,13 @@ Template.Team.events
       userId: Meteor.userId()
     )
     Commitments.remove _id: commitment._id
-    Teams.remove _id: @_id  unless Commitments.findOne(teamId: @_id)
+    Teams.remove _id: @_id unless Commitments.findOne(teamId: @_id)
 
 # Team: Helpers
 # a little helper function helpers
 _players = (teamId) ->
-
   # get all the players on the team
   commitments = Commitments.find(teamId: teamId).fetch()
-
-  #console.log(commitments);
   userIds = _.pluck(commitments, "userId")
 
   # remove current player
@@ -64,8 +61,6 @@ _players = (teamId) ->
   players = Meteor.users.find(_id:
     $in: userIds
   ).fetch()
-
-  #console.log(players);
   players
 
 _changeOwner = (teamId) ->

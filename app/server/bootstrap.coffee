@@ -33,8 +33,3 @@ Meteor.startup ->
         name: playfieldName
         authorId: admin._id
     )
-
-
-
-
-#console.log('bootstrapUsers', Meteor.users.find().count());

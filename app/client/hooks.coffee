@@ -2,6 +2,25 @@ AutoForm.addHooks null,
   onError: (name, error, template) ->
     console.error name + " error:", error
 
+AutoForm.addHooks null,
+  onSubmit: (insertDoc, updateDoc, currentDoc) ->
+    if @.formId.lastIndexOf("newTeamKeyword-" + insertDoc.teamId, 0) is 0
+      this.event.preventDefault()
+      keyword = Keywords.findOne
+        name: insertDoc.name
+      unless keyword
+        keywordId = Keywords.insert
+          name: insertDoc.name
+          authorId: Meteor.userId()
+        keyword = Keywords.findOne
+          _id: keywordId
+      if keyword
+        TeamKeywords.insert
+          teamId: insertDoc.teamId
+          keywordId: keyword._id
+          authorId: Meteor.userId()
+    false
+
 AutoForm.hooks
   userKeywords:
     before:
@@ -25,33 +44,3 @@ AutoForm.hooks
       insert: (doc) ->
         doc.authorId ?= Meteor.userId()
         doc
-  newTeamKeyword:
-    before:
-      insert: (doc) ->
-        console.log("before insert", doc)
-        doc.authorId ?= Meteor.userId()
-        doc
-    after:
-      insert: (error, result) ->
-        console.log("after insert", error, result)
-        unless error
-          console.log("result", result)
-    onSubmit: (insertDoc, updateDoc, currentDoc) ->
-      this.event.preventDefault()
-      console.log("onSubmit", insertDoc)
-      keyword = Keywords.findOne
-        name: insertDoc.name
-      unless keyword
-        keywordId = Keywords.insert
-          name: insertDoc.name
-          authorId: Meteor.userId()
-        keyword = Keywords.findOne
-          _id: keywordId
-      if keyword
-        console.log("teamId", insertDoc.teamId)
-        console.log("keywordId", keyword._id)
-        TeamKeywords.insert
-          teamId: insertDoc.teamId
-          keywordId: keyword._id
-          authorId: Meteor.userId()
-      false
