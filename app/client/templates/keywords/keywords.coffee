@@ -14,6 +14,8 @@ Template.Keywords.helpers {
       sort:
         name: -1
     )
+  keywordSchema: ->
+    schemas.keyword
 }
 
 # Keywords: Lifecycle Hooks

@@ -2,7 +2,7 @@ AutoForm.addHooks null,
   onError: (name, error, template) ->
     console.error name + " error:", error
 
-hooks =
+AutoForm.hooks
   userKeywords:
     before:
       insert: (doc) ->
@@ -13,17 +13,15 @@ hooks =
       this.event.preventDefault()
       Session.set("activePlayfield", insertDoc.playfieldId)
       false
-  team:
+  teamNew:
     before:
       insert: (doc) ->
         doc.authorId ?= Meteor.userId()
-        console.log("doc", doc)
         doc
     onSuccess: (formType, result) ->
-      console.log("onSuccess")
       Router.go("Teams")
-
-AutoForm.hooks
-  userKeywords: hooks.userKeywords
-  activePlayfield: hooks.activePlayfield
-  teamNew: hooks.team
+  newKeyword:
+    before:
+      insert: (doc) ->
+        doc.authorId ?= Meteor.userId()
+        doc

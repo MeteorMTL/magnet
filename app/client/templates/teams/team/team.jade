@@ -29,8 +29,10 @@ template(name="Team")
         form#new-keyword.form
           .row
             .new-keyword-container
-              input(name="name" placeholder="New Keyword" type="text" value="{{xoxoxname}}")
-              button.btn(type="submit") Add
+              input(name="name" placeholder="New Keyword" type="text")
+              button.btn(type="submit")
+                i.material-icons.left add
+                | Team Keyword
       if currentUser
         .team-actions
           if participating

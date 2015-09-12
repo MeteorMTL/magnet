@@ -17,6 +17,15 @@ roleParticipant.deny "userKeywords.remove", (userId, doc) ->
 roleParticipant.allow "userKeywords.insert", (userId, doc) ->
   doc.authorId is userId and doc.userId is userId
 
+Roles.registerAction('keywords.insert', false, true)
+Keywords.attachRoles "keywords"
+roleParticipant.deny "keywords.update", (userId, doc, fields, modifier) ->
+  true
+roleParticipant.deny "keywords.remove", (userId, doc) ->
+  true
+roleParticipant.allow "keywords.insert", (userId, doc) ->
+  doc.authorId is userId
+
 Charts.allow
   insert: (userId, doc) ->
     true

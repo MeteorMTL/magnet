@@ -98,6 +98,8 @@ Keywords.attachSchema new SimpleSchema(
   name:
     type: String
     label: "Keyword Name"
+    index: true
+    unique: true
   created:
     type: Date
     label: "Created At"
@@ -312,18 +314,4 @@ TeamPlayfields.attachSchema new SimpleSchema(
     type: String
     label: "Author"
     regEx: SimpleSchema.RegEx.Id
-)
-@schemas = {}
-schemas.activePlayfield = new SimpleSchema(
-  playfieldId:
-    type: String
-    label: "Activate Playfield"
-    autoform:
-      type: "select"
-      options: ->
-        _.map Playfields.find().fetch(), (playfield) ->
-          {
-            label: playfield.name
-            value: playfield._id
-          }
 )
