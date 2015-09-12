@@ -26,13 +26,7 @@ template(name="Team")
               each topics
                 option(value="{{name}}") {{name}}
           button.btn.btn-primary.addPlayersKeywords(type="submit") Add Players Keywords To Team
-        form#new-keyword.form
-          .row
-            .new-keyword-container
-              input(name="name" placeholder="New Keyword" type="text")
-              button.btn(type="submit")
-                i.material-icons.left add
-                | Team Keyword
+        +quickForm(id="newTeamKeyword" doc=teamKeywordDoc schema=teamKeywordSchema type="normal" omitFields="created,updated,authorId")
       if currentUser
         .team-actions
           if participating

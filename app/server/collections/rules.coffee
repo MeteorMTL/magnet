@@ -7,7 +7,7 @@ UserKeywords.attachRoles "userKeywords"
 roleParticipant.deny "userKeywords.insert", (userId, doc) ->
   userKeyword = UserKeywords.findOne
     userId: doc.userId
-    keywordId: doc._id
+    keywordId: doc.keywordId
   if userKeyword then true else false
 
 roleParticipant.deny "userKeywords.update", (userId, doc, fields, modifier) ->

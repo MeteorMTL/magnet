@@ -17,4 +17,15 @@
       type: String
       label: "New Keyword"
   )
+  teamKeyword: new SimpleSchema(
+    name:
+      type: String
+      label: "New Team Keyword"
+    teamId:
+      type: String
+      label: "Team"
+      regEx: SimpleSchema.RegEx.Id
+      autoform:
+        type: "hidden"
+  )
 }
