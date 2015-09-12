@@ -32,4 +32,11 @@ Template.TeamKeywords.helpers {
       sort:
         name: -1
     )
-  }
+  teamKeywordSchema: ->
+    schemas.teamKeyword
+  teamKeywordDoc: ->
+    {
+      name: ""
+      teamId: @_id
+    }
+}

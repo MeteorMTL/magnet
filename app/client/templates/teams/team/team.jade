@@ -18,7 +18,6 @@ template(name="Team")
           each teamTopics
             .topic.btn {{name}}
     .team-footer
-      
       ul.teamTopics-list
         form#addPlayersKeywordsForm.form(role="form")
           .form-group
@@ -26,7 +25,6 @@ template(name="Team")
               each topics
                 option(value="{{name}}") {{name}}
           button.btn.btn-primary.addPlayersKeywords(type="submit") Add Players Keywords To Team
-        +quickForm(id="newTeamKeyword" doc=teamKeywordDoc schema=teamKeywordSchema type="normal" omitFields="created,updated,authorId")
       if currentUser
         .team-actions
           if participating

@@ -8,17 +8,3 @@
 .voting-explain {
   color: gray;
 }
-
-.new-keyword-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  input[type=text] {
-    flex: 1 0 0;
-    margin-right: 15px;
-  }
-  button {
-    position: static;
-    display: inline-block;
-  }
-}

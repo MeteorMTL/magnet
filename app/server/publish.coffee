@@ -86,8 +86,6 @@ Meteor.publish 'TeamKeywords', ->
     Counts.publish(self, "userKeywordsByKeyword-" + keyword._id, votes)
   )
   teamKeywords
-
-  TeamKeywords.find()
 Meteor.publish 'UserKeywordsUser', ->
   UserKeywords.find(userId: @userId)
 Meteor.publish 'TeamKeywordsTeam', (teamId) ->

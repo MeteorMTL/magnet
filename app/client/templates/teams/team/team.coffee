@@ -176,13 +176,6 @@ Template.Team.helpers
       "activePlayfield"
     else
       ""
-  teamKeywordSchema: ->
-    schemas.teamKeyword
-  teamKeywordDoc: ->
-    {
-      name: ""
-      teamId: @_id
-    }
 # Team: Lifecycle Hooks
 Template.Team.created = ->
 

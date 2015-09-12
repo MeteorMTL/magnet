@@ -5,9 +5,4 @@ template(name="TeamKeywords")
         each keywords
           +Keyword
       if currentUser
-        form#new-team-keyword.col.s12
-          .row.new-keyword-container
-            input(name="name" placeholder="New Keyword" type="text" value="{{name}}")
-            button.btn(type="submit")
-              i.material-icons.left add
-              | Add
+        +quickForm(id="newTeamKeyword" doc=teamKeywordDoc schema=teamKeywordSchema type="normal" omitFields="created,updated,authorId")
