@@ -5,43 +5,35 @@
 
 meteor-platform
 service-configuration
-accounts-ui
 coffeescript
 fourseven:scss
 mquandalle:jade
+spiderable
 
 accounts-password
 mdg:camera
+d3
 
+poetic:materialize-scss
+gildaspk:autoform-materialize
 
+nicolaslopezj:roles
 orionjs:core
 orionjs:materialize
 orionjs:summernote
 orionjs:pages
 
-
-iron:router
-natestrauser:font-awesome
-
-momentjs:moment
-
-dburles:collection-helpers
-spiderable
-okgrow:analytics
-
-aldeed:delete-button
-gildaspk:autoform-materialize
-mrt:moment-timezone
-d3
 reywood:publish-composite
-nicolaslopezj:roles
+accounts-ui
 accounts-facebook
 accounts-google
 accounts-twitter
 accounts-github
 pauli:accounts-linkedin
 splendido:accounts-meld
-anti:modals
-anbuselvan:accordion-gallery
+
+dburles:collection-helpers
 tmeasday:publish-counts
-poetic:materialize-scss
+
+okgrow:analytics
+momentjs:moment
