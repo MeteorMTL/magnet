@@ -31,15 +31,6 @@ Meteor.publish "LatestMessages", ->
 Meteor.publish "Commitments", ->
   Commitments.find()
 
-Meteor.publish "Reactions", ->
-  Reactions.find()
-
-Meteor.publish "Charts", ->
-  Charts.find()
-
-Meteor.publish 'interests', ->
-  Interests.find()
-
 Meteor.publish 'Keywords', ->
   Keywords.find()
 Meteor.publish 'UserKeywords', ->

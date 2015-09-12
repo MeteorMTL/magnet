@@ -26,21 +26,6 @@ roleParticipant.deny "keywords.remove", (userId, doc) ->
 roleParticipant.allow "keywords.insert", (userId, doc) ->
   doc.authorId is userId
 
-Charts.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Charts.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
 Commitments.allow
   insert: (userId, doc) ->
     true
@@ -53,21 +38,6 @@ Commitments.deny
     false
   update: (userId, doc, fieldNames, modifier) ->
     false
-  remove: (userId, doc) ->
-    false
-
-Likes.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-Likes.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    true
   remove: (userId, doc) ->
     false
 
@@ -94,21 +64,6 @@ Photos.allow
   remove: (userId, doc) ->
     true
 Photos.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
-Reactions.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Reactions.deny
   insert: (userId, doc) ->
     false
   update: (userId, doc, fieldNames, modifier) ->
@@ -146,37 +101,6 @@ Meteor.users.deny
   remove: (userId, doc) ->
     false
 
-Interests.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-Interests.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
-CommunityKeywords.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-
-CommunityKeywords.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
 UserKeywords.allow
   insert: (userId, doc) ->
     true
@@ -202,22 +126,6 @@ TeamKeywords.allow
     true
 
 TeamKeywords.deny
-  insert: (userId, doc) ->
-    false
-  update: (userId, doc, fieldNames, modifier) ->
-    false
-  remove: (userId, doc) ->
-    false
-
-EventKeywords.allow
-  insert: (userId, doc) ->
-    true
-  update: (userId, doc, fieldNames, modifier) ->
-    true
-  remove: (userId, doc) ->
-    true
-
-EventKeywords.deny
   insert: (userId, doc) ->
     false
   update: (userId, doc, fieldNames, modifier) ->

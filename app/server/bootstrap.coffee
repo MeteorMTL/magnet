@@ -14,17 +14,6 @@ bootstrapUsers = ->
 
 Meteor.startup ->
   admin = bootstrapUsers()
-  charts = Charts.findOne({})
-  unless charts
-    Charts.insert
-      name: "stront-points"
-      description: "Strong Points"
-      instructions: "Has the leader led well?"
-
-    Charts.insert
-      name: "consider-improving"
-      description: "Consider Improving"
-      instructions: "Did anyone burn out? How to avoid?"
   playfield = Playfields.findOne({})
   playfieldsNames = ["Meteor", "UX", "Hardware", "Growth Hacking"]
   unless playfield

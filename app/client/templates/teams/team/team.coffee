@@ -119,11 +119,7 @@ Template.Team.helpers
     ).fetch()
     return messages[0].message  if messages.length
     ""
-  activePlayfieldClass: ->
-    if Session.get("activePlayfield") is @.playfieldId
-      "activePlayfield"
-    else
-      ""
+
 # Team: Lifecycle Hooks
 Template.Team.created = ->
 

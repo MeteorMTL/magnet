@@ -50,18 +50,6 @@ Router.route "commitments",
   action: "action"
   where: "client"
 
-Router.route "reactions",
-  name: "Reactions"
-  controller: "ReactionsController"
-  action: "action"
-  where: "client"
-
-Router.route "charts",
-  name: "Charts"
-  controller: "ChartsController"
-  action: "action"
-  where: "client"
-
 Router.route "people",
   name: "People"
   controller: "PeopleController"

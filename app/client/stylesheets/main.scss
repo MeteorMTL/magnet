@@ -1,7 +1,7 @@
 // You can override colors BEFORE materialize.scss:
 $primary-color: orange;
 
-// You can NOT use materialize color mixins since they are not imported yet.
+// Can NOT use materialize color mixins since they are not imported yet.
 // WRONG! $primary-color: color("materialize-red", "lighten-2");
 
 // @import "your-awesome-color-varialbes.scss"
@@ -24,7 +24,6 @@ $primary-color: orange;
 @import "client/templates/shared/navigation/navigation.scss";
 @import "client/templates/layouts/page/page.scss";
 @import "client/templates/keywords/keywords.scss";
-@import "client/templates/interests/interests.scss";
 @import "client/templates/keywords/keyword_edit/keyword_edit.scss";
 @import "client/templates/keywords/keyword/keyword.scss";
 
@@ -33,3 +32,5 @@ $primary-color: orange;
 
 @import "client/templates/playfields/playfields.scss";
 @import "client/templates/team_playfields/team_playfields.scss";
+
+@import "client/templates/profile/profile.scss";

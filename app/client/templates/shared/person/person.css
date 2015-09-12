@@ -22,12 +22,3 @@ ul.social-icons > li {
   padding: 0;
   margin-right: 4px;
 }
-
-ul.reactions-list {
-  padding: 0;
-}
-
-ul.reactions-list > li {
-  display: inline-block;
-  margin: 0;
-}

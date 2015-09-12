@@ -1,7 +1,7 @@
 template(name="Team")
-  .team(class="{{activePlayfieldClass}}")
+  .team
     if currentUser
-      +linkTo(route='TeamShow' class='btn right')
+      +linkTo(route='TeamShow' class='btn-flat right')
         i.material-icons.left chat_bubble_outline
         | Team Chat
     h2 {{name}}

@@ -1,7 +1,5 @@
-@Charts = new orion.collection("charts")
 @Commitments = new orion.collection("commitments")
 @Photos = new orion.collection("photos")
-@Reactions = new orion.collection("reactions")
 @Teams = new orion.collection("teams",
   tabular:
     columns: [
@@ -104,10 +102,6 @@ Keywords.attachSchema new SimpleSchema(
       title: "Who"
      ]
 )
-@Likes = new orion.collection("likes")
-@Interests = new orion.collection('interests')
-@CommunityKeywords = new orion.collection('community_keywords')
-@EventKeywords = new orion.collection('event_keywords')
 @TeamKeywords = new orion.collection('team_keywords')
 TeamKeywords.attachSchema new SimpleSchema(
   teamId:

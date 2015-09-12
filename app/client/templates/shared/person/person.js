@@ -18,11 +18,6 @@ Template.Person.helpers({
       user.profile.email = user.emails ? user.emails[0].address : "";
     }
     return user.profile;
-  },
-  reactions: function () {
-    var user = Meteor.users.findOne({_id: this._id});
-    //return Reactions.find({$or: [{userId: user._id}, {evaluator: user._id}]});
-    return Reactions.find({userId: user._id});
   }
 });
 /*****************************************************************************/
