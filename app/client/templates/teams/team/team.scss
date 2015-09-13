@@ -8,26 +8,14 @@
   border: 1px solid #ffb74d;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-  &.activePlayfield {
-    background-color: #ecb3ff;
+  .purpose {
+    font-weight: normal;
   }
-}
-
-.purpose {
-  font-weight: normal;
-}
-
-.team-footer {
-  position: static;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   .team-actions {
     position: static;
-    display: inline-block;
-    align-self: flex-end;
+    display: block;
+    &::after {
+      @extend .clearfix;
+    }
   }
-}
-select {
-  display: inline;
 }

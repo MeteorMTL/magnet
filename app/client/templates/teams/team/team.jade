@@ -13,33 +13,33 @@ template(name="Team")
         linkTo(route='TeamShow')
           i.material-icons.left chat_bubble_outline
           i {{latestMessage}}
-      if currentUser
-        .team-actions
-          if participating
-            if creator
-              if playersNotOnTeam.length
-                form#addPlayersForm.form(role="form")
-                  .form-group
-                    select(name="selectPlayer")
-                      each playersNotOnTeam
-                        option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
-                  button.btn.btn-primary.addPlayers(type="submit") Add Players To Team
-            if players.length
-              if playersLengthGreaterThanOne
-                form#changeOwnerForm.form(role="form")
-                  .form-group
-                    select(name="select")
-                      each players
-                        option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
-                  button.btn.btn-primary.changeOwner(type="submit") Change Owner
-              if playersLengthEqualsOne
-                button.btn-flat.changeOwner.right
-                   i.material-icons.left clear
-                   | Change Owner
-            button.btn-flat.leave.right
-              i.material-icons.left clear
-              | Leave Project
-          else
-            button.btn.join.right
-              i.material-icons.left input
-              | Join Team
+    if currentUser
+      .team-actions
+        if participating
+          a.btn-flat.leave.right
+            i.material-icons.left clear
+            | Leave Project
+          if creator
+            if playersNotOnTeam.length
+              form#addPlayersForm.form(role="form")
+                .form-group
+                  select(name="selectPlayer")
+                    each playersNotOnTeam
+                      option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
+                button.btn.btn-primary.addPlayers(type="submit") Add Players To Team
+          if players.length
+            if playersLengthGreaterThanOne
+              form#changeOwnerForm.form(role="form")
+                .form-group
+                  select(name="select")
+                    each players
+                      option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
+                button.btn.btn-primary.changeOwner(type="submit") Change Owner
+            if playersLengthEqualsOne
+              button.btn-flat.changeOwner.right
+                 i.material-icons.left clear
+                 | Change Owner
+        else
+          a.btn.join.right
+            i.material-icons.left input
+            | Join Team

@@ -65,17 +65,20 @@ i.material-icons.right {
   margin-left: 7px;
 }
 
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .container {
   @media #{$small-and-down} {
     width: 95%;
   }
   &::after {
-     content: "";
-     display: block;
-     clear: both;
+    @extend .clearfix;
   }
 }
-
 
 .z-depth-1,
 nav,

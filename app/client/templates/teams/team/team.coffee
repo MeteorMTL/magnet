@@ -36,6 +36,7 @@ Template.Team.events
       Commitments.insert
         teamId: @_id
         userId: Meteor.userId()
+        authorId: Meteor.userId()
     else
       alert "You are already on the team"
   "click .leave": (event, template) ->
@@ -86,7 +87,6 @@ _creator = (authorId) ->
 
 Template.Team.helpers
   participating: ->
-    #alert("teamID " + this._id);
     if Commitments.findOne(
       teamId: @_id
       userId: Meteor.userId()
@@ -117,12 +117,5 @@ Template.Team.helpers
       sort:
         createdAt: -1
     ).fetch()
-    return messages[0].message  if messages.length
+    return messages[0].message if messages.length
     ""
-
-# Team: Lifecycle Hooks
-Template.Team.created = ->
-
-Template.Team.rendered = ->
-
-Template.Team.destroyed = ->
