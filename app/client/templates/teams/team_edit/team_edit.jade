@@ -1,2 +1,2 @@
 template(name='TeamEdit')
-  | Find me in app/client/templates/teams/team_edit/team_edit
+  +quickForm(collection="Teams" doc=this id="teamEdit" type="update" omitFields="created,updated,authorId")

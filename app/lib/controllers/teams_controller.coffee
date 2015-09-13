@@ -5,18 +5,11 @@
       Meteor.subscribe("Teams")
       Meteor.subscribe("UserData")
       Meteor.subscribe("Commitments")
-      Meteor.subscribe("LatestMessages")
       Meteor.subscribe("TeamKeywords")
       Meteor.subscribe("Keywords")
     ]
   data: ->
-    teams: ->
-      Teams.find(
-        playfieldId: Session.get("activePlayfield")
-      ,
-        sort:
-          updated: -1
-      )
+    Teams.findOne _id: @params._id
   list: ->
     @render "Teams", {}
   new: ->

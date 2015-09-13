@@ -5,6 +5,13 @@ Template.Teams.events {
 }
 
 Template.Teams.helpers {
+  teams: ->
+    Teams.find(
+      playfieldId: Session.get("activePlayfield")
+    ,
+      sort:
+        updated: -1
+    )
   activePlayfieldSchema: ->
     schemas.activePlayfield
   activePlayfieldDoc: ->

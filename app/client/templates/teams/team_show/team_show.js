@@ -22,15 +22,6 @@ Template.Message.events({
     var messageId = template.find('li').id;
     // TODO method and check userId
     Messages.remove({_id: messageId});
-  },
-  'click .thumbs_up': function (event, template) {
-    var teamId = Router.current().params._id;
-    var messageId = template.find('li').id;
-    Likes.insert({
-      teamId: teamId,
-      messageId: messageId,
-      userId: Meteor.userId()
-    });
   }
 });
 
@@ -59,24 +50,10 @@ Template.Message.helpers({
     if (now - message.createdAt < 1000) return "popout";
     return "";
   },
-  likes: function () {
-    var message = this;
-    var likes = Likes.find({messageId: message._id}).count();
-    return (likes) ? likes : '';
-  },
   canDelete: function () {
     var message = this;
     var userId = message.userId;
     return userId === Meteor.userId();
-  },
-  canLike: function () {
-    var message = this;
-    var userId = message.userId;
-    var liked = Likes.findOne({
-      messageId: message._id,
-      userId: Meteor.userId()
-      });
-    return !liked;
   }
 });
 

@@ -38,12 +38,6 @@ Router.route "photos",
   action: "action"
   where: "client"
 
-Router.route "teams/:_id",
-  name: "TeamShow"
-  controller: "TeamShowController"
-  action: "action"
-  where: "client"
-
 Router.route "commitments",
   name: "Commitments"
   controller: "CommitmentsController"
@@ -77,8 +71,15 @@ Router.route "t/new",
 Router.route "t/:_id/edit",
   name: "TeamEdit"
   controller: "TeamsController"
-  action: "new"
+  action: "edit"
   where: "client"
+
+Router.route "t/:_id",
+  name: "TeamShow"
+  controller: "TeamShowController"
+  action: "action"
+  where: "client"
+
 
 Router.route 'keywords',
   name: 'Keywords'

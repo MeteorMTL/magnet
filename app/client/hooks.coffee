@@ -34,6 +34,9 @@ AutoForm.hooks
         doc
     onSuccess: (formType, result) ->
       Router.go("Teams")
+  teamEdit:
+    onSuccess: (formType, result) ->
+      Router.go("TeamShow", _id: @docId)
   newKeyword:
     onSubmit: (insertDoc, updateDoc, currentDoc) ->
       this.event.preventDefault()

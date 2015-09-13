@@ -3,9 +3,13 @@ template(name="Team")
     if currentUser
       +linkTo(route='TeamShow' class='btn-flat right')
         i.material-icons.left chat_bubble_outline
-        | Team Chat
+        | Chat
     h2 {{name}}
     p.purpose {{purpose}}
+    if participating
+      +linkTo(route='TeamEdit' class="btn-flat")
+        i.material-icons.left create
+        | Edit
     +Players
     +TeamKeywords
     if latestMessage
