@@ -103,6 +103,7 @@ Teams.after.insert((userId, doc) ->
   Commitments.insert
     teamId: doc._id
     userId: userId
+    authorId: userId
 )
 @Keywords = new orion.collection('keywords',
   tabular:
