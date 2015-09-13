@@ -32,13 +32,4 @@ Template.TeamKeywords.helpers {
       sort:
         name: -1
     )
-  formId: ->
-    "newTeamKeyword-" + Template.currentData()._id
-  teamKeywordSchema: ->
-    schemas.teamKeyword
-  teamKeywordDoc: ->
-    {
-      name: ""
-      teamId: Template.currentData()._id
-    }
 }

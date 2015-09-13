@@ -1,8 +1,6 @@
 template(name="TeamKeywords")
   .row
     .col.s12
-      div.keywords
+      .keywords
         each keywords
           +Keyword
-      if currentUser
-        +quickForm(id=formId doc=teamKeywordDoc schema=teamKeywordSchema type="normal" omitFields="created,updated,authorId")

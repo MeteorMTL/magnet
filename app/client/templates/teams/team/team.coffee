@@ -94,6 +94,15 @@ Template.Team.helpers
       true
     else
       false
+  teamKeywordSchema: ->
+    schemas.teamKeyword
+  teamKeywordDoc: ->
+    {
+      name: ""
+      teamId: Template.currentData()._id
+    }
+  newTeamKeywordFormId: ->
+    "newTeamKeyword-" + Template.currentData()._id
   creator: ->
     _creator @authorId
   playersNotOnTeam: ->

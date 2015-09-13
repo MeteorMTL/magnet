@@ -20,6 +20,7 @@ template(name="Team")
     if currentUser
       .team-actions
         if participating
+          +quickForm(id=newTeamKeywordFormId doc=teamKeywordDoc schema=teamKeywordSchema type="normal" omitFields="created,updated,authorId")
           a.btn-flat.leave.right
             i.material-icons.left clear
             | Leave Project
