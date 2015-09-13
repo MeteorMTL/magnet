@@ -24,26 +24,6 @@ template(name="Team")
           a.btn-flat.leave.right
             i.material-icons.left clear
             | Leave Project
-          if creator
-            if playersNotOnTeam.length
-              form#addPlayersForm.form(role="form")
-                .form-group
-                  select(name="selectPlayer")
-                    each playersNotOnTeam
-                      option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
-                button.btn.btn-primary.addPlayers(type="submit") Add Players To Team
-          if players.length
-            if playersLengthGreaterThanOne
-              form#changeOwnerForm.form(role="form")
-                .form-group
-                  select(name="select")
-                    each players
-                      option(value="{{_id}}") {{profile.name}}{{profile.firstName}}
-                button.btn.btn-primary.changeOwner(type="submit") Change Owner
-            if playersLengthEqualsOne
-              button.btn-flat.changeOwner.right
-                 i.material-icons.left clear
-                 | Change Owner
         else
           a.btn.join.right
             i.material-icons.left input
