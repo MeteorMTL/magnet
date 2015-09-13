@@ -14,6 +14,9 @@ template(name="Navigation")
           li(class="{{active '/profile'}}")
             +linkTo(route='profile')
               | {{myName}}
+        if isImpersonating
+          li
+            button.btn(data-unimpersonate) Unimpersonate
         li
           +atNavButton
       ul#slide-out.side-nav
@@ -27,6 +30,9 @@ template(name="Navigation")
           li(class="{{active '/profile'}}")
             +linkTo(route='profile')
               | {{myName}}
+        if isImpersonating
+          li
+            button.btn(data-unimpersonate) Unimpersonate
         li
           +atNavButton
       a(href="#" data-activates="slide-out" class="button-collapse")

@@ -8,7 +8,6 @@ template(name="Person")
         img.responsive-img(src="/img/people/default.jpg")
     p {{profile.name}}
     p {{profile.firstName}}
-    if isImpersonating
-      button.btn-flat(data-unimpersonate) Unimpersonate
-    else
-      button.btn-flat(data-impersonate="{{_id}}") Impersonate
+    if hasRole "admin"
+      unless isImpersonating
+        button.btn-flat(data-impersonate="{{_id}}") Impersonate

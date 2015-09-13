@@ -1,9 +1,13 @@
 # Navigation: Event Handlers
-Template.Navigation.events "click #at-nav-button": (event) ->
-  if Meteor.user()
-    AccountsTemplates.logout()
-  else
-    Router.go "login"
+Template.Navigation.events
+  "click #at-nav-button": (event) ->
+    if Meteor.user()
+      AccountsTemplates.logout()
+    else
+      Router.go "login"
+  'click [data-unimpersonate]': (e, data) ->
+    Impersonate.undo()
+    return
 
 # Navigation: Helpers
 Template.Navigation.helpers

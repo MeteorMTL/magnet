@@ -1,13 +1,8 @@
 # Person: Event Handlers
 Template.Person.events
   'click [data-impersonate]': (e, data) ->
-    console.log("clicked impersonate")
     userId = $(e.currentTarget).attr('data-impersonate')
     Impersonate.do userId
-    return
-  'click [data-unimpersonate]': (e, data) ->
-    console.log("clicked unimpersonate")
-    Impersonate.undo()
     return
 
 # Person: Helpers
