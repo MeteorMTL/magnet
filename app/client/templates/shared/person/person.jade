@@ -1,0 +1,14 @@
+template(name="Person")
+  .person
+    if photo
+      div
+        img.responsive-img.player-photo(src=photo)
+    else
+      div
+        img.responsive-img(src="/img/people/default.jpg")
+    p {{profile.name}}
+    p {{profile.firstName}}
+    if isImpersonating
+      button.btn-flat(data-unimpersonate) Unimpersonate
+    else
+      button.btn-flat(data-impersonate="{{_id}}") Impersonate
