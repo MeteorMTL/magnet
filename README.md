@@ -18,6 +18,5 @@ UX MTL: http://ux.speedteam.ca
 https://trello.com/b/fDVgO602/roadmap-entrain
 
 # What can you do to help?
-- Fork the repo
-- Send pull requests
-- Start this project!
+- Fork this repo, and send pull requests :)
+- Star this project!
